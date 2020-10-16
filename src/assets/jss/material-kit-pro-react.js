@@ -55,14 +55,14 @@ const hexToRgb = input => {
 const drawerWidth = 260;
 
 const primaryColor = [
-  "#9c27b0",
+  "#36721A",
   "#ab47bc",
   "#8e24aa",
   "#af2cc5",
   "#e1bee7",
   "#ba68c8"
 ];
-const secondaryColor = ["#fafafa"];
+const secondaryColor = ["#9abc31"];
 const warningColor = [
   "#ff9800",
   "#ffa726",
@@ -84,7 +84,7 @@ const dangerColor = [
   "#ef5350"
 ];
 const successColor = [
-  "#4caf50",
+  "#9abc31",
   "#66bb6a",
   "#43a047",
   "#5cb860",
@@ -94,7 +94,7 @@ const successColor = [
   "#66bb6a"
 ];
 const infoColor = [
-  "#00acc1",
+  "#36721A",
   "#26c6da",
   "#00acc1",
   "#00d3ee",

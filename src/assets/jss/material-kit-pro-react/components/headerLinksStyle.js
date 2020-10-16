@@ -2,6 +2,7 @@ import {
   grayColor,
   whiteColor,
   mlAuto,
+  secondaryColor,
   hexToRgb
 } from "assets/jss/material-kit-pro-react.js";
 

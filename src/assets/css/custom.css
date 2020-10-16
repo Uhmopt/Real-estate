@@ -1,0 +1,22 @@
+.MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: #9abc31 !important;
+}
+@media (max-width: 959.95px) {
+    .makeStyles-listItem-75 {
+        text-align: center !important;
+        margin-top: 12px !important;
+    }
+
+    .makeStyles-listItem-75:first-child {
+        margin-top: 60px !important;
+    }
+
+    .makeStyles-listItem-75:not(:last-child):after {
+        background-color: transparent !important;
+    }
+
+    .makeStyles-navButton-79>span:first-child {
+        justify-content: center !important;
+    }
+}

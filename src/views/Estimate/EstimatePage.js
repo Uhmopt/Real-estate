@@ -8,7 +8,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // core components
 import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import HeaderContral from "components/Header/HeaderContral.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -38,36 +38,16 @@ export default function PresentationPage() {
   return (
     <div>
       <Header
-        brand="Material Kit PRO React"
-        links={<HeaderLinks dropdownHoverColor="info" />}
+        color="white"
+        brand="<-Estimate #1239"
+        links={<HeaderContral dropdownHoverColor="white" />}
         fixed
-        color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "info"
+          color: "white"
         }}
       />
-      <Parallax
-        image={require("assets/img/bg4.jpg")}
-        className={classes.parallax}
-      >
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1>
-                  Material Kit React 
-                  <span className={classes.proBadge}>PRO</span>
-                </h1>
-                <h3 className={classes.title}>
-                  A Badass Material-UI Kit based on Material Design.
-                </h3>
-              </div>
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div>
         <SectionDescription />
         <SectionComponents />
         <SectionCards />

@@ -14,6 +14,7 @@ import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import Close from "@material-ui/icons/Close";
 // core components
 import styles from "assets/jss/material-kit-pro-react/components/headerStyle.js";
@@ -67,7 +68,7 @@ export default function Header(props) {
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <Button className={classes.title}>
-          <Link to="/">{brand}</Link>
+          <Link to="/"><KeyboardBackspaceIcon style={{paddingTop: "10px"}} />Estimate #1369</Link>
         </Button>
         <Hidden smDown implementation="css" className={classes.hidden}>
           <div className={classes.collapse}>{links}</div>
