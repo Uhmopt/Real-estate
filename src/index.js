@@ -39,7 +39,6 @@ import ShoppingCartPage from "views/ShoppingCartPage/ShoppingCartPage.js";
 import SignupPage from "views/SignupPage/SignupPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
 import Estimate from "views/Estimate/EstimatePage";
-
 import "assets/css/custom.css";
 
 var hist = createBrowserHistory();

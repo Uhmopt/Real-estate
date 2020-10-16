@@ -36,7 +36,6 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 
-import cardBlog1 from "assets/img/examples/card-blog1.jpg";
 import cardBlog2 from "assets/img/examples/card-blog2.jpg";
 import cardBlog3 from "assets/img/examples/card-blog3.jpg";
 import cardBlog5 from "assets/img/examples/card-blog5.jpg";
@@ -111,34 +110,6 @@ export default function SectionCards() {
               </div>
               <GridContainer>
                 <GridItem xs={12} sm={6} md={6} lg={4}>
-                  <Card blog>
-                    <CardHeader image>
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        <img src={cardBlog1} alt="..." />
-                        <div className={classes.cardTitleAbsolute}>
-                          This Summer Will be Awesome
-                        </div>
-                      </a>
-                      <div
-                        className={classes.coloredShadow}
-                        style={{
-                          backgroundImage: `url(${cardBlog1})`,
-                          opacity: "1"
-                        }}
-                      />
-                    </CardHeader>
-                    <CardBody>
-                      <Info>
-                        <h6 className={classes.cardCategory}>FASHION</h6>
-                      </Info>
-                      <div className={classes.cardDescription}>
-                        Don{"'"}t be scared of the truth because we need to
-                        restart the human foundation in truth And I love you
-                        like Kanye loves Kanye I love Rick Owens’ bed design but
-                        the back is...
-                      </div>
-                    </CardBody>
-                  </Card>
                   <Card color="info">
                     <CardBody color>
                       <h5 className={classes.cardCategorySocialWhite}>

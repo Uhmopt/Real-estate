@@ -2,6 +2,19 @@
     color: #fff;
     background-color: #9abc31 !important;
 }
+.MuiButton-outlined {
+    width: 32px !important;
+    margin-right: 10px !important;
+    min-width: 32px !important;
+}
+.product-action {
+    margin-top: 18px;
+    margin-right: -20px;
+    text-align: right !important;
+}
+a:hover, a:focus {
+    color: #9abc31 !important;
+}
 @media (max-width: 959.95px) {
     .makeStyles-listItem-75 {
         text-align: center !important;

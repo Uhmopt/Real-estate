@@ -18,6 +18,7 @@ import Button from "components/CustomButtons/Button.js";
 import SectionDescription from "views/PresentationPage/Sections/SectionDescription.js";
 import SectionComponents from "views/PresentationPage/Sections/SectionComponents.js";
 import SectionCards from "views/PresentationPage/Sections/SectionCards.js";
+import ProductCard from "./ProductCard";
 import SectionContent from "views/PresentationPage/Sections/SectionContent.js";
 import SectionSections from "views/PresentationPage/Sections/SectionSections.js";
 import SectionExamples from "views/PresentationPage/Sections/SectionExamples.js";
@@ -42,111 +43,9 @@ export default function PresentationPage() {
         brand="<-Estimate #1239"
         links={<HeaderContral dropdownHoverColor="white" />}
         fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
       />
-      <div>
-        <SectionDescription />
-        <SectionComponents />
-        <SectionCards />
-        <SectionContent />
-        <SectionSections />
-        <SectionExamples />
-        <SectionFreeDemo />
-        <SectionOverview />
-      </div>
-      <SectionPricing />
-      <Footer
-        theme="white"
-        content={
-          <div>
-            <div className={classes.left}>
-              <a
-                href="https://www.creative-tim.com/product/material-kit-pro-react?ref=mkpr-presentation"
-                target="_blank"
-                className={classes.footerBrand}
-              >
-                Material Kit PRO React
-              </a>
-            </div>
-            <div className={classes.pullCenter}>
-              <List className={classes.list}>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/?ref=mkpr-presentation"
-                    target="_blank"
-                    className={classes.block}
-                  >
-                    Creative Tim
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/presentation?ref=mkpr-presentation"
-                    target="_blank"
-                    className={classes.block}
-                  >
-                    About us
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a href="//blog.creative-tim.com/" className={classes.block}>
-                    Blog
-                  </a>
-                </ListItem>
-                <ListItem className={classes.inlineBlock}>
-                  <a
-                    href="https://www.creative-tim.com/license?ref=mkpr-presentation"
-                    target="_blank"
-                    className={classes.block}
-                  >
-                    Licenses
-                  </a>
-                </ListItem>
-              </List>
-            </div>
-            <div className={classes.rightLinks}>
-              <ul>
-                <li>
-                  <Button
-                    href="https://twitter.com/CreativeTim?ref=creativetim"
-                    target="_blank"
-                    color="twitter"
-                    justIcon
-                    simple
-                  >
-                    <i className="fab fa-twitter" />
-                  </Button>
-                </li>
-                <li>
-                  <Button
-                    href="https://dribbble.com/creativetim?ref=creativetim"
-                    target="_blank"
-                    color="dribbble"
-                    justIcon
-                    simple
-                  >
-                    <i className="fab fa-dribbble" />
-                  </Button>
-                </li>
-                <li>
-                  <Button
-                    href="https://instagram.com/CreativeTimOfficial?ref=creativetim"
-                    target="_blank"
-                    color="instagram"
-                    justIcon
-                    simple
-                  >
-                    <i className="fab fa-instagram" />
-                  </Button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        }
-      />
+      <ProductCard />
+      <Footer />
     </div>
   );
 }
