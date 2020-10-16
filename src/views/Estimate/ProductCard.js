@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Check from "@material-ui/icons/Check";
 import DeleteIcon from '@material-ui/icons/Delete';
 import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -18,61 +18,23 @@ import CardFooter from "components/Card/CardFooter.js";
 import Button from '@material-ui/core/Button';
 import CustomInput from "components/CustomInput/CustomInput.js";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
 import Checkbox from "@material-ui/core/Checkbox";
+import TextField from '@material-ui/core/TextField';
+
+import { Collapse } from 'react-collapse';
+
+import DragDropList from "./DragDrop.js";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 
 const useStyles = makeStyles(styles);
 const useStyles1 = makeStyles(basicsStyle);
-
 export default function SectionCards() {
+
+    const [isOpened, setIsOpened] = useState(true);
     const [checked, setChecked] = React.useState([24, 22]);
-    const [simpleSelect, setSimpleSelect] = React.useState("");
-    const [activeRotate1, setActiveRotate1] = React.useState("");
-    const [activeRotate2, setActiveRotate2] = React.useState("");
-    const [activeRotate3, setActiveRotate3] = React.useState("");
     const classes = useStyles();
     const classes1 = useStyles1();
-    React.useEffect(() => {
-        if (window) {
-            window.addEventListener("resize", addStylesForRotatingCards);
-        }
-        addStylesForRotatingCards();
-        return function cleanup() {
-            if (window) {
-                window.removeEventListener("resize", addStylesForRotatingCards);
-            }
-        };
-    });
-    const addStylesForRotatingCards = () => {
-        var rotatingCards = document.getElementsByClassName(classes.cardRotate);
-        for (let i = 0; i < rotatingCards.length; i++) {
-            var rotatingCard = rotatingCards[i];
-            var cardFront = rotatingCard.getElementsByClassName(classes.front)[0];
-            var cardBack = rotatingCard.getElementsByClassName(classes.back)[0];
-            cardFront.style.height = "unset";
-            cardFront.style.width = "unset";
-            cardBack.style.height = "unset";
-            cardBack.style.width = "unset";
-            var rotatingWrapper = rotatingCard.parentElement;
-            var cardWidth = rotatingCard.parentElement.offsetWidth;
-            var cardHeight = rotatingCard.children[0].children[0].offsetHeight;
-            rotatingWrapper.style.height = cardHeight + "px";
-            rotatingWrapper.style["margin-bottom"] = 30 + "px";
-            cardFront.style.height = "unset";
-            cardFront.style.width = "unset";
-            cardBack.style.height = "unset";
-            cardBack.style.width = "unset";
-            cardFront.style.height = cardHeight + 35 + "px";
-            cardFront.style.width = cardWidth + "px";
-            cardBack.style.height = cardHeight + 35 + "px";
-            cardBack.style.width = cardWidth + "px";
-        }
-    };
-    const handleSimple = event => {
-        setSimpleSelect(event.target.value);
-    };
     const handleToggle = value => {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -98,11 +60,11 @@ export default function SectionCards() {
                                             <CardHeader>
                                                 <GridContainer style={{ marginTop: 15 }}>
                                                     <GridItem xs={5} sm={5} md={6} lg={6}>
-                                                        <CustomInput
-                                                            labelText="Group name"
-                                                            formControlProps={{
-                                                                fullWidth: true
-                                                            }}
+                                                        <TextField
+                                                            required
+                                                            label="Group name"
+                                                            defaultValue="Firepit Area"
+                                                            className="card-title"
                                                         />
                                                     </GridItem>
                                                     <GridItem xs={3} sm={3} md={4} lg={4}>
@@ -126,20 +88,27 @@ export default function SectionCards() {
                                                     </GridItem>
                                                     <GridItem xs={4} sm={4} md={2} lg={2}>
                                                         <div className="product-action">
-                                                            <Button variant="outlined" href="#outlined-buttons" size="small">
-                                                                <RemoveIcon />
+                                                            <Button variant="outlined" size="small" onClick={e => setIsOpened(!isOpened)}>
+                                                                {isOpened ? (
+                                                                    <AddIcon style={{ fontSize: "1rem" }} />
+                                                                ) : (
+                                                                        <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                    )}
                                                             </Button>
-                                                            <Button variant="outlined" href="#outlined-buttons" size="small">
-                                                                <CloseIcon />
+                                                            <Button variant="outlined" size="small">
+                                                                <CloseIcon style={{ fontSize: "1rem" }} />
                                                             </Button>
                                                         </div>
                                                     </GridItem>
                                                 </GridContainer>
                                             </CardHeader>
+
                                             <CardBody>
+                                                <Collapse isOpened={isOpened}>
+                                                    <DragDropList />
+                                                </Collapse>
                                             </CardBody>
-                                            <CardBody>
-                                            </CardBody>
+
                                             <CardFooter>
                                             </CardFooter>
                                         </Card>

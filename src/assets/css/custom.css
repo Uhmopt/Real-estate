@@ -15,6 +15,36 @@
 a:hover, a:focus {
     color: #9abc31 !important;
 }
+.drag-remove {
+    margin-top: 6px;
+    color: #9e9e9e;
+}
+.drag-remove:hover {
+    cursor: pointer;
+    color: #404040;
+}
+.card-title {
+    width: 100%;
+    margin-top: 12px !important;
+}
+.makeStyles-cardBody-255 {
+    padding: 0 1.875rem 1rem !important;
+}
+label#combo-box-demo-label,input#combo-box-demo{
+    color: #dddddd !important;
+}
+span.MuiIconButton-label  {
+    color: #9abc31 !important;
+}
+fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline, .MuiInputBase-root.MuiOutlinedInput-root.MuiAutocomplete-inputRoot.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiOutlinedInput-adornedEnd:hover {
+    border-color: #dddddd !important;
+}
+.ReactCollapse--collapse {
+    transition: all 0.3s;
+}
+.makeStyles-cardFooter-262 {
+    padding: 0 !important;
+}
 @media (max-width: 959.95px) {
     .makeStyles-listItem-75 {
         text-align: center !important;
