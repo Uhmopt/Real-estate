@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GroupModal from './Categories/GroupModal';
+import PaverModal from './Categories/PaverModal';
 
 const useStyles = makeStyles({
     root: {
