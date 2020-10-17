@@ -24,7 +24,7 @@ import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSecti
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import Check from "@material-ui/icons/Check";
 
-import img from 'assets/img/categories/paver.svg';
+import img from 'assets/img/categories/lights.svg';
 
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +83,7 @@ export default function PaverModal() {
             <div className="modal-c-button" onClick={handleClickOpen}>
                 <img src={img} alt="" className="cat-img" />
                 <h5>
-                    Paver
+                    lignts
                 </h5>
             </div>
             <Dialog
@@ -93,7 +93,7 @@ export default function PaverModal() {
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle>
-                    PAVER
+                    LIGHTS
                      <div className="modal-close">
                         <IconButton onClick={handleClose}>
                             <CloseIcon style={{ color: "#fff" }} />

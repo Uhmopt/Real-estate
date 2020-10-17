@@ -104,7 +104,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     font-size: 16px;
 }
 
-.makeStyles-socialLine-275 {
+.makeStyles-socialLine-675 {
     padding: 2em 0px 1em !important;
     position: relative !important
 }
@@ -158,6 +158,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     height: 100px;
     width: 100px;
     border: 1px solid #bbb;
+    background-color: #fff;
 }
 
 .modal-c-button:hover {
@@ -168,9 +169,9 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 .cat-img {
-    width: 50px;
+    height: 42px;
     margin: auto;
-    margin-left: 24px;
+    margin-left: 27px;
     margin-top: 8px;
 }
 
@@ -215,7 +216,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
         max-width: 1920px !important;
     }
 
-    .makeStyles-container-127 {
+    .makeStyles-container-527 {
         max-width: 1440px !important;
     }
 }

@@ -2,6 +2,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GroupModal from './Categories/GroupModal';
 import PaverModal from './Categories/PaverModal';
+import SegmentalModal from './Categories/SegmentalModal';
+import NaturalStoneModal from './Categories/NaturalStoneModal';
+import EdgeStoneModal from './Categories/EdgeStoneModal';
+import CinderBlockModal from './Categories/CinderBlockModal';
+import LightsModal from './Categories/LightsModal';
+import MaterialsModal from './Categories/MaterialsModal';
+import FireplaceModal from './Categories/FireplaceModal';
 
 const useStyles = makeStyles({
     root: {
@@ -31,19 +38,28 @@ export default function SimpleCard() {
                     <GroupModal />
                 </li>
                 <li>
-                    <GroupModal />
+                    <PaverModal />
                 </li>
                 <li>
-                    <GroupModal />
+                    <SegmentalModal />
                 </li>
                 <li>
-                    <GroupModal />
+                    <NaturalStoneModal />
                 </li>
                 <li>
-                    <GroupModal />
+                    <EdgeStoneModal />
                 </li>
                 <li>
-                    <GroupModal />
+                    <CinderBlockModal />
+                </li>
+                <li>
+                    <LightsModal />
+                </li>
+                <li>
+                    <MaterialsModal />
+                </li>
+                <li>
+                    <FireplaceModal />
                 </li>
             </ul>
         </div>

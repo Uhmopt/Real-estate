@@ -27,6 +27,7 @@ export default function PresentationPage() {
     <div className="full">
       <Header
         color="dark"
+        brand="Marketnology"
         links={<HeaderContral/>}
         fixed
       />

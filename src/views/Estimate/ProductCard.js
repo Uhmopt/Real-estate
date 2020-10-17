@@ -54,7 +54,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div style={{ minHeight: "calc(100vh - 120px)", marginTop: 70 }}>
+                        <div style={{ minHeight: 1080, marginTop: 70 }}>
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={10} lg={10}>
                                     <GridContainer>
@@ -93,9 +93,9 @@ export default function SectionCards() {
                                                             <div className="product-action">
                                                                 <Button variant="outlined" size="small" onClick={e => setIsOpened(!isOpened)}>
                                                                     {isOpened ? (
-                                                                        <AddIcon style={{ fontSize: "1rem" }} />
-                                                                    ) : (
                                                                             <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <AddIcon style={{ fontSize: "1rem" }} />
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
@@ -160,9 +160,9 @@ export default function SectionCards() {
                                                             <div className="product-action">
                                                                 <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
                                                                     {isOpened1 ? (
-                                                                        <AddIcon style={{ fontSize: "1rem" }} />
-                                                                    ) : (
                                                                             <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <AddIcon style={{ fontSize: "1rem" }} />
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
@@ -227,9 +227,9 @@ export default function SectionCards() {
                                                             <div className="product-action">
                                                                 <Button variant="outlined" size="small" onClick={e => setIsOpened2(!isOpened2)}>
                                                                     {isOpened2 ? (
-                                                                        <AddIcon style={{ fontSize: "1rem" }} />
-                                                                    ) : (
                                                                             <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <AddIcon style={{ fontSize: "1rem" }} />
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
