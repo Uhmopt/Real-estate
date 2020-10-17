@@ -4,11 +4,10 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderContral from "components/Header/HeaderContral.js";
+import FooterPrice from "./FooterPrice";
 import Footer from "components/Footer/Footer.js";
 // sections for this page
 import ProductCard from "./ProductCard";
@@ -24,13 +23,14 @@ export default function PresentationPage() {
   });
   const classes = useStyles();
   return (
-    <div>
+    <div className="full">
       <Header
         color="dark"
         links={<HeaderContral/>}
         fixed
       />
       <ProductCard />
+      <FooterPrice />
       <Footer />
     </div>
   );

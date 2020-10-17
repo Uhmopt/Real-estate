@@ -19,6 +19,9 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
+// Demo Data
+const data1 = ["Paver", "Edge stone", "Light"];
+const data2 = ["Lights", "Materials", "Fireplace"];
 /**
  * Moves an item from one list to another list.
  */
@@ -43,6 +46,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   padding: 8,
   margin: `0 0 ${grid}px 0`,
   border: "1px solid #eee",
+  position: "relative",
 
   // change background colour if dragging
   background: isDragging ? "#eee" : "#fff",
@@ -55,7 +59,7 @@ const getListStyle = isDraggingOver => ({
 });
 
 function QuoteApp() {
-  const [state, setState] = useState([getItems(4)]);
+  const [state, setState] = useState([getItems(3)]);
 
   function onDragEnd(result) {
     const { source, destination } = result;
@@ -81,12 +85,13 @@ function QuoteApp() {
       setState(newState.filter(group => group.length));
     }
   }
-
+  console.log(state,"state")
   return (
     <div>
       <div style={{ display: "flex" }}>
         <DragDropContext onDragEnd={onDragEnd}>
           {state.map((el, ind) => (
+            console.log(el, "el"),
             <Droppable key={ind} droppableId={`${ind}`}>
               {(provided, snapshot) => (
                 <div
@@ -111,22 +116,32 @@ function QuoteApp() {
                           )}
                         >
                             <GridContainer>
-                              <GridItem xs={1} sm={1} md={1} lg={1}>
+                              <GridItem xs={1} sm={1} md={1} lg={1} className="hidden-sm">
                               <OpenWithIcon style={{marginTop: 6, color: "#9e9e9e"}} />
                               </GridItem>
-                              <GridItem xs={3} sm={3} md={4} lg={4}>
+                              <GridItem xs={4} sm={4} md={2} lg={2}>
                                 <h6>
-                                  Paver
+                                {data1[index]}
                                 </h6>
                               </GridItem>
-                              <GridItem xs={3} sm={3} md={3} lg={3}>
+                              <GridItem xs={4} sm={4} md={2} lg={2}>
                                 <h6>
-                                  $ 2324
+                                  Attribute 1
                                 </h6>
                               </GridItem>
-                              <GridItem xs={3} sm={3} md={3} lg={3}>
+                              <GridItem xs={4} sm={4} md={2} lg={2}>
                                 <h6>
-                                  High Quality
+                                  Attribute 2
+                                </h6>
+                              </GridItem>
+                              <GridItem xs={4} sm={4} md={2} lg={2}>
+                                <h6>
+                                  Attribute 3
+                                </h6>
+                              </GridItem>
+                              <GridItem xs={4} sm={4} md={2} lg={2}>
+                                <h6>
+                                  Attribute 4
                                 </h6>
                               </GridItem>
                               <GridItem xs={1} sm={1} md={1} lg={1}>

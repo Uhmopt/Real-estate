@@ -32,6 +32,8 @@ const useStyles1 = makeStyles(basicsStyle);
 export default function SectionCards() {
 
     const [isOpened, setIsOpened] = useState(true);
+    const [isOpened1, setIsOpened1] = useState(true);
+    const [isOpened2, setIsOpened2] = useState(true);
     const [checked, setChecked] = React.useState([24, 22]);
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -52,72 +54,209 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <GridContainer style={{ minHeight: "calc(100vh - 120px)", marginTop: 70 }}>
-                            <GridItem xs={12} sm={12} md={10} lg={10}>
-                                <GridContainer>
-                                    <GridItem xs={12} sm={12} md={12} lg={12}>
-                                        <Card>
-                                            <CardHeader>
-                                                <GridContainer style={{ marginTop: 15 }}>
-                                                    <GridItem xs={5} sm={5} md={6} lg={6}>
-                                                        <TextField
-                                                            required
-                                                            label="Group name"
-                                                            defaultValue="Firepit Area"
-                                                            className="card-title"
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={3} sm={3} md={4} lg={4}>
-                                                        <FormControlLabel
-                                                            control={
-                                                                <Checkbox
-                                                                    tabIndex={-1}
-                                                                    onClick={() => handleToggle(21)}
-                                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                                    classes={{
-                                                                        checked: classes1.checked,
-                                                                        root: classes1.checkRoot
-                                                                    }}
-                                                                />
-                                                            }
-                                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                            style={{ marginTop: 20 }}
-                                                            label="Optional"
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={4} sm={4} md={2} lg={2}>
-                                                        <div className="product-action">
-                                                            <Button variant="outlined" size="small" onClick={e => setIsOpened(!isOpened)}>
-                                                                {isOpened ? (
-                                                                    <AddIcon style={{ fontSize: "1rem" }} />
-                                                                ) : (
-                                                                        <RemoveIcon style={{ fontSize: "1rem" }} />
-                                                                    )}
-                                                            </Button>
-                                                            <Button variant="outlined" size="small">
-                                                                <CloseIcon style={{ fontSize: "1rem" }} />
-                                                            </Button>
-                                                        </div>
-                                                    </GridItem>
-                                                </GridContainer>
-                                            </CardHeader>
+                        <div style={{ minHeight: "calc(100vh - 120px)", marginTop: 70 }}>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={10} lg={10}>
+                                    <GridContainer>
+                                        <GridItem xs={12} sm={12} md={12} lg={12}>
+                                            <Card>
+                                                <CardHeader>
+                                                    <GridContainer style={{ marginTop: 15 }}>
+                                                        <GridItem xs={5} sm={5} md={6} lg={6}>
+                                                            <TextField
+                                                                required
+                                                                label="Group name"
+                                                                defaultValue="Firepit Area"
+                                                                className="card-title"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={3} sm={3} md={4} lg={4}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        tabIndex={-1}
+                                                                        onClick={() => handleToggle(21)}
+                                                                        checkedIcon={<Check className={classes1.checkedIcon} />}
+                                                                        icon={<Check className={classes1.uncheckedIcon} />}
+                                                                        classes={{
+                                                                            checked: classes1.checked,
+                                                                            root: classes1.checkRoot
+                                                                        }}
+                                                                    />
+                                                                }
+                                                                classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                style={{ marginTop: 20 }}
+                                                                label="Optional"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={4} sm={4} md={2} lg={2}>
+                                                            <div className="product-action">
+                                                                <Button variant="outlined" size="small" onClick={e => setIsOpened(!isOpened)}>
+                                                                    {isOpened ? (
+                                                                        <AddIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                        )}
+                                                                </Button>
+                                                                <Button variant="outlined" size="small">
+                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                </Button>
+                                                            </div>
+                                                        </GridItem>
+                                                    </GridContainer>
+                                                </CardHeader>
 
-                                            <CardBody>
-                                                <Collapse isOpened={isOpened}>
-                                                    <DragDropList />
-                                                </Collapse>
-                                            </CardBody>
+                                                <CardBody>
+                                                    <Collapse isOpened={isOpened}>
+                                                        <DragDropList />
+                                                    </Collapse>
+                                                </CardBody>
 
-                                            <CardFooter>
-                                            </CardFooter>
-                                        </Card>
-                                    </GridItem>
-                                </GridContainer>
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={2} lg={2}>
-                            </GridItem>
-                        </GridContainer>
+                                                <CardFooter>
+                                                </CardFooter>
+                                            </Card>
+                                        </GridItem>
+                                    </GridContainer>
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={2} lg={2}>
+                                    <h3 className="product-price">$ 4,890.00</h3>
+                                </GridItem>
+                            </GridContainer>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={10} lg={10}>
+                                    <GridContainer>
+                                        <GridItem xs={12} sm={12} md={12} lg={12}>
+                                            <Card>
+                                                <CardHeader>
+                                                    <GridContainer style={{ marginTop: 15 }}>
+                                                        <GridItem xs={5} sm={5} md={6} lg={6}>
+                                                            <TextField
+                                                                required
+                                                                label="Group name"
+                                                                defaultValue="DEFALUT GROUP"
+                                                                className="card-title"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={3} sm={3} md={4} lg={4}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        tabIndex={-1}
+                                                                        onClick={() => handleToggle(21)}
+                                                                        checkedIcon={<Check className={classes1.checkedIcon} />}
+                                                                        icon={<Check className={classes1.uncheckedIcon} />}
+                                                                        classes={{
+                                                                            checked: classes1.checked,
+                                                                            root: classes1.checkRoot
+                                                                        }}
+                                                                    />
+                                                                }
+                                                                classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                style={{ marginTop: 20 }}
+                                                                label="Optional"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={4} sm={4} md={2} lg={2}>
+                                                            <div className="product-action">
+                                                                <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
+                                                                    {isOpened1 ? (
+                                                                        <AddIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                        )}
+                                                                </Button>
+                                                                <Button variant="outlined" size="small">
+                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                </Button>
+                                                            </div>
+                                                        </GridItem>
+                                                    </GridContainer>
+                                                </CardHeader>
+
+                                                <CardBody>
+                                                    <Collapse isOpened={isOpened1}>
+                                                        <DragDropList />
+                                                    </Collapse>
+                                                </CardBody>
+
+                                                <CardFooter>
+                                                </CardFooter>
+                                            </Card>
+                                        </GridItem>
+                                    </GridContainer>
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={2} lg={2}>
+                                    <h3 className="product-price">$ 8,280.00</h3>
+                                </GridItem>
+                            </GridContainer>
+                            <GridContainer>
+                                <GridItem xs={12} sm={12} md={10} lg={10}>
+                                    <GridContainer>
+                                        <GridItem xs={12} sm={12} md={12} lg={12}>
+                                            <Card>
+                                                <CardHeader>
+                                                    <GridContainer style={{ marginTop: 15 }}>
+                                                        <GridItem xs={5} sm={5} md={6} lg={6}>
+                                                            <TextField
+                                                                required
+                                                                label="Group name"
+                                                                defaultValue="Stonewall Walkway with Lights"
+                                                                className="card-title"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={3} sm={3} md={4} lg={4}>
+                                                            <FormControlLabel
+                                                                control={
+                                                                    <Checkbox
+                                                                        tabIndex={-1}
+                                                                        onClick={() => handleToggle(21)}
+                                                                        checkedIcon={<Check className={classes1.checkedIcon} />}
+                                                                        icon={<Check className={classes1.uncheckedIcon} />}
+                                                                        classes={{
+                                                                            checked: classes1.checked,
+                                                                            root: classes1.checkRoot
+                                                                        }}
+                                                                    />
+                                                                }
+                                                                classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                style={{ marginTop: 20 }}
+                                                                label="Optional"
+                                                            />
+                                                        </GridItem>
+                                                        <GridItem xs={4} sm={4} md={2} lg={2}>
+                                                            <div className="product-action">
+                                                                <Button variant="outlined" size="small" onClick={e => setIsOpened2(!isOpened2)}>
+                                                                    {isOpened2 ? (
+                                                                        <AddIcon style={{ fontSize: "1rem" }} />
+                                                                    ) : (
+                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                        )}
+                                                                </Button>
+                                                                <Button variant="outlined" size="small">
+                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                </Button>
+                                                            </div>
+                                                        </GridItem>
+                                                    </GridContainer>
+                                                </CardHeader>
+
+                                                <CardBody>
+                                                    <Collapse isOpened={isOpened2}>
+                                                        <DragDropList />
+                                                    </Collapse>
+                                                </CardBody>
+
+                                                <CardFooter>
+                                                </CardFooter>
+                                            </Card>
+                                        </GridItem>
+                                    </GridContainer>
+                                </GridItem>
+                                <GridItem xs={12} sm={12} md={2} lg={2}>
+                                    <h3 className="product-price">$ 8,500.00</h3>
+                                </GridItem>
+                            </GridContainer>
+                        </div>
                     </div>
                 </div>
                 {/* BLOG PLAIN CARDS END */}

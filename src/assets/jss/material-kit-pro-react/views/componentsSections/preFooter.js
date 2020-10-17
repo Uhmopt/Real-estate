@@ -6,6 +6,7 @@ import {
   description,
   blackColor,
   whiteColor,
+  secondaryColor,
   grayColor,
   hexToRgb
 } from "assets/jss/material-kit-pro-react.js";
@@ -50,6 +51,13 @@ const styles = {
       " 0," +
       grayColor[5] +
       " 100%)",
+    backgroundSize: "550% 450%",
+    "& $border": {
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.1)"
+    }
+  },
+  second: {
+    background: secondaryColor,
     backgroundSize: "550% 450%",
     "& $border": {
       borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.1)"
