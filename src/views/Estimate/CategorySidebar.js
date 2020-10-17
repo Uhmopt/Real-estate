@@ -10,7 +10,9 @@ import LightsModal from './Categories/LightsModal';
 import MaterialsModal from './Categories/MaterialsModal';
 import FireplaceModal from './Categories/FireplaceModal';
 import Button from "components/CustomButtons/Button.js";
+import IconButton from '@material-ui/core/IconButton';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles({
     root: {
@@ -32,46 +34,65 @@ const useStyles = makeStyles({
 export default function SimpleCard() {
 
     const [isSide, setSide] = useState(false);
+    const { innerWidth: width, innerHeight: height } = window;
     const classes = useStyles();
 
     return (
-        <div className="side-modal-bar">
-            <div className={ isSide ? "side-bar-body" : "side-bar-body hidden-side"}>
-                <div className="toggle-icon">
+        <div>
+            <div className={isSide ? "side-overlay" : "side-overlay hidden"} onClick={e => setSide(false)}></div>
+            <div className={isSide ? "side-modal-bar" : "side-modal-bar hidden-side"}>
+                <div className="side-bar-body">
+                    {( width < 767.95) ? (
+                        <div className={isSide ? "toggle-icon hidden" : "toggle-icon"}>
                             <Button variant="contained" color="success" component="span" size="sm" onClick={e => setSide(!isSide)}>
                                 <DragIndicatorIcon />
                             </Button>
                         </div>
-                        <ul>
-                            <li>
-                                <GroupModal />
-                            </li>
-                            <li>
-                                <PaverModal />
-                            </li>
-                            <li>
-                                <SegmentalModal />
-                            </li>
-                            <li>
-                                <NaturalStoneModal />
-                            </li>
-                            <li>
-                                <EdgeStoneModal />
-                            </li>
-                            <li>
-                                <CinderBlockModal />
-                            </li>
-                            <li>
-                                <LightsModal />
-                            </li>
-                            <li>
-                                <MaterialsModal />
-                            </li>
-                            <li>
-                                <FireplaceModal />
-                            </li>
-                        </ul>
-                    </div>
+                    ) : (
+                            <div className="toggle-icon">
+                                <Button variant="contained" color="success" component="span" size="sm" onClick={e => setSide(!isSide)}>
+                                    <DragIndicatorIcon />
+                                </Button>
+                            </div>
+                        )
+                    }
+                    <ul>
+                        <li className="mobile-close-side">
+                            <IconButton onClick={e => setSide(!isSide)}>
+                                <CloseIcon />
+                            </IconButton>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <GroupModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <PaverModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <SegmentalModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <NaturalStoneModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <EdgeStoneModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <CinderBlockModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <LightsModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <MaterialsModal/>
+                        </li>
+                        <li onClick={e => setSide(false)}>
+                            <FireplaceModal/>
+                        </li>
+                    </ul>
                 </div>
-            );
+            </div>
+        </div>
+
+    );
 }

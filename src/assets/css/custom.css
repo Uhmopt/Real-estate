@@ -35,8 +35,8 @@ a:focus {
     margin-top: 12px !important;
 }
 
-.makeStyles-cardBody-255 {
-    padding: 0 1.875rem 1rem !important;
+.makeStyles-cardBody-655 {
+    padding: 0 1rem 1rem !important;
 }
 
 label#combo-box-demo-label,
@@ -119,9 +119,11 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 .modal-des {
     font-size: 14px;
 }
+
 .MuiAppBar-root {
     border-radius: 0 !important;
 }
+
 .modal-price {
     font-size: 14px;
     text-align: right;
@@ -142,7 +144,25 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     left: 0;
     margin-top: 120px;
     margin-left: 20px;
-    z-index: 99
+    z-index: 99;
+    transition: all 0.5s;
+}
+
+.side-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #00000070;
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+}
+
+.hidden {
+    display: none !important;
+    transition: all 0.5s;
 }
 
 .side-modal-bar ul {
@@ -197,6 +217,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     margin-top: 12px;
     margin-left: 12px;
 }
+
 .modal-scroll {
     border: 1px solid #ccc;
     padding: 20px;
@@ -206,6 +227,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     height: 120px;
     overflow-y: scroll;
 }
+
 .modal-close {
     position: absolute;
     right: 0;
@@ -213,13 +235,15 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     margin-top: 8px;
     margin-right: 8px;
 }
+
 .makeStyles-sm-121 {
     padding: 8px 7px 8px 10px !important;
 }
+
 .side-bar-body {
     position: relative;
-    transition: all 0.5s;
 }
+
 .toggle-icon {
     position: absolute;
     top: 0;
@@ -228,10 +252,16 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     margin-left: 120px;
     z-index: 9999;
 }
+
 .hidden-side {
-    margin-left: -125px;
+    margin-left: -100px;
     transition: all 0.5s;
 }
+
+.mobile-close-side {
+    display: none;
+}
+
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
         max-width: 1920px !important;
@@ -274,6 +304,59 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 @media (max-width: 767.95px) {
+
+    .side-overlay {
+        display: inline;
+    }
+
+    .side-modal-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        margin-left: 0px;
+        padding: 0px 20px 30px 20px;
+        z-index: 99999;
+        height: 100vh;
+        overflow-y: scroll;
+        background-color: #fff;
+        box-shadow: 0 0 20px #6f6f6f;
+    }
+
+    .hidden-side {
+        margin-left: -125px;
+        transition: all 0.5s;
+    }
+
+    .mobile-close-side {
+        display: inline;
+        margin-bottom: 0px;
+        margin-right: -20px;
+        margin-left: 42px;
+    }
+
+    .toggle-icon {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 77px;
+        margin-left: 10px;
+        z-index: 9997;
+    }
+
+    .modal-c-button {
+        height: 72px;
+        width: 72px;
+    }
+
+    .modal-c-button h5 {
+        font-size: 9px;
+    }
+
+    .cat-img {
+        height: 28px;
+        margin-left: 19px;
+    }
 
     .drag-remove {
         position: absolute;
