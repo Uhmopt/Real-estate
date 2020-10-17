@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderContral from "components/Header/HeaderContral.js";
+import CategorySidebar from "./CategorySidebar";
 import FooterPrice from "./FooterPrice";
 import Footer from "components/Footer/Footer.js";
 // sections for this page
@@ -29,6 +30,7 @@ export default function PresentationPage() {
         links={<HeaderContral/>}
         fixed
       />
+      <CategorySidebar />
       <ProductCard />
       <FooterPrice />
       <Footer />

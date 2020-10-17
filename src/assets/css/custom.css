@@ -79,49 +79,136 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 .hidden-sm {
     display: inline-block;
 }
+
 .makeStyles-justIcon-125 {
     font-size: 18px !important;
     text-transform: capitalize !important;
 }
+
 .price-footer {
     font-size: 30px !important;
     color: #fff;
     font-weight: bold !important;
 }
+
 .price-footer:hover {
     color: #36721A !important;
     transition: all 0.3s;
 }
+
 .price-footer::before {
     font-family: "Font Awesome 5 Free";
     content: "\f077";
     position: absolute;
-    top: -25px;
-    font-size: 20px;
+    top: -15px;
+    font-size: 16px;
 }
+
 .makeStyles-socialLine-275 {
     padding: 2em 0px 1em !important;
     position: relative !important
 }
+
 .text-style2 {
     font-weight: bold;
     color: #36721A;
     padding-left: 30px;
     margin-top: 0;
 }
+
 .modal-des {
     font-size: 14px;
 }
+
 .modal-price {
     font-size: 14px;
     text-align: right;
 }
+
 .text-style4 {
     font-size: 16px;
     font-weight: 500;
 }
-.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
+
+/* .MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
     max-width: 360px;
+} */
+
+.side-modal-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 100px;
+    margin-left: 20px;
+    z-index: 99
+}
+
+.side-modal-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-modal-bar ul li {
+    margin-bottom: 12px;
+}
+
+.modal-c-button {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #bbb;
+}
+
+.modal-c-button:hover {
+    cursor: pointer;
+    background: #e9ffa7;
+    border: 1px solid #9abc31;
+    transition: all 0.3s;
+}
+
+.cat-img {
+    width: 50px;
+    margin: auto;
+    margin-left: 24px;
+    margin-top: 8px;
+}
+
+.modal-c-button h5 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+}
+
+.MuiDialogTitle-root {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 16px 24px;
+    background-color: #404040;
+    color: white;
+}
+
+.modal-minimize {
+    margin-top: 12px;
+    margin-left: 12px;
+}
+.modal-scroll {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-left: 10px;
+    border-radius: 4px;
+    margin-top: -8px;
+    height: 120px;
+    overflow-y: scroll;
+}
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 8px;
+    margin-right: 8px;
 }
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
@@ -165,7 +252,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 @media (max-width: 767.95px) {
-    
+
     .drag-remove {
         position: absolute;
         top: 0;
@@ -175,13 +262,18 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
         width: 15px !important;
         height: 16px !important;
     }
-    
+
     .product-price {
         font-weight: bold;
         color: #36721A;
         margin-top: -17px;
         text-align: right;
         border-bottom: 1px solid #ccc;
+    }
+
+    .modal-minimize {
+        margin-top: 12px;
+        margin-left: 0;
     }
 
 }
