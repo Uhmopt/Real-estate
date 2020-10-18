@@ -263,6 +263,10 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     border-color: #fffffffc !important;
 }
 
+fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
+    border: 1px solid #ccc !important;
+}
+
 .mobile-close-side {
     display: none;
 }
@@ -275,6 +279,32 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 
 .text-style-9 {
     padding-right: 20px;
+}
+
+.product-img {
+    border-radius: 8px;
+    /* width: 120px; */
+    /* height: 80px; */
+}
+
+.card-main-style {
+    font-size: 14px;
+}
+
+.product-img img {
+    object-fit: cover;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.prst-title {
+    color: #333;
+    padding-top: 16px;
+    font-size: 24px;
+    font-weight: bold !important;
+    margin-bottom: 0;
+    text-transform: uppercase;
 }
 
 @media (min-width: 1200px) {
@@ -292,33 +322,41 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
         text-align: center !important;
         margin-top: 12px !important;
     }
+
     [class*="makeStyles-navButton"] {
         margin: 20px !important;
     }
-    [class*="makeStyles-navButton"] > span:first-child {
+
+    [class*="makeStyles-navButton"]>span:first-child {
         justify-content: center !important;
     }
+
     [class*="makeStyles-listItem"]:not(:last-child):after {
         background-color: #ffffff00 !important;
     }
+
     li.MuiListItem-root[class*="makeStyles-listItem"].MuiListItem-gutters {
         text-align: center !important;
     }
+
     .auto-1 {
         margin-top: 60px !important;
         margin-bottom: 12px !important;
     }
+
     .auto-2 {
         margin-bottom: 12px !important;
     }
+
     .auto-1 fieldset {
         border: 1px solid #ccc !important;
         border-bottom: 0;
     }
+
     .auto-2 fieldset {
         border: 1px solid #ccc !important;
     }
-   
+
     label#combo-box-demo-label,
     input#combo-box-demo {
         color: #777777 !important;
@@ -327,6 +365,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     .presentation-label {
         display: block;
     }
+
     .presentation-svg {
         fill: #9abc31;
     }
@@ -345,7 +384,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
-    padding: 8px !important;
+    padding: 8px 8px 8px 10px !important;
 }
 
 @media (max-width: 767.95px) {

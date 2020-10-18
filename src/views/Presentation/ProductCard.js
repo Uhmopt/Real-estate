@@ -25,6 +25,14 @@ import DragDropList from "./DragDrop.js";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 
+import img1 from "assets/img/products/1.jpg";
+import img2 from "assets/img/products/2.jpg";
+import img3 from "assets/img/products/3.jpg";
+import img4 from "assets/img/products/4.jpg";
+import img5 from "assets/img/products/5.jpg";
+import img6 from "assets/img/products/6.jpg";
+import img7 from "assets/img/products/7.jpg";
+
 const useStyles = makeStyles(styles);
 const useStyles1 = makeStyles(basicsStyle);
 export default function SectionCards() {
@@ -59,55 +67,23 @@ export default function SectionCards() {
                                         <GridItem xs={12} sm={12} md={12} lg={12}>
                                             <Card>
                                                 <CardHeader>
-                                                    <GridContainer style={{ marginTop: 15 }}>
-                                                        <GridItem xs={5} sm={5} md={6} lg={6}>
-                                                            <TextField
-                                                                required
-                                                                label="Group name"
-                                                                defaultValue="Firepit Area"
-                                                                className="card-title"
-                                                            />
-                                                        </GridItem>
-                                                        <GridItem xs={3} sm={3} md={4} lg={4}>
-                                                            <FormControlLabel
-                                                                control={
-                                                                    <Checkbox
-                                                                        tabIndex={-1}
-                                                                        onClick={() => handleToggle(21)}
-                                                                        checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                                        icon={<Check className={classes1.uncheckedIcon} />}
-                                                                        classes={{
-                                                                            checked: classes1.checked,
-                                                                            root: classes1.checkRoot
-                                                                        }}
-                                                                    />
-                                                                }
-                                                                classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                                style={{ marginTop: 20 }}
-                                                                label="Optional"
-                                                            />
-                                                        </GridItem>
-                                                        <GridItem xs={4} sm={4} md={2} lg={2}>
-                                                            <div className="product-action">
-                                                                <Button variant="outlined" size="small" onClick={e => setIsOpened(!isOpened)}>
-                                                                    {isOpened ? (
-                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
-                                                                    ) : (
-                                                                            <AddIcon style={{ fontSize: "1rem" }} />
-                                                                        )}
-                                                                </Button>
-                                                                <Button variant="outlined" size="small">
-                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
-                                                                </Button>
-                                                            </div>
-                                                        </GridItem>
-                                                    </GridContainer>
+                                                    <h3 className="prst-title">Defalut Group</h3>
                                                 </CardHeader>
 
                                                 <CardBody>
-                                                    <Collapse isOpened={isOpened}>
-                                                        <DragDropList />
-                                                    </Collapse>
+                                                    <GridContainer>
+                                                        <GridItem xs={12} sm={6} md={1}>
+                                                            <div className="product-img" >
+                                                                <img src={img1} alt="" />
+                                                            </div>
+                                                        </GridItem>
+                                                        <GridItem xs={12} sm={6} md={2}>
+                                                            <h6 className="card-main-style">Product Type</h6>
+                                                        </GridItem>
+                                                        <GridItem xs={12} sm={6} md={2}>
+                                                            <h6 className="card-main-style">Product Type</h6>
+                                                        </GridItem>
+                                                    </GridContainer>
                                                 </CardBody>
 
                                                 <CardFooter>
@@ -158,7 +134,7 @@ export default function SectionCards() {
                                                             <div className="product-action">
                                                                 <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
                                                                     {isOpened1 ? (
-                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                        <RemoveIcon style={{ fontSize: "1rem" }} />
                                                                     ) : (
                                                                             <AddIcon style={{ fontSize: "1rem" }} />
                                                                         )}
@@ -225,7 +201,7 @@ export default function SectionCards() {
                                                             <div className="product-action">
                                                                 <Button variant="outlined" size="small" onClick={e => setIsOpened2(!isOpened2)}>
                                                                     {isOpened2 ? (
-                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                        <RemoveIcon style={{ fontSize: "1rem" }} />
                                                                     ) : (
                                                                             <AddIcon style={{ fontSize: "1rem" }} />
                                                                         )}
