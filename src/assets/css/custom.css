@@ -9,6 +9,10 @@
     min-width: 32px !important;
 }
 
+.MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
+    max-width: 1920px;
+}
+
 .product-action {
     margin-top: 18px;
     margin-right: -20px;
@@ -85,7 +89,8 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     text-transform: capitalize !important;
 }
 
-.price-footer {
+.price-footer,
+.price-footer1 {
     font-size: 30px !important;
     color: #fff;
     font-weight: bold !important;
@@ -133,10 +138,6 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     font-size: 16px;
     font-weight: 500;
 }
-
-/* .MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
-    max-width: 360px;
-} */
 
 .side-modal-bar {
     position: absolute;
@@ -258,8 +259,22 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     transition: all 0.5s;
 }
 
+.MuiOutlinedInput-notchedOutline {
+    border-color: #fffffffc !important;
+}
+
 .mobile-close-side {
     display: none;
+}
+
+.presentation-brand {
+    font-size: 18px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.text-style-9 {
+    padding-right: 20px;
 }
 
 @media (min-width: 1200px) {
@@ -277,15 +292,41 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
         text-align: center !important;
         margin-top: 12px !important;
     }
+    [class*="makeStyles-navButton"] {
+        margin: 20px !important;
+    }
+    [class*="makeStyles-navButton"] > span:first-child {
+        justify-content: center !important;
+    }
+    [class*="makeStyles-listItem"]:not(:last-child):after {
+        background-color: #ffffff00 !important;
+    }
+    li.MuiListItem-root[class*="makeStyles-listItem"].MuiListItem-gutters {
+        text-align: center !important;
+    }
+    .auto-1 {
+        margin-top: 60px !important;
+        margin-bottom: 12px !important;
+    }
+    .auto-2 {
+        margin-bottom: 12px !important;
+    }
+    .auto-1 fieldset {
+        border: 1px solid #ccc !important;
+        border-bottom: 0;
+    }
+    .auto-2 fieldset {
+        border: 1px solid #ccc !important;
+    }
+   
+    label#combo-box-demo-label,
+    input#combo-box-demo {
+        color: #777777 !important;
+    }
 
     .presentation-label {
         display: block;
     }
-
-    .makeStyles-listItem-75:first-child {
-        margin-top: 60px !important;
-    }
-
     .presentation-svg {
         fill: #9abc31;
     }
@@ -301,6 +342,10 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     .hidden-sm {
         display: none;
     }
+}
+
+span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+    padding: 8px !important;
 }
 
 @media (max-width: 767.95px) {

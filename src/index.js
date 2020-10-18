@@ -1,17 +1,13 @@
 /*!
 
 =========================================================
-* Material Kit PRO React - v1.9.0
+* Marketnology -  v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-pro-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
+* Coded by Bohdan
 
 =========================================================
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
 import React from "react";
@@ -30,7 +26,7 @@ import ContactUsPage from "views/ContactUsPage/ContactUsPage.js";
 import EcommercePage from "views/EcommercePage/EcommercePage.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
-import PresentationPage from "views/PresentationPage/PresentationPage.js";
+import PresentationPage from "views/Presentation/PresentationPage.js";
 import PricingPage from "views/PricingPage/PricingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import ProductPage from "views/ProductPage/ProductPage.js";
@@ -61,6 +57,7 @@ ReactDOM.render(
       <Route path="/shopping-cart-page" component={ShoppingCartPage} />
       <Route path="/signup-page" component={SignupPage} />
       <Route path="/error-page" component={ErrorPage} />
+      <Route path="/presentation" component={PresentationPage} />
       <Route path="/" component={Estimate} />
     </Switch>
   </Router>,
