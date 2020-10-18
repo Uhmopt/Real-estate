@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-import List from "@material-ui/core/List";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -31,7 +31,7 @@ export default function SectionPreFooter() {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <List to="/">
+              <Link to="/">
                 <Button
                   color="white"
                   simple
@@ -39,10 +39,10 @@ export default function SectionPreFooter() {
                 >
                   Estimate
               </Button>
-              </List>
+              </Link>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <List to="/materials">
+              <Link to="/materials">
                 <Button
                   color="white"
                   simple
@@ -50,10 +50,10 @@ export default function SectionPreFooter() {
                 >
                   Materials
                 </Button>
-              </List>
+              </Link>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <List to="/subpay">
+              <Link to="/subpay">
                 <Button
                   color="white"
                   simple
@@ -61,10 +61,10 @@ export default function SectionPreFooter() {
                 >
                   SubPay
               </Button>
-              </List>
+              </Link>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <List to="/sales">
+              <Link to="/sales">
                 <Button
                   color="white"
                   simple
@@ -72,10 +72,10 @@ export default function SectionPreFooter() {
                 >
                   Sales
               </Button>
-              </List>
+              </Link>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <List to="/export">
+              <Link to="/export">
                 <Button
                   color="white"
                   simple
@@ -83,7 +83,7 @@ export default function SectionPreFooter() {
                 >
                   Export
               </Button>
-              </List>
+              </Link>
             </GridItem>
           </GridContainer>
         </div>

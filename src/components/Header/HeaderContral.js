@@ -46,7 +46,7 @@ export default function HeaderLinks(props) {
         <List className={classes.list + " " + classes.mlAuto}>
             <ListItem className={classes.listItem + " auto-1"}>
                 <Autocomplete
-                    id="combo-box-demo"
+                    id="combo-box-demo1"
                     options={cliets}
                     getOptionLabel={(option) => option.clist}
                     style={{ width: 240, marginRight: 15 }}

@@ -44,7 +44,9 @@ a:focus {
 }
 
 label#combo-box-demo-label,
-input#combo-box-demo {
+input#combo-box-demo,
+input#combo-box-demo1,
+label#combo-box-demo1-label {
     color: #dddddd !important;
 }
 
@@ -444,7 +446,9 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     }
 
     label#combo-box-demo-label,
-    input#combo-box-demo {
+    label#combo-box-demo1-label,
+    input#combo-box-demo,
+    input#combo-box-demo1 {
         color: #777777 !important;
     }
 

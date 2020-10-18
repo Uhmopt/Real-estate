@@ -2,10 +2,7 @@ import React from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from '@material-ui/core/MenuItem';
 import clsx from 'clsx';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,7 +12,6 @@ import TableHead from '@material-ui/core/TableHead';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 // @material-ui/icons
 import AddIcon from '@material-ui/icons/Add';
@@ -48,10 +44,6 @@ function createData(attr, cost, percent) {
     return { attr, cost, percent };
 }
 export default function SectionCards() {
-    const [teams, setProducts] = React.useState('');
-    const handleTeams = (event) => {
-        setProducts(event.target.value);
-    };
     const classes = useStyles();
     return (
         <div className="cd-section" id="cards">
@@ -59,7 +51,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div style={{ minHeight: "calc(100vh - 261px)", marginTop: 70 }}>
+                        <div style={{ minHeight: "calc(100vh - 240px)", marginTop: 70 }}>
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={6} lg={6}>
                                     <GridContainer>
@@ -78,7 +70,6 @@ export default function SectionCards() {
 
                                                                         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
                                                                             <OutlinedInput
-                                                                                id="outlined-adornment-weight"
                                                                                 endAdornment={<InputAdornment position="end">%</InputAdornment>}
                                                                                 aria-describedby="outlined-weight-helper-text"
                                                                                 style={{ width: 80 }}
@@ -130,7 +121,6 @@ export default function SectionCards() {
 
                                                                         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
                                                                             <OutlinedInput
-                                                                                id="outlined-adornment-weight"
                                                                                 endAdornment={<InputAdornment position="end">%</InputAdornment>}
                                                                                 aria-describedby="outlined-weight-helper-text"
                                                                                 style={{ width: 80 }}
