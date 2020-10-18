@@ -18,6 +18,10 @@ import Button from '@material-ui/core/Button';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import { Collapse } from 'react-collapse';
 
@@ -40,6 +44,7 @@ export default function SectionCards() {
     const [isOpened, setIsOpened] = useState(true);
     const [isOpened1, setIsOpened1] = useState(true);
     const [isOpened2, setIsOpened2] = useState(true);
+    const [custom_options, setOptions] = React.useState('');
     const [checked, setChecked] = React.useState([24, 22]);
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -53,6 +58,9 @@ export default function SectionCards() {
             newChecked.splice(currentIndex, 1);
         }
         setChecked(newChecked);
+    };
+    const handleManufacture = (event) => {
+        setOptions(event.target.value);
     };
     return (
         <div className="cd-section" id="cards">
@@ -71,6 +79,32 @@ export default function SectionCards() {
                                                 </CardHeader>
 
                                                 <CardBody>
+                                                    <GridContainer style={{marginBottom: 12}}>
+                                                        <GridItem xs={12} sm={6} md={1}>
+                                                            <div className="product-img" >
+                                                                <img src={img1} alt="" />
+                                                            </div>
+                                                        </GridItem>
+                                                        <GridItem xs={12} sm={6} md={2}>
+                                                            <h6 className="card-main-style">Product Type</h6>
+                                                        </GridItem>
+                                                        <GridItem xs={12} sm={6} md={3}>
+                                                            <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
+                                                                <InputLabel id="demo-simple-select-outlined-label">Option choice</InputLabel>
+                                                                <Select
+                                                                    labelId="demo-simple-select-outlined-label"
+                                                                    id="demo-simple-select-outlined"
+                                                                    value={custom_options}
+                                                                    onChange={handleManufacture}
+                                                                    label="Manufacturer"
+                                                                >
+                                                                    <MenuItem value={10}>Option 1</MenuItem>
+                                                                    <MenuItem value={20}>Option 2</MenuItem>
+                                                                    <MenuItem value={30}>Option 3</MenuItem>
+                                                                </Select>
+                                                            </FormControl>
+                                                        </GridItem>
+                                                    </GridContainer>
                                                     <GridContainer>
                                                         <GridItem xs={12} sm={6} md={1}>
                                                             <div className="product-img" >
@@ -81,7 +115,10 @@ export default function SectionCards() {
                                                             <h6 className="card-main-style">Product Type</h6>
                                                         </GridItem>
                                                         <GridItem xs={12} sm={6} md={2}>
-                                                            <h6 className="card-main-style">Product Type</h6>
+                                                            <h6 className="card-main-style">Attribute 1</h6>
+                                                        </GridItem>
+                                                        <GridItem xs={12} sm={6} md={2}>
+                                                            <h6 className="card-main-style">Attribute 2</h6>
                                                         </GridItem>
                                                     </GridContainer>
                                                 </CardBody>
