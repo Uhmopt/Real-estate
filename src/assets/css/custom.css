@@ -283,16 +283,14 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 
 .product-img {
     border-radius: 8px;
-    /* width: 120px; */
-    /* height: 80px; */
+    width: 60px;
+    height: 60px;
 }
 
 .card-main-style {
     font-size: 14px;
     text-align: center;
-    position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
+    padding-top: 10px;
 }
 
 .product-img img {
@@ -311,6 +309,12 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     text-transform: uppercase;
 }
 
+.checkable-edge {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
         max-width: 1920px !important;
@@ -322,6 +326,12 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 }
 
 @media (max-width: 959.95px) {
+    .product-img {
+       margin-bottom: 20px;
+       width: auto;
+       height: auto;
+    }
+
     .makeStyles-listItem-75 {
         text-align: center !important;
         margin-top: 12px !important;

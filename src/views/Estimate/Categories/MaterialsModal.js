@@ -82,7 +82,7 @@ export default function PaverModal() {
                             <Grid container spacing={1}>
                                 <Grid item xs={12} md={6}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <InputLabel id="demo-simple-select-outlined-label">Manufacturer</InputLabel>
+                                        <InputLabel>Manufacturer</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-outlined-label"
                                             id="demo-simple-select-outlined"
