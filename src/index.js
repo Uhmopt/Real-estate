@@ -27,6 +27,7 @@ import EcommercePage from "views/EcommercePage/EcommercePage.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import PresentationPage from "views/Presentation/PresentationPage.js";
+import MaterialsPage from "views/Materials/MaterialsPage.js";
 import PricingPage from "views/PricingPage/PricingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import ProductPage from "views/ProductPage/ProductPage.js";
@@ -58,6 +59,7 @@ ReactDOM.render(
       <Route path="/signup-page" component={SignupPage} />
       <Route path="/error-page" component={ErrorPage} />
       <Route path="/presentation" component={PresentationPage} />
+      <Route path="/materials" component={MaterialsPage} />
       <Route path="/" component={Estimate} />
     </Switch>
   </Router>,
