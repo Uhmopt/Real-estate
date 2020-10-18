@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import GroupModal from './Categories/GroupModal';
 import PaverModal from './Categories/PaverModal';
 import SegmentalModal from './Categories/SegmentalModal';
@@ -14,29 +13,10 @@ import IconButton from '@material-ui/core/IconButton';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import CloseIcon from '@material-ui/icons/Close';
 
-const useStyles = makeStyles({
-    root: {
-        minWidth: 275,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
-
 export default function SimpleCard() {
 
     const [isSide, setSide] = useState(false);
-    const { innerWidth: width, innerHeight: height } = window;
-    const classes = useStyles();
-
+    const { innerWidth: width } = window;
     return (
         <div>
             <div className={isSide ? "side-overlay" : "side-overlay hidden"} onClick={e => setSide(false)}></div>

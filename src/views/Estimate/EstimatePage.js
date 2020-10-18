@@ -34,7 +34,7 @@ export default function PresentationPage() {
       <CategorySidebar />
       <ProductCard />
       <FooterPrice />
-      <Footer />
+      <Footer title="estimate" />
     </div>
   );
 }

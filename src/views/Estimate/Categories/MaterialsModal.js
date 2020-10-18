@@ -13,20 +13,15 @@ import Button from "components/CustomButtons/Button.js";
 import Select from '@material-ui/core/Select';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import { useTheme } from '@material-ui/core/styles';
 import { Collapse } from 'react-collapse';
 
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
-import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import Check from "@material-ui/icons/Check";
 
 import img from 'assets/img/categories/materials.svg';
 
-const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -40,33 +35,14 @@ const useStyles = makeStyles((theme) => ({
 export default function PaverModal() {
 
     const [isOpened, setIsOpened] = useState(false);
-    const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();
-    const [checked, setChecked] = React.useState([24, 22]);
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [manufacturers, setManufacturers] = React.useState('');
-    const [products, setProducts] = React.useState('');
 
     const handleManufacture = (event) => {
         setManufacturers(event.target.value);
     };
-
-    const handleProduct = (event) => {
-        setProducts(event.target.value);
-    };
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-    };
-
     // Modal state
     const [open, setOpen] = React.useState(false);
 
@@ -104,7 +80,7 @@ export default function PaverModal() {
                     <Grid container>
                         <Grid item xs={11} >
                             <Grid container spacing={1}>
-                                <Grid item xs={12} md={4}>
+                                <Grid item xs={12} md={6}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                         <InputLabel id="demo-simple-select-outlined-label">Manufacturer</InputLabel>
                                         <Select
@@ -120,25 +96,9 @@ export default function PaverModal() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} md={4}>
+                                <Grid item xs={12} md={6}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <InputLabel id="demo-simple-select-outlined-label">Product</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
-                                            value={products}
-                                            onChange={handleProduct}
-                                            label="Product"
-                                        >
-                                            <MenuItem value={40}>Product 1</MenuItem>
-                                            <MenuItem value={50}>Product 2</MenuItem>
-                                            <MenuItem value={60}>Product 3</MenuItem>
-                                        </Select>
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} md={4}>
-                                    <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField id="outlined-basic" label="SF" variant="outlined" />
+                                        <TextField label="SF" variant="outlined" />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -160,48 +120,10 @@ export default function PaverModal() {
 
                             <Collapse isOpened={isOpened}>
                                 <Grid container spacing={1}>
-                                    <Grid item md={3} xs={11}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
-                                                />
-                                            }
-                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: 12 }}
-                                            label="Is Edge?"
-                                        />
-                                    </Grid>
-
-                                    <Grid item md={3} xs={11}>
-                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="SF" variant="outlined" />
-                                        </FormControl>
-                                    </Grid>
-
-                                    <Grid item md={3} xs={11}>
-                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Color" variant="outlined" />
-                                        </FormControl>
-                                    </Grid>
-
-                                    <Grid item md={3} xs={11}>
-                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Depth" variant="outlined" />
-                                        </FormControl>
-                                    </Grid>
 
                                     <Grid item md={12} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%", marginTop: 0 }}>
-                                            <TextField
-                                                id="outlined-multiline-static"
+                                            <TextField 
                                                 label="Notes"
                                                 multiline
                                                 rows={4}
@@ -210,145 +132,6 @@ export default function PaverModal() {
                                         </FormControl>
                                     </Grid>
 
-                                    <Grid item md={12} xs={11}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
-                                                />
-                                            }
-                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: -16 }}
-                                            label="Show presentation options"
-                                        />
-                                    </Grid>
-
-                                    <Grid item md={12} xs={11}>
-                                        <div className="modal-scroll">
-                                            <Grid item md={12}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
-                                                        />
-                                                    }
-                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
-                                                    label="Option 1"
-                                                />
-                                            </Grid>
-                                            <Grid item md={12}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
-                                                        />
-                                                    }
-                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
-                                                    label="Option 2"
-                                                />
-                                            </Grid>
-                                            <Grid item md={12}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
-                                                        />
-                                                    }
-                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
-                                                    label="Option 3"
-                                                />
-                                            </Grid>
-                                            <Grid item md={12}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
-                                                        />
-                                                    }
-                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
-                                                    label="Option 4"
-                                                />
-                                            </Grid>
-                                            <Grid item md={12}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
-                                                        />
-                                                    }
-                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
-                                                    label="Option 5"
-                                                />
-                                            </Grid>
-                                        </div>
-                                    </Grid>
-
-                                    <Grid item md={12} xs={11}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
-                                                />
-                                            }
-                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: -10 }}
-                                            label="Сheck all"
-                                        />
-                                    </Grid>
                                 </Grid>
                             </Collapse>
                         </Grid>

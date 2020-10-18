@@ -138,7 +138,7 @@ export default function PaverModal() {
                                 </Grid>
                                 <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField id="outlined-basic" label="SF" variant="outlined" />
+                                        <TextField label="SF" variant="outlined" />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -200,8 +200,7 @@ export default function PaverModal() {
 
                                     <Grid item md={12} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%", marginTop: 0 }}>
-                                            <TextField
-                                                id="outlined-multiline-static"
+                                            <TextField 
                                                 label="Notes"
                                                 multiline
                                                 rows={4}

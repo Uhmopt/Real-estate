@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Check from "@material-ui/icons/Check";
-import DeleteIcon from '@material-ui/icons/Delete';
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
@@ -16,7 +15,6 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import Button from '@material-ui/core/Button';
-import CustomInput from "components/CustomInput/CustomInput.js";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import TextField from '@material-ui/core/TextField';

@@ -1,4 +1,3 @@
-
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
@@ -7,9 +6,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
 import Slide from "@material-ui/core/Slide";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";

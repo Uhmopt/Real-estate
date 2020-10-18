@@ -36,7 +36,7 @@ a:focus {
 }
 
 .makeStyles-cardBody-655 {
-    padding: 0 1rem 1rem !important;
+    padding: 0 1.875rem 1rem !important;
 }
 
 label#combo-box-demo-label,
@@ -267,7 +267,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
         max-width: 1920px !important;
     }
 
-    .makeStyles-container-527 {
+    div[class*="makeStyles-sectionWhit"] div div[class*="makeStyles-container"] {
         max-width: 1440px !important;
     }
 }
@@ -304,6 +304,10 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 @media (max-width: 767.95px) {
+
+    div[class*="makeStyles-cardBody"] {
+        padding: 0.9375rem .7rem !important;
+    }
 
     .side-overlay {
         display: inline;

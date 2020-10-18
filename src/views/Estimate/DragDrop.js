@@ -21,7 +21,6 @@ const reorder = (list, startIndex, endIndex) => {
 };
 // Demo Data
 const data1 = ["Paver", "Edge stone", "Light"];
-const data2 = ["Lights", "Materials", "Fireplace"];
 /**
  * Moves an item from one list to another list.
  */
@@ -85,13 +84,11 @@ function QuoteApp() {
       setState(newState.filter(group => group.length));
     }
   }
-  console.log(state,"state")
   return (
     <div>
       <div style={{ display: "flex" }}>
         <DragDropContext onDragEnd={onDragEnd}>
           {state.map((el, ind) => (
-            console.log(el, "el"),
             <Droppable key={ind} droppableId={`${ind}`}>
               {(provided, snapshot) => (
                 <div
