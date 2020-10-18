@@ -334,6 +334,18 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     padding-top: 12px;
     margin-bottom: 0;
 }
+.subpay-style1 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+    color: #333;
+}
+.subpay-total {
+    font-size: 28px;
+    color: #36721A;
+    font-weight: bold;
+    text-align: right;
+}
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
         max-width: 1920px !important;
