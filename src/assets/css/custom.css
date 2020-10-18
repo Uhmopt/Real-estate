@@ -91,7 +91,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 
 .price-footer,
 .price-footer1 {
-    font-size: 30px !important;
+    font-size: 28px !important;
     color: #fff;
     font-weight: bold !important;
 }
@@ -370,6 +370,15 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     width: 100%;
     display: grid;
     grid-template-columns: 105px auto;
+}
+.sales-total h5 {
+    width: 160px;
+    font-weight: 500;
+}
+.sales-total1 h5 {
+    width: 160px;
+    text-align: center;
+    font-weight: 500;
 }
 @media (min-width: 1200px) {
     .makeStyles-container-43 {

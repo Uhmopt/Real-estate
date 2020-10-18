@@ -10,7 +10,7 @@ import HeaderContral from "components/Header/HeaderContral.js";
 import FooterPrice from "./FooterPrice";
 import Footer from "components/Footer/Footer.js";
 // sections for this page
-import SubpayCard from "./SubpayCard";
+import SalesCard from "./SalesCard";
 
 import presentationStyle from "assets/jss/material-kit-pro-react/views/presentationStyle.js";
 
@@ -30,7 +30,7 @@ export default function PresentationPage() {
       links={<HeaderContral/>}
       fixed
     />
-      <SubpayCard />
+      <SalesCard />
       <FooterPrice />
       <Footer title="estimate" />
     </div>

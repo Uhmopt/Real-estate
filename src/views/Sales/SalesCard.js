@@ -3,6 +3,7 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from '@material-ui/core/MenuItem';
+import clsx from 'clsx';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
@@ -11,9 +12,11 @@ import TableCell from '@material-ui/core/TableCell';
 import FormControl from '@material-ui/core/FormControl';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 // @material-ui/icons
 import AddIcon from '@material-ui/icons/Add';
 // core components
@@ -28,20 +31,21 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/s
 
 const useStyles = makeStyles(styles);
 const rows = [
-    createData('Pavers', 860),
-    createData('Cinder Block', 740),
-    createData('Sod', 450),
+    createData('Margin Expenses', '$ 2,000.00', '31 %'),
+    createData('SubPay', '$ 1,000.00', '16 %'),
+    createData('Margin Profit', '$3, 382.98', ''),
 ];
 const rows1 = [
     createData('Grill', '$ 750'),
 ];
 const rows2 = [
-    createData('Delivery', '$ 250'),
-    createData('Equipment', '$ 1000'),
+    createData('$500 Coupon', -500),
+    createData('8% Cash', -570.00),
+    createData('10% COVID', -656.00),
 ];
 
-function createData(attr, cost) {
-    return { attr, cost };
+function createData(attr, cost, percent) {
+    return { attr, cost, percent };
 }
 export default function SectionCards() {
     const [teams, setProducts] = React.useState('');
@@ -62,40 +66,42 @@ export default function SectionCards() {
                                         <GridItem xs={12}>
                                             <Card>
                                                 <CardHeader>
-                                                    <h3 className="material-title">Hours Estimate</h3>
+                                                    <h3 className="material-title">Sales Settings</h3>
                                                 </CardHeader>
                                                 <CardBody>
                                                     <TableContainer component={Paper}>
                                                         <Table className={classes.table} aria-label="simple table">
-                                                            <TableHead>
-                                                                <TableRow>
-                                                                    <TableCell align="left">Product</TableCell>
-                                                                    <TableCell align="center">Cost</TableCell>
-                                                                </TableRow>
-                                                            </TableHead>
                                                             <TableBody>
+                                                                <TableRow>
+                                                                    <TableCell align="left" width="120px">Margin</TableCell>
+                                                                    <TableCell align="center">
+
+                                                                        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                                                                            <OutlinedInput
+                                                                                id="outlined-adornment-weight"
+                                                                                endAdornment={<InputAdornment position="end">%</InputAdornment>}
+                                                                                aria-describedby="outlined-weight-helper-text"
+                                                                                style={{ width: 80 }}
+                                                                                inputProps={{
+                                                                                    'aria-label': 'weight',
+                                                                                }}
+                                                                                labelWidth={0}
+                                                                            />
+                                                                        </FormControl>
+                                                                    </TableCell>
+                                                                    <TableCell />
+                                                                </TableRow>
                                                                 {rows.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left">{row.attr}</TableCell>
+                                                                        <TableCell align="left" width="160px">{row.attr}</TableCell>
                                                                         <TableCell align="center">{row.cost}</TableCell>
+                                                                        <TableCell align="center">{row.percent}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
+                                                                    <TableCell className="sales-total"><h5>Total 1:</h5></TableCell>
+                                                                    <TableCell className="sales-total1"><h5>$ 6,382.98</h5></TableCell>
                                                                     <TableCell />
-                                                                    <TableCell>
-                                                                        <Table>
-                                                                            <TableBody>
-                                                                                <TableRow>
-                                                                                    <TableCell align="left">Total</TableCell>
-                                                                                    <TableCell align="right">70</TableCell>
-                                                                                </TableRow>
-                                                                                <TableRow>
-                                                                                    <TableCell align="left">Est.Day</TableCell>
-                                                                                    <TableCell align="right">7</TableCell>
-                                                                                </TableRow>
-                                                                            </TableBody>
-                                                                        </Table>
-                                                                    </TableCell>
                                                                 </TableRow>
                                                             </TableBody>
                                                         </Table>
@@ -104,38 +110,6 @@ export default function SectionCards() {
                                                 <CardFooter>
                                                 </CardFooter>
                                             </Card>
-                                        </GridItem>
-                                        <GridItem xs={12}>
-                                            <GridContainer>
-                                                <GridItem xs={12} md={5}>
-                                                    <div className="custom-grid-1">
-                                                        <h5 className="subpay-style1">Total :</h5>
-                                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                                            <InputLabel>Teams</InputLabel>
-                                                            <Select
-                                                                labelId="demo-simple-select-outlined-label"
-                                                                id="demo-simple-select-outlined"
-                                                                value={teams}
-                                                                onChange={handleTeams}
-                                                                label="Product"
-                                                            >
-                                                                <MenuItem value={40}>Team 1</MenuItem>
-                                                                <MenuItem value={50}>Team 2</MenuItem>
-                                                                <MenuItem value={60}>Team 3</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </div>
-                                                </GridItem>
-                                                <GridItem xs={12} md={4}>
-                                                    <div className="custom-grid-2">
-                                                        <h5 className="subpay-style1">Daily Rate :</h5>
-                                                        <TextField label="SF" variant="outlined" />
-                                                    </div>
-                                                </GridItem>
-                                                <GridItem xs={12} md={3}>
-                                                    <h5 className="subpay-total">$ 4,900.00</h5>
-                                                </GridItem>
-                                            </GridContainer>
                                         </GridItem>
                                     </GridContainer>
                                 </GridItem>
@@ -144,24 +118,40 @@ export default function SectionCards() {
                                         <GridItem xs={12}>
                                             <Card>
                                                 <CardHeader>
-                                                    <h3 className="material-title">Installation Fees</h3>
+                                                    <h3 className="material-title">Sales Settings</h3>
                                                 </CardHeader>
                                                 <CardBody>
                                                     <TableContainer component={Paper}>
                                                         <Table className={classes.table} aria-label="simple table">
-                                                            <TableHead>
-                                                                <TableRow>
-                                                                    <TableCell align="left">Product</TableCell>
-                                                                    <TableCell align="center">Cost</TableCell>
-                                                                </TableRow>
-                                                            </TableHead>
                                                             <TableBody>
+                                                                <TableRow>
+                                                                    <TableCell align="left" width="120px">Margin</TableCell>
+                                                                    <TableCell align="right">
+
+                                                                        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                                                                            <OutlinedInput
+                                                                                id="outlined-adornment-weight"
+                                                                                endAdornment={<InputAdornment position="end">%</InputAdornment>}
+                                                                                aria-describedby="outlined-weight-helper-text"
+                                                                                style={{ width: 80 }}
+                                                                                inputProps={{
+                                                                                    'aria-label': 'weight',
+                                                                                }}
+                                                                                labelWidth={0}
+                                                                            />
+                                                                        </FormControl>
+                                                                    </TableCell>
+                                                                </TableRow>
                                                                 {rows1.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left">{row.attr}</TableCell>
-                                                                        <TableCell align="center">{row.cost}</TableCell>
+                                                                        <TableCell align="left" width="160px">{row.attr}</TableCell>
+                                                                        <TableCell align="right">{row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
+                                                                <TableRow>
+                                                                    <TableCell className="sales-total"><h5>Total 2:</h5></TableCell>
+                                                                    <TableCell className="sales-total1"><h5>$ 1,250.00</h5></TableCell>
+                                                                </TableRow>
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>
@@ -175,7 +165,7 @@ export default function SectionCards() {
                                         <GridItem xs={12}>
                                             <Card>
                                                 <CardHeader>
-                                                    <h3 className="material-title">Miscellaneous Expenses</h3>
+                                                    <h3 className="material-title">Discounts</h3>
                                                     <div className="addable-edge">
                                                         <Button color="success" size="sm">
                                                             <AddIcon />Add
@@ -187,8 +177,8 @@ export default function SectionCards() {
                                                         <Table className={classes.table} aria-label="simple table">
                                                             <TableHead>
                                                                 <TableRow>
-                                                                    <TableCell align="left">Product</TableCell>
-                                                                    <TableCell align="center">Cost</TableCell>
+                                                                    <TableCell align="left">Discounts</TableCell>
+                                                                    <TableCell align="center">Amount</TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
@@ -198,6 +188,11 @@ export default function SectionCards() {
                                                                         <TableCell align="center">{row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
+                                                                <TableRow>
+                                                                    <TableCell className="sales-total"><h5>Total After Discount</h5></TableCell>
+                                                                    <TableCell className="sales-total1"><h5>$ 5,946.98.00</h5></TableCell>
+                                                                    <TableCell />
+                                                                </TableRow>
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>

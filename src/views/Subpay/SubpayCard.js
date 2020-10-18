@@ -187,7 +187,7 @@ export default function SectionCards() {
                                                         <Table className={classes.table} aria-label="simple table">
                                                             <TableHead>
                                                                 <TableRow>
-                                                                    <TableCell align="left">Product</TableCell>
+                                                                    <TableCell align="left">Expense</TableCell>
                                                                     <TableCell align="center">Cost</TableCell>
                                                                 </TableRow>
                                                             </TableHead>
