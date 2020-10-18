@@ -58,7 +58,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div style={{ minHeight: "calc(100vh - 260px)", marginTop: 70 }}>
+                        <div style={{ minHeight: "calc(100vh - 261px)", marginTop: 70 }}>
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={10} lg={10}>
                                     <GridContainer>

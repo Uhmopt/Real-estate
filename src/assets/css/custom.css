@@ -314,37 +314,62 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     right: 0;
     top: 0;
 }
+
+.addable-edge {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 12px;
+    margin-right: 15px;
+}
+
 .footer-linker {
     font-size: 16px !important;
     text-transform: capitalize !important;
 }
+
 .current {
     color: #bee44a !important;
 }
+
 .price-footer1 {
     margin-top: 12px;
 }
+
 .price-footer1 span {
     font-size: 20px;
     font-weight: 500;
 }
+
 .material-title {
     font-size: 18px;
     font-weight: 500;
     padding-top: 12px;
     margin-bottom: 0;
 }
+
 .subpay-style1 {
     font-size: 18px;
     font-weight: 500;
     margin-right: 10px;
     color: #333;
 }
+
 .subpay-total {
     font-size: 28px;
     color: #36721A;
     font-weight: bold;
     text-align: right;
+}
+.custom-grid-1 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60px auto;
+}
+.custom-grid-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 105px auto;
 }
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
@@ -357,10 +382,17 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 }
 
 @media (max-width: 959.95px) {
+    .custom-grid-1 {
+        margin-bottom: 20px;
+    }
     .product-img {
-       margin-bottom: 20px;
-       width: auto;
-       height: auto;
+        margin-bottom: 20px;
+        width: auto;
+        height: auto;
+    }
+
+    .subpay-style1 {
+        padding-top: 10px !important;
     }
 
     .makeStyles-listItem-75 {
