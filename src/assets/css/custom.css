@@ -314,7 +314,13 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     right: 0;
     top: 0;
 }
-
+.footer-linker {
+    font-size: 16px !important;
+    text-transform: capitalize !important;
+}
+.current {
+    color: #bee44a !important;
+}
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
         max-width: 1920px !important;

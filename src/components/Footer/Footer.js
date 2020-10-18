@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import List from "@material-ui/core/List";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -14,6 +16,7 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/p
 const useStyles = makeStyles(styles);
 
 export default function SectionPreFooter() {
+  const { location: { pathname } } = useHistory()
   const classes = useStyles();
   return (
     <div>
@@ -28,59 +31,59 @@ export default function SectionPreFooter() {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <Button
-                color="white"
-                justIcon
-                simple
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Estimate
+              <List to="/">
+                <Button
+                  color="white"
+                  simple
+                  className={pathname === '/' ? 'current footer-linker' : 'footer-linker'}
+                >
+                  Estimate
               </Button>
+              </List>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <Button
-                color="white"
-                justIcon
-                simple
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Materials
-              </Button>
+              <List to="/materials">
+                <Button
+                  color="white"
+                  simple
+                  className={pathname === '/materials' ? 'current footer-linker' : 'footer-linker'}
+                >
+                  Materials
+                </Button>
+              </List>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <Button
-                color="white"
-                justIcon
-                simple
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                SubPay
+              <List to="/subpay">
+                <Button
+                  color="white"
+                  simple
+                  className={pathname === '/subpay' ? 'current footer-linker' : 'footer-linker'}
+                >
+                  SubPay
               </Button>
+              </List>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <Button
-                color="white"
-                justIcon
-                simple
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Sales
+              <List to="/sales">
+                <Button
+                  color="white"
+                  simple
+                  className={pathname === '/sales' ? 'current footer-linker' : 'footer-linker'}
+                >
+                  Sales
               </Button>
+              </List>
             </GridItem>
             <GridItem xs={12} sm={2} md={2} className={classes.border}>
-              <Button
-                color="white"
-                justIcon
-                simple
-                href="#pablo"
-                onClick={e => e.preventDefault()}
-              >
-                Export
+              <List to="/export">
+                <Button
+                  color="white"
+                  simple
+                  className={pathname === '/export' ? 'current footer-linker' : 'footer-linker'}
+                >
+                  Export
               </Button>
+              </List>
             </GridItem>
           </GridContainer>
         </div>

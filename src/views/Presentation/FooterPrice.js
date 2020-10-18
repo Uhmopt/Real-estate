@@ -22,7 +22,7 @@ export default function SectionPreFooter() {
                 )}
             >
                 <div className={classes.container}>
-                    <h1 className="price-footer">
+                    <h1 className="price-footer1">
                     $ 19,590.00
                     </h1>
                 </div>
