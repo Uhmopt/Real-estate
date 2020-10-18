@@ -13,7 +13,6 @@ import TableRow from "@material-ui/core/TableRow";
 import styles from "assets/jss/material-kit-pro-react/components/tableStyle.js";
 
 const useStyles = makeStyles(styles);
-
 export default function CustomTable(props) {
   const {
     tableHead,
