@@ -262,7 +262,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 .MuiOutlinedInput-notchedOutline {
-    border-color: #fffffffc !important;
+    border-color: #ddd !important;
 }
 
 fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
