@@ -15,10 +15,11 @@ import CloseIcon from '@material-ui/icons/Close';
 
 export default function SimpleCard() {
 
-    const [isSide, setSide] = useState(true);
     const { innerWidth: width } = window;
     const phoneMaxwidth = 767.95;
     const isMobile = width < phoneMaxwidth ? true : false;
+    const [isSide, setSide] = useState(width < phoneMaxwidth ? false : true);
+
     return (
         <div>
             <div className={isSide ? "side-overlay" : "side-overlay hidden"} onClick={e => setSide(false)}></div>

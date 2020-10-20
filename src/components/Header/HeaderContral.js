@@ -36,18 +36,17 @@ export default function HeaderLinks(props) {
     ];
     // Version list
     const versions = [
-        { version: 'version 1' },
-        { version: 'version 2' },
-        { version: 'version 3' },
-        { version: 'version 4' },
-        { version: 'version 5' },
-        { version: "version 6" },
+        { version: 'Version 1' },
+        { version: 'Version 2' },
+        { version: 'Version 3' },
+        { version: 'Version 4' },
+        { version: 'Version 5' },
+        { version: "Version 6" },
     ];
     return (
         <List className={classes.list + " " + classes.mlAuto}>
             <ListItem className={classes.listItem + " auto-1"}>
                 <Autocomplete
-                    id="combo-box-demo1"
                     options={cliets}
                     getOptionLabel={(option) => option.clist}
                     style={{ width: 240, marginRight: 15 }}
@@ -56,10 +55,9 @@ export default function HeaderLinks(props) {
             </ListItem>
             <ListItem className={classes.listItem + " auto-2"}>
                 <Autocomplete
-                    id="combo-box-demo"
                     options={versions}
                     getOptionLabel={(option) => option.version}
-                    style={{ width: 240, marginRight: 15, color: "#fff" }}
+                    style={{ width: 240, marginRight: 15 }}
                     renderInput={(params) => <TextField {...params} label="Version" variant="outlined" />}
                 />
             </ListItem>

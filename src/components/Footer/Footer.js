@@ -30,7 +30,7 @@ export default function SectionPreFooter() {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={2} md={2} className={classes.border}>
+            <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/">
                 <Button
                   color="white"
@@ -41,7 +41,7 @@ export default function SectionPreFooter() {
               </Button>
               </Link>
             </GridItem>
-            <GridItem xs={12} sm={2} md={2} className={classes.border}>
+            <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/materials">
                 <Button
                   color="white"
@@ -52,7 +52,7 @@ export default function SectionPreFooter() {
                 </Button>
               </Link>
             </GridItem>
-            <GridItem xs={12} sm={2} md={2} className={classes.border}>
+            <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/subpay">
                 <Button
                   color="white"
@@ -63,7 +63,7 @@ export default function SectionPreFooter() {
               </Button>
               </Link>
             </GridItem>
-            <GridItem xs={12} sm={2} md={2} className={classes.border}>
+            <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/sales">
                 <Button
                   color="white"
@@ -74,7 +74,7 @@ export default function SectionPreFooter() {
               </Button>
               </Link>
             </GridItem>
-            <GridItem xs={12} sm={2} md={2} className={classes.border}>
+            <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/export">
                 <Button
                   color="white"
