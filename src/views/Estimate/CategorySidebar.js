@@ -17,12 +17,14 @@ export default function SimpleCard() {
 
     const [isSide, setSide] = useState(true);
     const { innerWidth: width } = window;
+    const phoneMaxwidth = 767.95;
+    const isMobile = width < phoneMaxwidth ? true : false;
     return (
         <div>
             <div className={isSide ? "side-overlay" : "side-overlay hidden"} onClick={e => setSide(false)}></div>
             <div className={isSide ? "side-modal-bar" : "side-modal-bar hidden-side"}>
                 <div className="side-bar-body">
-                    {( width < 767.95) ? (
+                    {( isMobile ) ? (
                         <div className={isSide ? "toggle-icon hidden" : "toggle-icon"}>
                             <Button variant="contained" color="success" component="span" size="sm" onClick={e => setSide(!isSide)}>
                                 <DragIndicatorIcon />
@@ -36,40 +38,80 @@ export default function SimpleCard() {
                             </div>
                         )
                     }
-                    <ul>
-                        <li className="mobile-close-side">
-                            <IconButton onClick={e => setSide(!isSide)}>
-                                <CloseIcon />
-                            </IconButton>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <GroupModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <PaverModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <SegmentalModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <NaturalStoneModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <EdgeStoneModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <CinderBlockModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <LightsModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <MaterialsModal/>
-                        </li>
-                        <li onClick={e => setSide(false)}>
-                            <FireplaceModal/>
-                        </li>
-                    </ul>
+                    {( isMobile) ? (
+
+                        <ul>
+                            <li className="mobile-close-side">
+                                <IconButton onClick={e => setSide(!isSide)}>
+                                    <CloseIcon />
+                                </IconButton>
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <GroupModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <PaverModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <SegmentalModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <NaturalStoneModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <EdgeStoneModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <CinderBlockModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <LightsModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <MaterialsModal />
+                            </li>
+                            <li onClick={e => setSide(false)}>
+                                <FireplaceModal />
+                            </li>
+                        </ul>
+                    ) : (
+
+                            <ul>
+                                <li className="mobile-close-side">
+                                    <IconButton onClick={e => setSide(!isSide)}>
+                                        <CloseIcon />
+                                    </IconButton>
+                                </li>
+                                <li>
+                                    <GroupModal />
+                                </li>
+                                <li>
+                                    <PaverModal />
+                                </li>
+                                <li>
+                                    <SegmentalModal />
+                                </li>
+                                <li>
+                                    <NaturalStoneModal />
+                                </li>
+                                <li>
+                                    <EdgeStoneModal />
+                                </li>
+                                <li>
+                                    <CinderBlockModal />
+                                </li>
+                                <li>
+                                    <LightsModal />
+                                </li>
+                                <li>
+                                    <MaterialsModal />
+                                </li>
+                                <li>
+                                    <FireplaceModal />
+                                </li>
+                            </ul>
+                        )
+                    }
                 </div>
             </div>
         </div>

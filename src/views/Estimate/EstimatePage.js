@@ -24,17 +24,19 @@ export default function PresentationPage() {
   });
   const classes = useStyles();
   return (
-    <div className="full">
-    <Header
-      color="dark"
-      brand="Marketnology"
-      links={<HeaderContral/>}
-      fixed
-    />
+    <div className="full" style={{position: "relative"}}>
+      <Header
+        color="dark"
+        brand="Marketnology"
+        links={<HeaderContral />}
+        fixed
+      />
       <CategorySidebar />
       <ProductCard />
-      <FooterPrice />
-      <Footer title="estimate" />
+      <div className="fixed-footer">
+        <FooterPrice />
+        <Footer title="estimate" />
+      </div>
     </div>
   );
 }

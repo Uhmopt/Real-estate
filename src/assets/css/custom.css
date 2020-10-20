@@ -18,7 +18,11 @@
     margin-right: -20px;
     text-align: right !important;
 }
-
+.main-content {
+    min-height: 130vh !important;
+    margin-top: 80px;
+    margin-bottom: 90px;
+}
 a:hover,
 a:focus {
     color: #9abc31 !important;
@@ -42,7 +46,7 @@ a:focus {
 .makeStyles-cardBody-655 {
     padding: 0 1.875rem 1rem !important;
 }
-
+.side-modal-bar
 label#combo-box-demo-label,
 input#combo-box-demo,
 input#combo-box-demo1,
@@ -145,7 +149,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 120px;
+    margin-top: 25px;
     margin-left: 20px;
     z-index: 99;
     transition: all 0.5s;
@@ -481,6 +485,13 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 
 span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
     padding: 8px 8px 8px 10px !important;
+}
+
+.fixed-footer {
+    position: fixed;
+    width: 100%;
+    z-index: 99 !important;
+    top: calc(100vh - 165px);
 }
 
 @media (max-width: 767.95px) {

@@ -7,6 +7,7 @@ import Check from "@material-ui/icons/Check";
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -52,7 +53,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div style={{ minHeight: 1080, marginTop: 70 }}>
+                        <div className="main-content">
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={10} lg={10}>
                                     <GridContainer>
@@ -97,7 +98,7 @@ export default function SectionCards() {
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
-                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                    <DeleteIcon style={{ fontSize: "1rem" }} />
                                                                 </Button>
                                                             </div>
                                                         </GridItem>
@@ -164,7 +165,7 @@ export default function SectionCards() {
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
-                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                    <DeleteIcon style={{ fontSize: "1rem" }} />
                                                                 </Button>
                                                             </div>
                                                         </GridItem>
@@ -231,7 +232,7 @@ export default function SectionCards() {
                                                                         )}
                                                                 </Button>
                                                                 <Button variant="outlined" size="small">
-                                                                    <CloseIcon style={{ fontSize: "1rem" }} />
+                                                                    <DeleteIcon style={{ fontSize: "1rem" }} />
                                                                 </Button>
                                                             </div>
                                                         </GridItem>
