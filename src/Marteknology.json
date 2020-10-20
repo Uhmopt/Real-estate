@@ -88,24 +88,38 @@
         ]
     },
     "subpay" : {
-        "hours-estimate": [
+        "hours_estimate": [
             {
-                "pavers" : 10,
-                "cinder-block": 10,
-                "sod": 20
+                "product" : "Pavers",
+                "hours": 10
+            },
+            
+            {
+                "product" : "Cinder Block",
+                "hours": 15
+            },
+            
+            {
+                "product" : "Sod",
+                "hours": 20
             }
         ],
         
-        "installation-fee": [
+        "installation_fee": [
             {
-                "gril" : 750
+                "product" : "Grill",
+                "cost": 750
             }
         ],
         
         "expenses": [
             {
-                "delivery" : 750,
-                "equipment" : 1000
+                "Expense" : "Delivery",
+                "cost": 250
+            },
+            {
+                "Expense" : "Equipment",
+                "cost": 1000
             }
         ]
     }

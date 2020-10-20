@@ -30,7 +30,7 @@ export default function PresentationPage() {
       />
       <ProductCard />
       <FooterPrice />
-      <Footer title="estimate" />
+      <Footer />
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default function PresentationPage() {
       <SubpayCard />
       <div className="fixed-footer">
         <FooterPrice />
-        <Footer title="estimate" />
+        <Footer />
       </div>
     </div>
   );

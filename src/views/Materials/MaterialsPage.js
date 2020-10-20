@@ -31,7 +31,7 @@ export default function PresentationPage() {
       <MaterialCard />
       <div className="fixed-footer">
         <FooterPrice />
-        <Footer title="estimate" />
+        <Footer />
       </div>
     </div>
   );

@@ -375,7 +375,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 }
 
 .subpay-total {
-    font-size: 28px;
+    font-size: 24px;
     color: #36721A;
     font-weight: bold;
     text-align: right;
@@ -384,7 +384,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 .custom-grid-1 {
     width: 100%;
     display: grid;
-    grid-template-columns: 60px auto;
+    grid-template-columns: 70px auto;
 }
 
 .custom-grid-2 {

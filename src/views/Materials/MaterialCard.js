@@ -17,12 +17,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
-import * as Actions from "../../Store/action/estimateAction";
+// import * as Actions from "../../Store/action/estimateAction";
 const useStyles = makeStyles(styles); 
 
 export default function SectionCards() {
     const dispatch = useDispatch();
-    const materialData = useSelector(state => state.esitmate);  
+    const materialData = useSelector(state => state.esitmate.materials);  
     // useEffect(() => {
     //     Actions.getEsitmateData(dispatch);
     // }, [])

@@ -32,7 +32,7 @@ export default function PresentationPage() {
     />
       <SalesCard />
       <FooterPrice />
-      <Footer title="estimate" />
+      <Footer />
     </div>
   );
 }

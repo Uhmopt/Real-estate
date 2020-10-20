@@ -14,7 +14,7 @@ const useStyles = makeStyles(styles);
 export default function SectionPreFooter() {
     // const dispatch = useDispatch();
     const [totalPrice, setTotalPrice] = useState(0);
-    const materialData = useSelector(state => state.esitmate);
+    const materialData = useSelector(state => state.esitmate.materials);
     const allData = [...materialData.row1, ...materialData.row2, ...materialData.row3];
     useEffect(() => {
         let sumPrice = 0;
