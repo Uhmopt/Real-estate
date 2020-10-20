@@ -382,6 +382,9 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     text-align: center;
     font-weight: 500;
 }
+.toggle-icon {
+    display: none;
+}
 @media (min-width: 1200px) {
     .makeStyles-container-43 {
         max-width: 1920px !important;
@@ -393,6 +396,9 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 }
 
 @media (max-width: 959.95px) {
+    .toggle-icon {
+        display: block;
+    }
     .custom-grid-1 {
         margin-bottom: 20px;
     }

@@ -26,12 +26,13 @@ export default function HeaderLinks(props) {
     const classes = useStyles();
     // Clients list
     const cliets = [
-        { clist: 'Test 1' },
-        { clist: 'Test 2' },
-        { clist: 'Test 3' },
-        { clist: 'Test 4' },
-        { clist: 'Test 5' },
-        { clist: "Test 6" },
+        { clist: 'A TEST COMPANY' },
+        { clist: 'AMAZON' },
+        { clist: 'APPLE' },
+        { clist: 'IBM' },
+        { clist: 'INTEL' },
+        { clist: "NETFLIX" },
+        { clist: "NETLIFY" },
     ];
     // Version list
     const versions = [

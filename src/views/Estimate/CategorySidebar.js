@@ -15,7 +15,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 export default function SimpleCard() {
 
-    const [isSide, setSide] = useState(false);
+    const [isSide, setSide] = useState(true);
     const { innerWidth: width } = window;
     return (
         <div>
