@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,45 +15,28 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-// @material-ui/icons
-import AddIcon from '@material-ui/icons/Add';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import AddExpense from "./AddExpenseDialog";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 
 const useStyles = makeStyles(styles);
 const daily_hours = 10;
-const rows = [
-    createData('Pavers', 860),
-    createData('Cinder Block', 740),
-    createData('Sod', 450),
-];
-const rows1 = [
-    createData('Grill', '$ 750'),
-];
-const rows2 = [
-    createData('Delivery', '$ 250'),
-    createData('Equipment', '$ 1000'),
-];
 
-function createData(attr, cost) {
-    return { attr, cost };
-}
-export default function SectionCards() {
-    const dispatch = useDispatch();
+export default function SectionCards() { 
 
     const [totalHours, setTotalHours] = useState(0);
     const [totalDays, setTotalDays] = useState(0);
     const [teams, setProducts] = useState('');
     const [dailyRate, setDailyRate] = useState(0);
-    const [totalHoursPrice, setHoursPrice] = useState(0);
-
+    const [totalHoursPrice, setHoursPrice] = useState(0); 
+    const [expenseData, setExpenseData] = useState([]);
+    const subStateData = useSelector(state => state.subPay.subPayData); 
     const subPayData = useSelector(state => state.esitmate.subpay);
     useEffect(() => {
         let sumHours = 0;
@@ -61,9 +44,13 @@ export default function SectionCards() {
             return sumHours += item.hours;
         });
         setTotalHours(sumHours);
-        setTotalDays( Math.ceil( sumHours / daily_hours ) );
+        setTotalDays(Math.ceil(sumHours / daily_hours));
     }, [])
 
+    useEffect(() => { 
+        setExpenseData(subStateData);
+    }, [subStateData])
+    
     const handleTeams = (event) => {
         setProducts(event.target.value);
         setDailyRate(event.target.value);
@@ -179,10 +166,10 @@ export default function SectionCards() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {rows1.map((row, key) => (
+                                                                {subPayData.installation_fee.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left">{row.attr}</TableCell>
-                                                                        <TableCell align="center">{row.cost}</TableCell>
+                                                                        <TableCell align="left">{row.product}</TableCell>
+                                                                        <TableCell align="center">$ {row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                             </TableBody>
@@ -200,9 +187,7 @@ export default function SectionCards() {
                                                 <CardHeader>
                                                     <h3 className="material-title">Miscellaneous Expenses</h3>
                                                     <div className="addable-edge">
-                                                        <Button color="success" size="sm">
-                                                            <AddIcon />Add
-                                                        </Button>
+                                                        <AddExpense />
                                                     </div>
                                                 </CardHeader>
                                                 <CardBody>
@@ -215,10 +200,10 @@ export default function SectionCards() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {rows2.map((row, key) => (
+                                                                {expenseData.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left">{row.attr}</TableCell>
-                                                                        <TableCell align="center">{row.cost}</TableCell>
+                                                                        <TableCell align="left">{row.expense}</TableCell>
+                                                                        <TableCell align="center">$ {row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                             </TableBody>

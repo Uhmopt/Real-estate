@@ -110,15 +110,15 @@
                 "product" : "Grill",
                 "cost": 750
             }
-        ],
+        ],  
         
         "expenses": [
             {
-                "Expense" : "Delivery",
+                "expense" : "Delivery",
                 "cost": 250
             },
             {
-                "Expense" : "Equipment",
+                "expense" : "Equipment",
                 "cost": 1000
             }
         ]
