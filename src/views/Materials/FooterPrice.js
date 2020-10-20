@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -11,7 +12,7 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/p
 const useStyles = makeStyles(styles);
 
 export default function SectionPreFooter() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [totalPrice, setTotalPrice] = useState(0);
     const materialData = useSelector(state => state.esitmate);
     const allData = [...materialData.row1, ...materialData.row2, ...materialData.row3];

@@ -29,6 +29,12 @@
     margin-bottom: 90px;
 }
 
+.main-content1 {
+    min-height: 100vh !important;
+    margin-top: 80px;
+    margin-bottom: 90px;
+}
+
 a:hover,
 a:focus {
     color: #9abc31 !important;
@@ -508,6 +514,10 @@ span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
 
 @media (max-width: 767.95px) {
 
+
+    .main-content1 {
+        margin-bottom: 160px;
+    }
     button.MuiButtonBase-root.MuiButton-root.MuiButton-text[class*="makeStyles-button"][class*="makeStyles-white"][class*="makeStyles-simple"].footer-linker {
         padding: 12px 0;
         text-align: center !important;

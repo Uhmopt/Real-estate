@@ -86,5 +86,27 @@
                 "cost" : 780
             }
         ]
+    },
+    "subpay" : {
+        "hours-estimate": [
+            {
+                "pavers" : 10,
+                "cinder-block": 10,
+                "sod": 20
+            }
+        ],
+        
+        "installation-fee": [
+            {
+                "gril" : 750
+            }
+        ],
+        
+        "expenses": [
+            {
+                "delivery" : 750,
+                "equipment" : 1000
+            }
+        ]
     }
 }
