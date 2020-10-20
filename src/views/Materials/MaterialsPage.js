@@ -29,8 +29,10 @@ export default function PresentationPage() {
         fixed
       />
       <MaterialCard />
-      <FooterPrice />
-      <Footer title="estimate" />
+      <div className="fixed-footer">
+        <FooterPrice />
+        <Footer title="estimate" />
+      </div>
     </div>
   );
 }

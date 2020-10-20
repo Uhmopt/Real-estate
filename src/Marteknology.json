@@ -1,0 +1,90 @@
+{
+    "materials":{
+        "row1":[
+            {
+                "manufacturer" : "Nicolock",
+                "style": "Stoneridge",
+                "color": "RED",
+                "unit": "Pallet",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 860
+            },
+            {
+                "manufacturer" : "Nicolock",
+                "style": "Stoneridge",
+                "color": "GREEN",
+                "unit": "TON",
+                "qty": 5,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 450
+            },
+            {
+                "manufacturer" : "Nicolock",
+                "style": "Stoneridge",
+                "color": "BLUE",
+                "unit": "Roll",
+                "qty": 3,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 740
+            }
+        ],
+        "row2":[
+            {
+                "manufacturer" : "Nicolock",
+                "style": "",
+                "color": "",
+                "unit": "Pallet",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 860
+            }
+        ],
+        "row3":[
+            {
+                "manufacturer" : "Nicolock",
+                "style": "",
+                "color": "RGo",
+                "unit": "Pallet",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 860
+            },
+            {
+                "manufacturer" : "Nicolock",
+                "style": "",
+                "color": "BLUE",
+                "unit": "TON",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 860
+            },
+            {
+                "manufacturer" : "Nicolock",
+                "style": "",
+                "color": "GREEN",
+                "unit": "TON",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 130
+            },
+            {
+                "manufacturer" : "Nicolock",
+                "style": "",
+                "color": "GREEN",
+                "unit": "TON",
+                "qty": 2,
+                "distributor": "Showplace",
+                "rate" : 930,
+                "cost" : 780
+            }
+        ]
+    }
+}

@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch,useSelector } from "react-redux";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -16,28 +17,15 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
-const useStyles = makeStyles(styles);
-
-const rows = [
-    createData('Nicolock', 'Stoneridge', 'RED', 'Pallet', 2, 'Showplace', 930, 860),
-    createData('Nicolock', 'Stoneridge', 'GREEN', 'TON', 5, 'Showplace', 930, 740),
-    createData('Nicolock', 'Stoneridge', 'BLUE', 'Roll', 3, 'Showplace', 930, 450),
-];
-const rows1 = [
-    createData('Nicolock', '', '', 'Pallet', 2, 'Showplace', 930, 860),
-];
-const rows2 = [
-    createData('Nicolock', '', 'RGo', 'Pallet', 2, 'Showplace', 930, 860),
-    createData('Nicolock', '', 'BLUE', 'TON', 5, 'Showplace', 930, 740),
-    createData('Nicolock', '', 'GREEN', 'Roll', 3, 'Showplace', 930, 450),
-    createData('Nicolock', '', 'GREEN', 'TON', 6, 'Showplace', 930, 450),
-];
-
-function createData(manufacturer, styles, color, unit, qty, distributor, rate, cost) {
-    return { manufacturer, styles, color, unit, qty, distributor, rate, cost };
-}
+import * as Actions from "../../Store/action/estimateAction";
+const useStyles = makeStyles(styles); 
 
 export default function SectionCards() {
+    const dispatch = useDispatch();
+    const materialData = useSelector(state => state.esitmate);  
+    // useEffect(() => {
+    //     Actions.getEsitmateData(dispatch);
+    // }, [])
 
     const classes = useStyles();
     return (
@@ -46,7 +34,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div style={{ minHeight: "calc(100vh - 240px)", marginTop: 70 }}>
+                        <div className="main-content">
                             <GridContainer>
                                 <GridItem xs={12} sm={12}>
                                     <Card>
@@ -58,7 +46,7 @@ export default function SectionCards() {
                                                 <Table className={classes.table} aria-label="simple table">
                                                     <TableHead>
                                                         <TableRow>
-                                                            <TableCell align="center">Manufacturer</TableCell>
+                                                            <TableCell align="left">Manufacturer</TableCell>
                                                             <TableCell align="center">Style</TableCell>
                                                             <TableCell align="center">Color</TableCell>
                                                             <TableCell align="center" width="10%">Unit</TableCell>
@@ -69,10 +57,10 @@ export default function SectionCards() {
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
-                                                        {rows.map((row, key) => (
+                                                        {materialData.row1.map((row, key) => (
                                                             <TableRow key={key}>
-                                                                <TableCell align="center">{row.manufacturer}</TableCell>
-                                                                <TableCell align="center">{row.styles}</TableCell>
+                                                                <TableCell align="left">{row.manufacturer}</TableCell>
+                                                                <TableCell align="center">{row.style}</TableCell>
                                                                 <TableCell align="center">{row.color}</TableCell>
                                                                 <TableCell align="center">{row.unit}</TableCell>
                                                                 <TableCell align="center">{row.qty}</TableCell>
@@ -99,7 +87,7 @@ export default function SectionCards() {
                                                 <Table className={classes.table} aria-label="simple table">
                                                     <TableHead>
                                                         <TableRow>
-                                                            <TableCell align="center">Manufacturer</TableCell>
+                                                            <TableCell align="left">Manufacturer</TableCell>
                                                             <TableCell align="center" width="10%">Unit</TableCell>
                                                             <TableCell align="center" width="10%">Qty</TableCell>
                                                             <TableCell align="center" width="10%">Distributor</TableCell>
@@ -108,9 +96,9 @@ export default function SectionCards() {
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
-                                                        {rows1.map((row, key) => (
+                                                        {materialData.row2.map((row, key) => (
                                                             <TableRow key={key}>
-                                                                <TableCell align="center">{row.manufacturer}</TableCell>
+                                                                <TableCell align="left">{row.manufacturer}</TableCell>
                                                                 <TableCell align="center">{row.unit}</TableCell>
                                                                 <TableCell align="center">{row.qty}</TableCell>
                                                                 <TableCell align="center">{row.distributor}</TableCell>
@@ -136,7 +124,7 @@ export default function SectionCards() {
                                                 <Table className={classes.table} aria-label="simple table">
                                                     <TableHead>
                                                         <TableRow>
-                                                            <TableCell align="center">Manufacturer</TableCell>
+                                                            <TableCell align="left">Manufacturer</TableCell>
                                                             <TableCell align="center">Color</TableCell>
                                                             <TableCell align="center" width="10%">Unit</TableCell>
                                                             <TableCell align="center" width="10%">Qty</TableCell>
@@ -146,9 +134,9 @@ export default function SectionCards() {
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
-                                                        {rows2.map((row, key) => (
+                                                        {materialData.row3.map((row, key) => (
                                                             <TableRow key={key}>
-                                                                <TableCell align="center">{row.manufacturer}</TableCell>
+                                                                <TableCell align="left">{row.manufacturer}</TableCell>
                                                                 <TableCell align="center">{row.color}</TableCell>
                                                                 <TableCell align="center">{row.unit}</TableCell>
                                                                 <TableCell align="center">{row.qty}</TableCell>
