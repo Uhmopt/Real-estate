@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from 'clsx';
@@ -23,11 +23,26 @@ import CardFooter from "components/Card/CardFooter.js";
 import AddExpense from "./AddDiscountDialog.js";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 
+import * as Actions from "../../Store/action/salesAction"
+
 const useStyles = makeStyles(styles);
 
 export default function SectionCards() {
 
+    const dispatch = useDispatch();
     const salesData = useSelector(state => state.esitmate.sales);
+    const [preDiscountTotal, setPreDiscountTotal] = useState(7689.98);
+    const [discountData, setDiscountData] = useState([]);
+    const salesStateData = useSelector( state => state.sales.salesData );
+    const afterTotal = useSelector( state => state.sales.afterTotal );
+    
+    useEffect(() => { 
+        setDiscountData(salesStateData);
+    }, [salesStateData])
+    
+    useEffect(() => {
+        dispatch(Actions.setTotalPay(discountData, preDiscountTotal))
+    },[discountData])
 
     const classes = useStyles();
     return (
@@ -72,7 +87,7 @@ export default function SectionCards() {
                                                                         <TableCell align="left" width="160px">{row.attr1}</TableCell>
                                                                         <TableCell align="center">$ {row.cost}</TableCell>
                                                                         <TableCell align="center">% {row.percent}</TableCell>
-                                                                    </TableRow>
+                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
                                                                     <TableCell align="left" width="160px">Margin Expenses</TableCell>
@@ -164,7 +179,7 @@ export default function SectionCards() {
                                                                     <TableCell><h5 className="sales-total">Pre Discount Total</h5></TableCell>
                                                                     <TableCell align="right"><h5 className="sales-total">$ 7,632.98</h5></TableCell>
                                                                 </TableRow>
-                                                                {salesData.discounts.map((row, key) => (
+                                                                {discountData.map((row, key) => (
                                                                     <TableRow key={key}>
                                                                         <TableCell align="left">{row.attr1}</TableCell>
                                                                         <TableCell align="right">{row.cost}</TableCell>
@@ -172,7 +187,7 @@ export default function SectionCards() {
                                                                 ))}
                                                                 <TableRow>
                                                                     <TableCell><h5 className="sales-total">Total After Discount</h5></TableCell>
-                                                                    <TableCell align="right"><h5 className="sales-total">$ 5,946.98</h5></TableCell>
+                                                                    <TableCell align="right"><h5 className="sales-total">$ {afterTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h5></TableCell>
                                                                 </TableRow>
                                                             </TableBody>
                                                         </Table>

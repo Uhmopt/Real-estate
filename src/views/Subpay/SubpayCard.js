@@ -52,11 +52,11 @@ export default function SectionCards() {
 
     useEffect(() => { 
         setExpenseData(subStateData);
-        dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
     }, [subStateData])
     
-    // useEffect(() => {
-    // },[totalHoursPrice,subStateData])
+    useEffect(() => {
+        dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
+    },[totalHoursPrice,subStateData])
 
     const handleTeams = (event) => {
         setProducts(event.target.value);

@@ -14,13 +14,13 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid'; 
 import { useTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import * as Actions from '../../Store/action/subPayAction'
+import * as Actions from '../../Store/action/salesAction';
 
 export default function AddDiscountDialog() {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const [expense, setExpense] = useState('');
-    const [cost, setCost] = useState(0);
+    const [discount, setDiscount] = useState('');
+    const [amount, setAmount] = useState(0);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -31,11 +31,11 @@ export default function AddDiscountDialog() {
     const handleClose = () => {
         setOpen(false);
     }; 
-    const addExpense = () => {
-        dispatch(Actions.addExpenses(expense, cost));
+    const addDiscount = () => {
+        dispatch(Actions.addDiscount(discount, amount));
         setOpen(false);
-        setCost(0);
-        setExpense('');
+        setAmount(0);
+        setDiscount('');
     }
 
     return (
@@ -57,17 +57,17 @@ export default function AddDiscountDialog() {
                             <TextField
                                 label="Discount"
                                 variant="outlined"
-                                onChange={event => setExpense(event.target.value)}
-                                value={expense}
+                                onChange={event => setDiscount(event.target.value)}
+                                value={discount}
                             />
                         </Grid>
                         <Grid item xs={6}>
                             <TextField
                                 label="Amount"
                                 type="number"
-                                onChange={event => setCost(event.target.value)}
+                                onChange={event => setAmount(event.target.value)}
                                 variant="outlined"
-                                value={cost}
+                                value={amount}
                             />
                         </Grid>
                     </Grid>
@@ -76,7 +76,7 @@ export default function AddDiscountDialog() {
                     <Button size="sm" onClick={handleClose}>
                         <CancelIcon />Cancel
                     </Button>
-                    <Button size="sm" onClick={addExpense} color="success">
+                    <Button size="sm" onClick={addDiscount} color="success">
                         <SaveIcon />Save
                     </Button>
                 </DialogActions>
