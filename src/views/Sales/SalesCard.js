@@ -13,6 +13,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import ClearIcon from '@material-ui/icons/Clear';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -33,16 +35,16 @@ export default function SectionCards() {
     const salesData = useSelector(state => state.esitmate.sales);
     const [preDiscountTotal, setPreDiscountTotal] = useState(7689.98);
     const [discountData, setDiscountData] = useState([]);
-    const salesStateData = useSelector( state => state.sales.salesData );
-    const afterTotal = useSelector( state => state.sales.afterTotal );
-    
-    useEffect(() => { 
+    const salesStateData = useSelector(state => state.sales.salesData);
+    const afterTotal = useSelector(state => state.sales.afterTotal);
+
+    useEffect(() => {
         setDiscountData(salesStateData);
     }, [salesStateData])
-    
+
     useEffect(() => {
         dispatch(Actions.setTotalPay(discountData, preDiscountTotal))
-    },[discountData])
+    }, [discountData])
 
     const classes = useStyles();
     return (
@@ -87,7 +89,7 @@ export default function SectionCards() {
                                                                         <TableCell align="left" width="160px">{row.attr1}</TableCell>
                                                                         <TableCell align="center">$ {row.cost}</TableCell>
                                                                         <TableCell align="center">% {row.percent}</TableCell>
-                                                                     </TableRow>
+                                                                    </TableRow>
                                                                 ))}
                                                                 <TableRow>
                                                                     <TableCell align="left" width="160px">Margin Expenses</TableCell>
@@ -172,22 +174,30 @@ export default function SectionCards() {
                                                                 <TableRow>
                                                                     <TableCell align="left">Discounts</TableCell>
                                                                     <TableCell align="right">Amount</TableCell>
+                                                                    <TableCell align="left" width="30px"></TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
                                                                 <TableRow>
                                                                     <TableCell><h5 className="sales-total">Pre Discount Total</h5></TableCell>
                                                                     <TableCell align="right"><h5 className="sales-total">$ 7,632.98</h5></TableCell>
+                                                                    <TableCell align="left" width="30px"></TableCell>
                                                                 </TableRow>
                                                                 {discountData.map((row, key) => (
                                                                     <TableRow key={key}>
                                                                         <TableCell align="left">{row.attr1}</TableCell>
                                                                         <TableCell align="right">{row.cost}</TableCell>
+                                                                        <TableCell align="left" width="30px">
+                                                                            <IconButton aria-label="delete" className={classes.margin} size="small">
+                                                                                <ClearIcon fontSize="inherit" />
+                                                                            </IconButton>
+                                                                        </TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
                                                                     <TableCell><h5 className="sales-total">Total After Discount</h5></TableCell>
                                                                     <TableCell align="right"><h5 className="sales-total">$ {afterTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h5></TableCell>
+                                                                    <TableCell align="left" width="30px"></TableCell>
                                                                 </TableRow>
                                                             </TableBody>
                                                         </Table>

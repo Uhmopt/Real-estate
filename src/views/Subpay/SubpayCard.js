@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,6 +15,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import ClearIcon from '@material-ui/icons/Clear';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -38,9 +40,9 @@ export default function SectionCards() {
     const [totalHoursPrice, setHoursPrice] = useState(0);
     const [totalHoursPriceN, setHoursPriceN] = useState(0);
     const [expenseData, setExpenseData] = useState([]);
-    const subStateData = useSelector(state => state.subPay.subPayData); 
+    const subStateData = useSelector(state => state.subPay.subPayData);
     const subPayData = useSelector(state => state.esitmate.subpay);
-    const feeData = useSelector(state => state.esitmate.subpay.installation_fee);  
+    const feeData = useSelector(state => state.esitmate.subpay.installation_fee);
     useEffect(() => {
         let sumHours = 0;
         subPayData.hours_estimate.map(item => {
@@ -50,27 +52,27 @@ export default function SectionCards() {
         setTotalDays(Math.ceil(sumHours / daily_hours));
     }, [subPayData])
 
-    useEffect(() => { 
+    useEffect(() => {
         setExpenseData(subStateData);
     }, [subStateData])
-    
+
     useEffect(() => {
-        dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
-    },[totalHoursPrice,subStateData])
+        dispatch(Actions.setTotalPay(feeData, subStateData, totalHoursPriceN))
+    }, [totalHoursPrice, subStateData])
 
     const handleTeams = (event) => {
         setProducts(event.target.value);
         setDailyRate(event.target.value);
         let tempPrice = event.target.value * totalDays;
         setHoursPriceN(tempPrice);
-        setHoursPrice( tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        setHoursPrice(tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
     const handleRate = (event) => {
         setDailyRate(event.target.value);
         let tempPrice = event.target.value * totalDays;
         setHoursPriceN(tempPrice);
-        setHoursPrice( tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        setHoursPrice(tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
     const classes = useStyles();
@@ -206,14 +208,20 @@ export default function SectionCards() {
                                                             <TableHead>
                                                                 <TableRow>
                                                                     <TableCell align="left">Expense</TableCell>
-                                                                    <TableCell align="center">Cost</TableCell>
+                                                                    <TableCell align="right">Cost</TableCell>
+                                                                    <TableCell align="left" width="30px"></TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
                                                                 {expenseData.map((row, key) => (
                                                                     <TableRow key={key}>
                                                                         <TableCell align="left">{row.expense}</TableCell>
-                                                                        <TableCell align="center">$ {row.cost}</TableCell>
+                                                                        <TableCell align="right">$ {row.cost}</TableCell>
+                                                                        <TableCell align="left" width="30px">
+                                                                            <IconButton aria-label="delete" className={classes.margin} size="small">
+                                                                                <ClearIcon fontSize="inherit" />
+                                                                            </IconButton>
+                                                                        </TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                             </TableBody>
