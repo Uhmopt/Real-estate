@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Check from "@material-ui/icons/Check";
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
-import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -48,7 +47,7 @@ export default function SectionCards() {
         setChecked(newChecked);
     };
     return (
-        <div className="cd-section" id="cards">
+        <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
                 <div>

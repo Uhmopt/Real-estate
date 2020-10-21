@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import { useDispatch,useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -21,15 +21,10 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/s
 const useStyles = makeStyles(styles); 
 
 export default function SectionCards() {
-    const dispatch = useDispatch();
     const materialData = useSelector(state => state.esitmate.materials);  
-    // useEffect(() => {
-    //     Actions.getEsitmateData(dispatch);
-    // }, [])
-
     const classes = useStyles();
     return (
-        <div className="cd-section" id="cards">
+        <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
                 <div>

@@ -48,15 +48,15 @@ export default function SectionCards() {
         });
         setTotalHours(sumHours);
         setTotalDays(Math.ceil(sumHours / daily_hours));
-    }, [])
+    }, [subPayData])
 
     useEffect(() => { 
         setExpenseData(subStateData);
+        dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
     }, [subStateData])
     
-    useEffect(() => {
-            dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
-    },[totalHoursPrice,subStateData])
+    // useEffect(() => {
+    // },[totalHoursPrice,subStateData])
 
     const handleTeams = (event) => {
         setProducts(event.target.value);
@@ -73,10 +73,9 @@ export default function SectionCards() {
         setHoursPrice( tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
-
     const classes = useStyles();
     return (
-        <div className="cd-section" id="cards">
+        <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
                 <div>

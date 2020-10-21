@@ -13,43 +13,25 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import InputAdornment from '@material-ui/core/InputAdornment';
-// @material-ui/icons
-import AddIcon from '@material-ui/icons/Add';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import AddExpense from "./AddDiscountDialog.js";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 
 const useStyles = makeStyles(styles);
-const rows = [
-    createData('Margin Expenses', '$ 2,000.00', '31 %'),
-    createData('SubPay', '$ 1,000.00', '16 %'),
-    createData('Margin Profit', '$3, 382.98', ''),
-];
-const rows1 = [
-    createData('Grill', '$ 750'),
-];
-const rows2 = [
-    createData('$500 Coupon', -500),
-    createData('8% Cash', -570.00),
-    createData('10% COVID', -656.00),
-];
 
-function createData(attr, cost, percent) {
-    return { attr, cost, percent };
-}
 export default function SectionCards() {
 
     const salesData = useSelector(state => state.esitmate.sales);
 
     const classes = useStyles();
     return (
-        <div className="cd-section" id="cards">
+        <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
                 <div>
@@ -165,18 +147,12 @@ export default function SectionCards() {
                                                 <CardHeader>
                                                     <h3 className="material-title">Discounts</h3>
                                                     <div className="addable-edge">
-                                                        <Button color="success" size="sm">
-                                                            <AddIcon />Add
-                                                        </Button>
+                                                        <AddExpense />
                                                     </div>
                                                 </CardHeader>
                                                 <CardBody>
                                                     <TableContainer component={Paper}>
                                                         <Table className={classes.table} aria-label="simple table">
-                                                            <TableRow>
-                                                                <TableCell><h5 className="sales-total">Pre Discount Total</h5></TableCell>
-                                                                <TableCell align="right"><h5 className="sales-total">$ 7,632.98</h5></TableCell>
-                                                            </TableRow>
                                                             <TableHead>
                                                                 <TableRow>
                                                                     <TableCell align="left">Discounts</TableCell>
@@ -184,6 +160,10 @@ export default function SectionCards() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
+                                                                <TableRow>
+                                                                    <TableCell><h5 className="sales-total">Pre Discount Total</h5></TableCell>
+                                                                    <TableCell align="right"><h5 className="sales-total">$ 7,632.98</h5></TableCell>
+                                                                </TableRow>
                                                                 {salesData.discounts.map((row, key) => (
                                                                     <TableRow key={key}>
                                                                         <TableCell align="left">{row.attr1}</TableCell>

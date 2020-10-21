@@ -53,7 +53,7 @@ export default function SectionCards() {
         setOptions1(event.target.value);
     };
     return (
-        <div className="cd-section" id="cards">
+        <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
                 <div>

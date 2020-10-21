@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 import Dialog from '@material-ui/core/Dialog';
 // @material-ui/icons
@@ -16,7 +16,7 @@ import { useTheme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import * as Actions from '../../Store/action/subPayAction'
 
-export default function AddExpenseDialog() {
+export default function AddDiscountDialog() {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [expense, setExpense] = useState('');
@@ -50,12 +50,12 @@ export default function AddExpenseDialog() {
                 onClose={handleClose}
                 aria-labelledby="responsive-dialog-title"
             >
-                <DialogTitle id="responsive-dialog-title">{"Add new expenses"}</DialogTitle>
+                <DialogTitle id="responsive-dialog-title">{"Add new discount"}</DialogTitle>
                 <DialogContent>
                     <Grid container spacing={2} style={{ marginTop: 10 }}>
                         <Grid item xs={6}>
                             <TextField
-                                label="Expense"
+                                label="Discount"
                                 variant="outlined"
                                 onChange={event => setExpense(event.target.value)}
                                 value={expense}
@@ -63,7 +63,7 @@ export default function AddExpenseDialog() {
                         </Grid>
                         <Grid item xs={6}>
                             <TextField
-                                label="Cost"
+                                label="Amount"
                                 type="number"
                                 onChange={event => setCost(event.target.value)}
                                 variant="outlined"

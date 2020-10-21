@@ -18,11 +18,11 @@ export default function SectionPreFooter() {
     const allData = [...materialData.row1, ...materialData.row2, ...materialData.row3];
     useEffect(() => {
         let sumPrice = 0;
-        allData.map(item => {
-            return sumPrice += item.cost;
+        allData.forEach(item => {
+            sumPrice += item.cost;
         });
         setTotalPrice(sumPrice)
-    }, [])
+    }, [allData])
 
     const showPrice = totalPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const classes = useStyles();
