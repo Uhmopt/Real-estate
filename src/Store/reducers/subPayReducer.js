@@ -10,7 +10,7 @@ const SubPayReducer = (state = initState, action) => {
                 ...state,
                 subPayData: [...state.subPayData, action.payload]
             }
-        case "SET_TOTAL_SUB":
+        case "SET_TOTAL_SUBPAY":
             return {
                 ...state,
                 totalSubPay: action.payload
