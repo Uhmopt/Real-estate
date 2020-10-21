@@ -24,15 +24,18 @@ export default function PresentationPage() {
   const classes = useStyles();
   return (
     <div className="full">
-    <Header
-      color="dark"
-      brand="Marketnology"
-      links={<HeaderContral/>}
-      fixed
-    />
+      <Header
+        color="dark"
+        brand="Marketnology"
+        links={<HeaderContral />}
+        fixed
+      />
       <SalesCard />
-      <FooterPrice />
-      <Footer />
+
+      <div className="fixed-footer">
+        <FooterPrice />
+        <Footer />
+      </div>
     </div>
   );
 }
