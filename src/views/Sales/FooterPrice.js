@@ -23,7 +23,7 @@ export default function SectionPreFooter() {
             >
                 <div className={classes.container}>
                     <h1 className="price-footer1">
-                        <span style={{marginRight: 15}}>Subpay Cost : </span>$ 1,950.00<span style={{marginLeft: 20}}>30 %</span>
+                        <span style={{marginRight: 15}}>Expected Profit : </span>$ 1,950.00<span style={{marginLeft: 20}}>30 %</span>
                     </h1>
                 </div>
             </div>

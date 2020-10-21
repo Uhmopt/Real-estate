@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from 'clsx';
@@ -44,6 +44,9 @@ function createData(attr, cost, percent) {
     return { attr, cost, percent };
 }
 export default function SectionCards() {
+
+    const salesData = useSelector(state => state.esitmate.sales);
+
     const classes = useStyles();
     return (
         <div className="cd-section" id="cards">
@@ -82,16 +85,21 @@ export default function SectionCards() {
                                                                     </TableCell>
                                                                     <TableCell />
                                                                 </TableRow>
-                                                                {rows.map((row, key) => (
+                                                                {salesData.slaes_setting.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left" width="160px">{row.attr}</TableCell>
-                                                                        <TableCell align="center">{row.cost}</TableCell>
-                                                                        <TableCell align="center">{row.percent}</TableCell>
+                                                                        <TableCell align="left" width="160px">{row.attr1}</TableCell>
+                                                                        <TableCell align="center">$ {row.cost}</TableCell>
+                                                                        <TableCell align="center">% {row.percent}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
-                                                                    <TableCell className="sales-total"><h5>Total 1:</h5></TableCell>
-                                                                    <TableCell className="sales-total1"><h5>$ 6,382.98</h5></TableCell>
+                                                                    <TableCell align="left" width="160px">Margin Expenses</TableCell>
+                                                                    <TableCell align="center">$ 3,382.98</TableCell>
+                                                                    <TableCell />
+                                                                </TableRow>
+                                                                <TableRow>
+                                                                    <TableCell align="left" width="160px"><h5 className="sales-total">Total 1:</h5></TableCell>
+                                                                    <TableCell align="center"><h5 className="sales-total">$ 6,382.98</h5></TableCell>
                                                                     <TableCell />
                                                                 </TableRow>
                                                             </TableBody>
@@ -109,14 +117,14 @@ export default function SectionCards() {
                                         <GridItem xs={12}>
                                             <Card>
                                                 <CardHeader>
-                                                    <h3 className="material-title">Sales Settings</h3>
+                                                    <h3 className="material-title">Product Markup</h3>
                                                 </CardHeader>
                                                 <CardBody>
                                                     <TableContainer component={Paper}>
                                                         <Table className={classes.table} aria-label="simple table">
                                                             <TableBody>
                                                                 <TableRow>
-                                                                    <TableCell align="left" width="120px">Margin</TableCell>
+                                                                    <TableCell align="left">Product Markup</TableCell>
                                                                     <TableCell align="right">
 
                                                                         <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
@@ -132,15 +140,15 @@ export default function SectionCards() {
                                                                         </FormControl>
                                                                     </TableCell>
                                                                 </TableRow>
-                                                                {rows1.map((row, key) => (
+                                                                {salesData.product_markup.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left" width="160px">{row.attr}</TableCell>
+                                                                        <TableCell align="left" width="160px">{row.attr1}</TableCell>
                                                                         <TableCell align="right">{row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
-                                                                    <TableCell className="sales-total"><h5>Total 2:</h5></TableCell>
-                                                                    <TableCell className="sales-total1"><h5>$ 1,250.00</h5></TableCell>
+                                                                    <TableCell><h5 className="sales-total">Total 2:</h5></TableCell>
+                                                                    <TableCell align="right"><h5 className="sales-total">$ 1,250.00</h5></TableCell>
                                                                 </TableRow>
                                                             </TableBody>
                                                         </Table>
@@ -165,23 +173,26 @@ export default function SectionCards() {
                                                 <CardBody>
                                                     <TableContainer component={Paper}>
                                                         <Table className={classes.table} aria-label="simple table">
+                                                            <TableRow>
+                                                                <TableCell><h5 className="sales-total">Pre Discount Total</h5></TableCell>
+                                                                <TableCell align="right"><h5 className="sales-total">$ 7,632.98</h5></TableCell>
+                                                            </TableRow>
                                                             <TableHead>
                                                                 <TableRow>
                                                                     <TableCell align="left">Discounts</TableCell>
-                                                                    <TableCell align="center">Amount</TableCell>
+                                                                    <TableCell align="right">Amount</TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {rows2.map((row, key) => (
+                                                                {salesData.discounts.map((row, key) => (
                                                                     <TableRow key={key}>
-                                                                        <TableCell align="left">{row.attr}</TableCell>
-                                                                        <TableCell align="center">{row.cost}</TableCell>
+                                                                        <TableCell align="left">{row.attr1}</TableCell>
+                                                                        <TableCell align="right">{row.cost}</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>
-                                                                    <TableCell className="sales-total"><h5>Total After Discount</h5></TableCell>
-                                                                    <TableCell className="sales-total1"><h5>$ 5,946.98.00</h5></TableCell>
-                                                                    <TableCell />
+                                                                    <TableCell><h5 className="sales-total">Total After Discount</h5></TableCell>
+                                                                    <TableCell align="right"><h5 className="sales-total">$ 5,946.98</h5></TableCell>
                                                                 </TableRow>
                                                             </TableBody>
                                                         </Table>

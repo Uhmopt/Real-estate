@@ -122,5 +122,44 @@
                 "cost": 1000
             }
         ]
+    },
+    "sales" : {
+        "slaes_setting": [
+            {
+                "attr1" : "Margin Expenses",
+                "cost" : 2000,
+                "percent" : 31        
+            },
+            
+            {
+                "attr1" : "SubPay",
+                "cost" : 1000,
+                "percent" : 16        
+            }
+        ],
+        "product_markup" : [
+            {
+                "attr1" : "Product Expenses",
+                "cost" : 1000
+            },
+            {
+                "attr1" : "Markup Profit",
+                "cost" : 250
+            }
+        ],
+        "discounts" : [
+            {
+                "attr1" : "$ 500 Coupon",
+                "cost" : -500
+            },
+            {
+                "attr1" : "8% Cash",
+                "cost" : -570
+            },
+            {
+                "attr1" : "10% COVID",
+                "cost" : -656
+            }
+        ]
     }
 }

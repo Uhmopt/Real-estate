@@ -32,7 +32,7 @@
 .main-content1 {
     min-height: 100vh !important;
     margin-top: 80px;
-    margin-bottom: 90px;
+    margin-bottom: 150px;
 }
 
 a:hover,
@@ -393,14 +393,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     grid-template-columns: 105px auto;
 }
 
-.sales-total h5 {
-    width: 160px;
-    font-weight: 500;
-}
-
-.sales-total1 h5 {
-    width: 160px;
-    text-align: center;
+.sales-total{
     font-weight: 500;
 }
 
