@@ -34,6 +34,8 @@ export default function AddExpenseDialog() {
     const addExpense = () => {
         dispatch(Actions.addExpenses(expense, cost));
         setOpen(false);
+        setCost(0);
+        setExpense('');
     }
 
     return (

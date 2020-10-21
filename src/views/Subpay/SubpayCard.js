@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,20 +24,23 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import AddExpense from "./AddExpenseDialog";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
+import * as Actions from "../../Store/action/subPayAction"
 
 const useStyles = makeStyles(styles);
 const daily_hours = 10;
 
-export default function SectionCards() { 
-
+export default function SectionCards() {
+    const dispatch = useDispatch();
     const [totalHours, setTotalHours] = useState(0);
     const [totalDays, setTotalDays] = useState(0);
     const [teams, setProducts] = useState('');
     const [dailyRate, setDailyRate] = useState(0);
-    const [totalHoursPrice, setHoursPrice] = useState(0); 
+    const [totalHoursPrice, setHoursPrice] = useState(0);
+    const [totalHoursPriceN, setHoursPriceN] = useState(0);
     const [expenseData, setExpenseData] = useState([]);
     const subStateData = useSelector(state => state.subPay.subPayData); 
     const subPayData = useSelector(state => state.esitmate.subpay);
+    const feeData = useSelector(state => state.esitmate.subpay.installation_fee);  
     useEffect(() => {
         let sumHours = 0;
         subPayData.hours_estimate.map(item => {
@@ -51,18 +54,26 @@ export default function SectionCards() {
         setExpenseData(subStateData);
     }, [subStateData])
     
+    useEffect(() => {
+            dispatch(Actions.setTotalPay(feeData,subStateData,totalHoursPriceN))
+    },[totalHoursPrice,subStateData])
+
     const handleTeams = (event) => {
         setProducts(event.target.value);
         setDailyRate(event.target.value);
         let tempPrice = event.target.value * totalDays;
+        setHoursPriceN(tempPrice);
         setHoursPrice( tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
     const handleRate = (event) => {
         setDailyRate(event.target.value);
         let tempPrice = event.target.value * totalDays;
+        setHoursPriceN(tempPrice);
         setHoursPrice( tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
+
+
     const classes = useStyles();
     return (
         <div className="cd-section" id="cards">
