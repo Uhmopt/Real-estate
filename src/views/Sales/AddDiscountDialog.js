@@ -21,6 +21,7 @@ export default function AddDiscountDialog() {
     const [open, setOpen] = useState(false);
     const [discount, setDiscount] = useState('');
     const [amount, setAmount] = useState(0);
+    const [errorMessage, setErrormessage] = useState("");
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -32,10 +33,16 @@ export default function AddDiscountDialog() {
         setOpen(false);
     }; 
     const addDiscount = () => {
-        dispatch(Actions.addDiscount(discount, amount));
-        setOpen(false);
-        setAmount(0);
-        setDiscount('');
+        if (discount === "" || amount === 0 || amount > 0) {
+            setErrormessage("Insert the discount and amount field correctly.")
+            return false;
+        } else {
+            setErrormessage("");
+            dispatch(Actions.addDiscount(discount, amount));
+            setOpen(false);
+            setAmount(0);
+            setDiscount('');
+        }
     }
 
     return (
@@ -55,10 +62,12 @@ export default function AddDiscountDialog() {
                     <Grid container spacing={2} style={{ marginTop: 10 }}>
                         <Grid item xs={6}>
                             <TextField
+                                error
                                 label="Discount"
                                 variant="outlined"
                                 onChange={event => setDiscount(event.target.value)}
                                 value={discount}
+                                helperText={errorMessage}
                             />
                         </Grid>
                         <Grid item xs={6}>

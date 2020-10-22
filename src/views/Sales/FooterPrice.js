@@ -10,6 +10,8 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/p
 const useStyles = makeStyles(styles);
 
 export default function SectionPreFooter() {
+    const { innerWidth: width } = window;
+    const phoneMaxwidth = 767.95;
     const classes = useStyles();
     return (
         <div>
@@ -22,9 +24,23 @@ export default function SectionPreFooter() {
                 )}
             >
                 <div className={classes.container}>
-                    <h1 className="price-footer1">
-                        <span style={{marginRight: 15}}>Expected Profit : </span>$ 1,950.00<span style={{marginLeft: 20}}>30 %</span>
-                    </h1>
+                    <div className="price-footer2">
+                        { width < phoneMaxwidth ? (
+                            <div className="sales-phone-footer">
+                                <p style={{ marginRight: 15 }}>Expected Profit : </p>
+                                <h5>$ 1,950.00</h5>
+                                <h4 style={{ marginLeft: 20 }}>
+                                30 %</h4>
+                            </div>
+                        ): (
+                            <div>
+                                <span style={{ marginRight: 15 }}>Expected Profit : </span>
+                                $ 1,950.00
+                                <span style={{ marginLeft: 20 }}>30 %</span>
+                            </div>
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </div>

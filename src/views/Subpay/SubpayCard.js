@@ -15,7 +15,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import ClearIcon from '@material-ui/icons/Clear';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -39,10 +39,9 @@ export default function SectionCards() {
     const [dailyRate, setDailyRate] = useState(0);
     const [totalHoursPrice, setHoursPrice] = useState(0);
     const [totalHoursPriceN, setHoursPriceN] = useState(0);
-    const [expenseData, setExpenseData] = useState([]);
     const subStateData = useSelector(state => state.subPay.subPayData);
     const subPayData = useSelector(state => state.esitmate.subpay);
-    const feeData = useSelector(state => state.esitmate.subpay.installation_fee);
+    const feeData = useSelector(state => state.esitmate.subpay.installation_fee); 
     useEffect(() => {
         let sumHours = 0;
         subPayData.hours_estimate.map(item => {
@@ -53,10 +52,7 @@ export default function SectionCards() {
     }, [subPayData])
 
     useEffect(() => {
-        setExpenseData(subStateData);
-    }, [subStateData])
-
-    useEffect(() => {
+        console.log(subStateData,"this")
         dispatch(Actions.setTotalPay(feeData, subStateData, totalHoursPriceN))
     }, [totalHoursPrice, subStateData])
 
@@ -75,8 +71,15 @@ export default function SectionCards() {
         setHoursPrice(tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
+
+
+    const removeItem = (key) => { 
+        const data = subStateData; 
+        data.splice(key, 1); 
+        dispatch(Actions.deleteExpense(data));
+    }
     const classes = useStyles();
-    return (
+    return ( 
         <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
@@ -209,18 +212,18 @@ export default function SectionCards() {
                                                                 <TableRow>
                                                                     <TableCell align="left">Expense</TableCell>
                                                                     <TableCell align="right">Cost</TableCell>
-                                                                    <TableCell align="left" width="30px"></TableCell>
+                                                                    <TableCell align="left" width="20px"></TableCell>
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {expenseData.map((row, key) => (
-                                                                    <TableRow key={key}>
+                                                                {subStateData.map((row, i) => (
+                                                                    <TableRow key={i}>
                                                                         <TableCell align="left">{row.expense}</TableCell>
                                                                         <TableCell align="right">$ {row.cost}</TableCell>
-                                                                        <TableCell align="left" width="30px">
-                                                                            <IconButton aria-label="delete" className={classes.margin} size="small">
+                                                                        <TableCell align="left" width="20px">
+                                                                            <Button aria-label="delete" style={{minWidth: 25}} className={classes.margin} size="small" onClick={ e=> removeItem(i) }>
                                                                                 <ClearIcon fontSize="inherit" />
-                                                                            </IconButton>
+                                                                            </Button>
                                                                         </TableCell>
                                                                     </TableRow>
                                                                 ))}

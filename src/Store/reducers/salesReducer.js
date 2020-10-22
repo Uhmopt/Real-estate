@@ -15,6 +15,12 @@ const SalesReducer = (state = initState, action) => {
                 ...state,
                 afterTotal: action.payload
             }
+        case "DELETE_SALES_DATA": {
+            return {
+                ...state,
+                salesData: [...action.payload]
+            }
+        }
         default:
             return state;
     }

@@ -108,7 +108,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 .price-footer,
-.price-footer1 {
+.price-footer1{
     font-size: 28px !important;
     color: #fff;
     font-weight: bold !important;
@@ -117,6 +117,18 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 .price-footer:hover {
     color: #36721A !important;
     transition: all 0.3s;
+}
+
+.price-footer2 div {
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold !important;
+}
+
+.price-footer2 span {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold !important;
 }
 
 .price-footer::before {
@@ -353,13 +365,17 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 
 .price-footer1 {
     margin-top: 12px;
+    margin-bottom: 11px;
+}
+.price-footer2 div {
+    margin-top: 12px;
+    margin-bottom: 11px;
 }
 
 .price-footer1 span {
     font-size: 20px;
     font-weight: 500;
 }
-
 .material-title {
     font-size: 18px;
     font-weight: 500;
@@ -401,6 +417,29 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     display: none;
 }
 
+.price-footer2 p{
+    font-size: 14px;
+    color: #fff;
+    margin-top: -40px;
+    font-weight: 300;
+}
+.price-footer2 h4{
+    font-size: 18px;
+    color: #fff;
+    margin-top: -24px;
+    margin-bottom: -24px;
+    font-weight: 300;
+}
+.price-footer2 h5{
+    color: #fff;
+    margin-top: -33px;
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 17px;
+}
+.sales-phone-footer {
+    margin-top: -25px;
+}
 @media (min-width: 1200px) {
     
     div[class*="makeStyles-sectionWhit"] div div[class*="makeStyles-container"] {

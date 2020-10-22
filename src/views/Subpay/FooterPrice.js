@@ -29,9 +29,9 @@ export default function SectionPreFooter() {
                 )}
             >
                 <div className={classes.container}>
-                    <h1 className="price-footer1">
+                    <div className="price-footer1">
                         <span>Subpay Cost : </span>$ {total}
-                    </h1>
+                    </div>
                 </div>
             </div>
         </div>

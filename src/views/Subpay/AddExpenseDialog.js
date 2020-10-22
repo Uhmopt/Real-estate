@@ -21,21 +21,27 @@ export default function AddExpenseDialog() {
     const [open, setOpen] = useState(false);
     const [expense, setExpense] = useState('');
     const [cost, setCost] = useState(0);
+    const [errorMessage, setErrorMessage] = useState("");
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const handleClickOpen = () => {
         setOpen(true);
-    };
-
+    }; 
     const handleClose = () => {
         setOpen(false);
     }; 
-    const addExpense = () => {
-        dispatch(Actions.addExpenses(expense, cost));
-        setOpen(false);
-        setCost(0);
-        setExpense('');
+    const addExpense = () => { 
+        if (expense === "" || cost === 0) {
+            setErrorMessage("Insert the expense and cost field correctly."); 
+            return false;
+        } else {
+            setErrorMessage("");
+            dispatch(Actions.addExpenses(expense, cost));
+            setOpen(false);
+            setCost(0);
+            setExpense('');
+        } 
     }
 
     return (
@@ -55,10 +61,12 @@ export default function AddExpenseDialog() {
                     <Grid container spacing={2} style={{ marginTop: 10 }}>
                         <Grid item xs={6}>
                             <TextField
+                                error
                                 label="Expense"
                                 variant="outlined"
                                 onChange={event => setExpense(event.target.value)}
                                 value={expense}
+                                helperText={errorMessage}
                             />
                         </Grid>
                         <Grid item xs={6}>

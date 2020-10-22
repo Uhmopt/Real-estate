@@ -1,11 +1,12 @@
-import initState1 from "../../Marteknology.json"; 
+import initState1 from "../../Marteknology.json";
 const initState = {
     subPayData: initState1.subpay.expenses,
-    totalSubPay : 0
+    totalSubPay: 0
 }
-const SubPayReducer = (state = initState, action) => { 
+
+const SubPayReducer = (state = initState, action) => {
     switch (action.type) {
-        case "SET_ADD_EXPENSE": 
+        case "SET_ADD_EXPENSE":
             return {
                 ...state,
                 subPayData: [...state.subPayData, action.payload]
@@ -15,6 +16,13 @@ const SubPayReducer = (state = initState, action) => {
                 ...state,
                 totalSubPay: action.payload
             }
+        case "DELETE_EXPENSE": {
+            return {
+                ...state,
+                subPayData: [...action.payload]
+            }
+        }
+            
         default:
             return state;
     }

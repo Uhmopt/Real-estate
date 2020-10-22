@@ -37,9 +37,9 @@ export default function SectionPreFooter() {
                 )}
             >
                 <div className={classes.container}>
-                    <h1 className="price-footer1">
+                    <div className="price-footer1">
                         <span>Expense Total : </span> $ {showPrice}
-                    </h1>
+                    </div>
                 </div>
             </div>
         </div>

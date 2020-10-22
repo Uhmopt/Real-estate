@@ -13,8 +13,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
+import Button from '@material-ui/core/Button';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -30,8 +30,7 @@ import * as Actions from "../../Store/action/salesAction"
 const useStyles = makeStyles(styles);
 
 export default function SectionCards() {
-
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();  
     const salesData = useSelector(state => state.esitmate.sales);
     const [preDiscountTotal, setPreDiscountTotal] = useState(7689.98);
     const [discountData, setDiscountData] = useState([]);
@@ -46,6 +45,11 @@ export default function SectionCards() {
         dispatch(Actions.setTotalPay(discountData, preDiscountTotal))
     }, [discountData])
 
+    const deleteDiscount = (key) => {
+        const data = salesStateData;
+        data.splice(key, 1); 
+        dispatch({type: "DELETE_SALES_DATA", payload: data})
+    }
     const classes = useStyles();
     return (
         <div className="cd-section">
@@ -188,9 +192,9 @@ export default function SectionCards() {
                                                                         <TableCell align="left">{row.attr1}</TableCell>
                                                                         <TableCell align="right">{row.cost}</TableCell>
                                                                         <TableCell align="left" width="30px">
-                                                                            <IconButton aria-label="delete" className={classes.margin} size="small">
+                                                                            <Button aria-label="delete" style={{minWidth: 25}} className={classes.margin} size="small" onClick={e => deleteDiscount(key)}>
                                                                                 <ClearIcon fontSize="inherit" />
-                                                                            </IconButton>
+                                                                            </Button>
                                                                         </TableCell>
                                                                     </TableRow>
                                                                 ))}
