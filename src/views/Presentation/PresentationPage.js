@@ -25,12 +25,14 @@ export default function PresentationPage() {
       <Header
         color="dark"
         brand="Marketnology"
-        links={<HeaderContral/>}
+        links={<HeaderContral />}
         fixed
       />
       <ProductCard />
-      <FooterPrice />
-      <Footer />
+      <div className="fixed-footer">
+        <FooterPrice />
+        <Footer />
+      </div>
     </div>
   );
 }

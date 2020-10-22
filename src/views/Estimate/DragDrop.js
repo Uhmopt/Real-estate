@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import CloseIcon from '@material-ui/icons/Close';
-import OpenWithIcon from '@material-ui/icons/OpenWith';
+import ReactDOM from "react-dom";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // fake data generator
@@ -19,8 +16,7 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
-// Demo Data
-const data1 = ["Paver", "Edge stone", "Light"];
+
 /**
  * Moves an item from one list to another list.
  */
@@ -42,23 +38,23 @@ const grid = 8;
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: "none",
-  padding: 8,
+  padding: grid * 2,
   margin: `0 0 ${grid}px 0`,
-  border: "1px solid #eee",
-  position: "relative",
 
   // change background colour if dragging
-  background: isDragging ? "#eee" : "#fff",
+  background: isDragging ? "lightgreen" : "grey",
 
   // styles we need to apply on draggables
   ...draggableStyle
 });
 const getListStyle = isDraggingOver => ({
-  width: "100%"
+  background: isDraggingOver ? "lightblue" : "lightgrey",
+  padding: grid,
+  width: 250
 });
 
 function QuoteApp() {
-  const [state, setState] = useState([getItems(3)]);
+  const [state, setState] = useState([getItems(10), getItems(5, 10)]);
 
   function onDragEnd(result) {
     const { source, destination } = result;
@@ -84,8 +80,25 @@ function QuoteApp() {
       setState(newState.filter(group => group.length));
     }
   }
+
   return (
     <div>
+      <button
+        type="button"
+        onClick={() => {
+          setState([...state, []]);
+        }}
+      >
+        Add new group
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setState([...state, getItems(1)]);
+        }}
+      >
+        Add new item
+      </button>
       <div style={{ display: "flex" }}>
         <DragDropContext onDragEnd={onDragEnd}>
           {state.map((el, ind) => (
@@ -112,46 +125,26 @@ function QuoteApp() {
                             provided.draggableProps.style
                           )}
                         >
-                            <GridContainer>
-                              <GridItem xs={1} sm={1} md={1} lg={1} className="hidden-sm">
-                              <OpenWithIcon style={{marginTop: 6, color: "#9e9e9e"}} />
-                              </GridItem>
-                              <GridItem xs={4} sm={4} md={2} lg={2}>
-                                <h6>
-                                {data1[index]}
-                                </h6>
-                              </GridItem>
-                              <GridItem xs={4} sm={4} md={2} lg={2}>
-                                <h6>
-                                  Attribute 1
-                                </h6>
-                              </GridItem>
-                              <GridItem xs={4} sm={4} md={2} lg={2}>
-                                <h6>
-                                  Attribute 2
-                                </h6>
-                              </GridItem>
-                              <GridItem xs={4} sm={4} md={2} lg={2}>
-                                <h6>
-                                  Attribute 3
-                                </h6>
-                              </GridItem>
-                              <GridItem xs={4} sm={4} md={2} lg={2}>
-                                <h6>
-                                  Attribute 4
-                                </h6>
-                              </GridItem>
-                              <GridItem xs={1} sm={1} md={1} lg={1}>
-                                <CloseIcon className="drag-remove" 
-                                  onClick={() => {
-                                    const newState = [...state];
-                                    newState[ind].splice(index, 1);
-                                    setState(
-                                      newState.filter(group => group.length)
-                                    );
-                                  }}/>
-                              </GridItem>
-                            </GridContainer>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-around"
+                            }}
+                          >
+                            {item.content}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newState = [...state];
+                                newState[ind].splice(index, 1);
+                                setState(
+                                  newState.filter(group => group.length)
+                                );
+                              }}
+                            >
+                              delete
+                            </button>
+                          </div>
                         </div>
                       )}
                     </Draggable>
@@ -167,4 +160,5 @@ function QuoteApp() {
   );
 }
 
-export default QuoteApp;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<QuoteApp />, rootElement);
