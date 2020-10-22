@@ -84,7 +84,7 @@ const getListStyle = isDraggingOver => ({
 
 export default function DragAndDrop() {
     const dispatch = useDispatch();
-    const groupsData = useSelector(state => state.esitmate.groups.group1);
+    const groupsData = useSelector(state => state.group.groupData);
 
     // const [state, setState] = useState([getItems(3), getItems(5, 10), getItems(5, 10)]);
 
@@ -131,6 +131,14 @@ export default function DragAndDrop() {
         }
         setChecked(newChecked);
     };
+    
+    const deleteGroup = (key) => {
+        console.log(key, "keyDatata");
+        const data = groupsData;
+        data.splice(key, 1); 
+        dispatch({type: "DELETE_GROUP_DATA", payload: data})
+    }
+
     return (
         <div className="cd-section">
             <div className={classes.sectionWhite}>
@@ -142,12 +150,11 @@ export default function DragAndDrop() {
                                 <div>
                                     <button
                                         type="button"
-                                        onClick={() => {
-                                            dispatch(setEstimateGroup([...groupsData, {}]))
-                                        }}
+                                        onClick={() => dispatch({type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
+                                    })}
                                     >
                                         Add new group
-                                        </button>
+                                    </button>
                                     {/* <button
                                         type="button"
                                         onClick={() => {
@@ -209,7 +216,7 @@ export default function DragAndDrop() {
                                                                                                         <AddIcon style={{ fontSize: "1rem" }} />
                                                                                                     )}
                                                                                             </Button>
-                                                                                            <Button variant="outlined" size="small">
+                                                                                            <Button variant="outlined" size="small"  onClick={e => deleteGroup(ind)}>
                                                                                                 <DeleteIcon style={{ fontSize: "1rem" }} />
                                                                                             </Button>
                                                                                         </div>

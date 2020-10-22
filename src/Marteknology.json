@@ -1,8 +1,6 @@
 {
-    "groups" : {
-        "group1" : [
+    "groups" : [
             {
-
                 "name" : "DEFAULT GROUP",
                 "optional" : true,
                 "total": 0,
@@ -122,9 +120,8 @@
                         "notes": "This is our products"
                     }
                 ]
-            }
-        ]
-    },
+            }  
+        ],
     "materials":{
         "row1":[
             {
