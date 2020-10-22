@@ -1,4 +1,23 @@
 {
+    "groups" : {
+        "group1" : [
+            {
+                "name" : "DEFAULT GROUP",
+                "optional" : true,
+                "total": 0
+            },
+            {
+                "name" : "Firepit Area",
+                "optional" : true,
+                "total": 0
+            },
+            {
+                "name" : "Stonewall Walkway with Lights",
+                "optional" : true,
+                "total": 0
+            }
+        ]
+    },
     "materials":{
         "row1":[
             {

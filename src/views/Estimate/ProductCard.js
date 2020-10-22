@@ -74,15 +74,13 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 });
 
 const getListStyle = isDraggingOver => ({
-    boxShadow: "0 0 20px #ccc",
-    padding: grid,
     marginBottom: 20,
     borderRadius: 12,
     width: "100%"
 });
 
 export default function QuoteApp() {
-    const [state, setState] = useState([getItems(3), getItems(5, 10)]);
+    const [state, setState] = useState([getItems(3), getItems(5, 10), getItems(5, 10)]);
 
     const [checked, setChecked] = React.useState([24, 22]);
 
@@ -166,52 +164,53 @@ export default function QuoteApp() {
                                                                     {...provided.droppableProps}
                                                                 >
                                                                     <Grid container spacing={3}>
-                                                                        <Grid item xs={12} lg={12}>
-                                                                            <Grid container>
-                                                                                <Grid item xs={5} sm={5} md={6} lg={6}>
-                                                                                    <TextField
-                                                                                        required
-                                                                                        label="Group name"
-                                                                                        defaultValue="DEFALUT GROUP"
-                                                                                        className="card-title"
-                                                                                    />
+                                                                        <Grid item xs={12} md={10} lg={10}>
+                                                                            <div className="estimate-card">
+                                                                                <Grid container>
+                                                                                    <Grid item xs={5} sm={5} md={6} lg={6}>
+                                                                                        <TextField
+                                                                                            required
+                                                                                            label="Group name"
+                                                                                            defaultValue="DEFALUT GROUP"
+                                                                                            className="card-title"
+                                                                                        />
+                                                                                    </Grid>
+                                                                                    <Grid item xs={3} sm={3} md={4} lg={4}>
+                                                                                        <FormControlLabel
+                                                                                            control={
+                                                                                                <Checkbox
+                                                                                                    tabIndex={-1}
+                                                                                                    onClick={() => handleToggle(21)}
+                                                                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
+                                                                                                    icon={<Check className={classes1.uncheckedIcon} />}
+                                                                                                    classes={{
+                                                                                                        checked: classes1.checked,
+                                                                                                        root: classes1.checkRoot
+                                                                                                    }}
+                                                                                                />
+                                                                                            }
+                                                                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                                            style={{ marginTop: 20 }}
+                                                                                            label="Optional"
+                                                                                        />
+                                                                                    </Grid>
+                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                        <div className="product-action">
+                                                                                            <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
+                                                                                                {isOpened1 ? (
+                                                                                                    <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                                                ) : (
+                                                                                                        <AddIcon style={{ fontSize: "1rem" }} />
+                                                                                                    )}
+                                                                                            </Button>
+                                                                                            <Button variant="outlined" size="small">
+                                                                                                <DeleteIcon style={{ fontSize: "1rem" }} />
+                                                                                            </Button>
+                                                                                        </div>
+                                                                                    </Grid>
                                                                                 </Grid>
-                                                                                <Grid item xs={3} sm={3} md={4} lg={4}>
-                                                                                    <FormControlLabel
-                                                                                        control={
-                                                                                            <Checkbox
-                                                                                                tabIndex={-1}
-                                                                                                onClick={() => handleToggle(21)}
-                                                                                                checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                                                                icon={<Check className={classes1.uncheckedIcon} />}
-                                                                                                classes={{
-                                                                                                    checked: classes1.checked,
-                                                                                                    root: classes1.checkRoot
-                                                                                                }}
-                                                                                            />
-                                                                                        }
-                                                                                        classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                                                        style={{ marginTop: 20 }}
-                                                                                        label="Optional"
-                                                                                    />
-                                                                                </Grid>
-                                                                                <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                    <div className="product-action">
-                                                                                        <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
-                                                                                            {isOpened1 ? (
-                                                                                                <RemoveIcon style={{ fontSize: "1rem" }} />
-                                                                                            ) : (
-                                                                                                    <AddIcon style={{ fontSize: "1rem" }} />
-                                                                                                )}
-                                                                                        </Button>
-                                                                                        <Button variant="outlined" size="small">
-                                                                                            <DeleteIcon style={{ fontSize: "1rem" }} />
-                                                                                        </Button>
-                                                                                    </div>
-                                                                                </Grid>
-                                                                            </Grid>
 
-                                                                            <Collapse isOpened={isOpened1}>
+                                                                                <Collapse isOpened={isOpened1}>
                                                                                 {el.map((item, index) => (
                                                                                     <Draggable key={item.id} draggableId={item.id} index={index} >
                                                                                         {(provided, snapshot) => (
@@ -231,7 +230,7 @@ export default function QuoteApp() {
                                                                                                     <Grid item xs={10}>
 
                                                                                                     </Grid>
-                                                                                                    <Grid item xs={1} style={{position: "relative"}}>
+                                                                                                    <Grid item xs={1} style={{ position: "relative" }}>
                                                                                                         <div className="item-remove-corner">
                                                                                                             <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
                                                                                                                 onClick={() => {
@@ -251,6 +250,10 @@ export default function QuoteApp() {
                                                                                     </Draggable>
                                                                                 ))}
                                                                             </Collapse>
+                                                                            </div>
+                                                                        </Grid>
+                                                                        <Grid item xs={12} md={2} lg={2}>
+                                                                            <h3 className="product-price">$ 4,890.00</h3>
                                                                         </Grid>
                                                                     </Grid>
                                                                     {provided.placeholder}
