@@ -433,7 +433,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     div[class*="makeStyles-sectionWhit"] div div[class*="makeStyles-container"] {
         max-width: 1440px !important;
     }
-    div[class*="makeStyles-container"]{
+    .cd-section div div[class*="makeStyles-container"]{
         max-width: 1440px !important;
     }
 }

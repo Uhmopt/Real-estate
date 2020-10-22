@@ -2,19 +2,126 @@
     "groups" : {
         "group1" : [
             {
+
                 "name" : "DEFAULT GROUP",
                 "optional" : true,
-                "total": 0
+                "total": 0,
+                "products" : [
+                    {
+                        "id": "product-1",
+                        "title": "Product Type1",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        "id": "product-2",
+                        "title": "Product Type2",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        "id": "product-3",
+                        "title": "Product Type3",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    }
+                ]
             },
             {
                 "name" : "Firepit Area",
                 "optional" : true,
-                "total": 0
+                "total": 0,
+                "products" : [
+                    {
+                        "id": "product-4",
+                        "title": "Paver",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        "id": "product-5",
+                        "title": "Edge stone",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        
+                        "id": "product-6",
+                        "title": "Lights",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    }
+                ]
             },
             {
                 "name" : "Stonewall Walkway with Lights",
                 "optional" : true,
-                "total": 0
+                "total": 0,
+                "products" : [
+                    {
+                        "id": "product-8",
+                        "title": "Lights",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        "id": "product-9",
+                        "title": "Materials",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    },
+                    {
+                        "id": "product-10",
+                        "title": "Fireplace",
+                        "manufacturer": "manufacturer1",
+                        "product": "product1",
+                        "sf" : 560,
+                        "isEdge" : false,
+                        "color" : "RED",
+                        "depth": 4,
+                        "notes": "This is our products"
+                    }
+                ]
             }
         ]
     },

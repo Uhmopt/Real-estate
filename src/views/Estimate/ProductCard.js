@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 // @material-ui/icons
 import RemoveIcon from '@material-ui/icons/Remove';
 import ClearIcon from '@material-ui/icons/Clear';
 import Check from "@material-ui/icons/Check";
+import OpenWithIcon from '@material-ui/icons/OpenWith';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -22,6 +23,8 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 
+import * as Actions from "../../Store/action/salesAction"
+import { setEstimateGroup } from "../../Store/action/estimateAction";
 
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles(styles);
@@ -33,9 +36,9 @@ const getItems = (count, offset = 0) =>
     }));
 
 const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
+    const result = list
+    const [removed] = result.products.splice(startIndex, 1);
+    result.products.splice(endIndex, 0, removed);
 
     return result;
 };
@@ -44,11 +47,11 @@ const reorder = (list, startIndex, endIndex) => {
  * Moves an item from one list to another list.
  */
 const move = (source, destination, droppableSource, droppableDestination) => {
-    const sourceClone = Array.from(source);
-    const destClone = Array.from(destination);
-    const [removed] = sourceClone.splice(droppableSource.index, 1);
+    const sourceClone = source;
+    const destClone = destination;
+    const [removed] = sourceClone.products.splice(droppableSource.index, 1);
 
-    destClone.splice(droppableDestination.index, 0, removed);
+    destClone.products.splice(droppableDestination.index, 0, removed);
 
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
@@ -79,12 +82,14 @@ const getListStyle = isDraggingOver => ({
     width: "100%"
 });
 
-export default function QuoteApp() {
-    const [state, setState] = useState([getItems(3), getItems(5, 10), getItems(5, 10)]);
+export default function DragAndDrop() {
+    const dispatch = useDispatch();
+    const groupsData = useSelector(state => state.esitmate.groups.group1);
+
+    // const [state, setState] = useState([getItems(3), getItems(5, 10), getItems(5, 10)]);
 
     const [checked, setChecked] = React.useState([24, 22]);
-
-    const [isOpened, setIsOpened] = useState(true);
+    
     const [isOpened1, setIsOpened1] = useState(true);
 
     const classes = useStyles();
@@ -101,17 +106,17 @@ export default function QuoteApp() {
         const dInd = +destination.droppableId;
 
         if (sInd === dInd) {
-            const items = reorder(state[sInd], source.index, destination.index);
-            const newState = [...state];
+            const items = reorder(groupsData[sInd], source.index, destination.index);
+            const newState = [...groupsData];
             newState[sInd] = items;
-            setState(newState);
+            dispatch(setEstimateGroup(newState));
         } else {
-            const result = move(state[sInd], state[dInd], source, destination);
-            const newState = [...state];
+            const result = move(groupsData[sInd], groupsData[dInd], source, destination);
+
+            const newState = [...groupsData];
             newState[sInd] = result[sInd];
             newState[dInd] = result[dInd];
-
-            setState(newState.filter(group => group.length));
+            dispatch(setEstimateGroup(newState));
         }
     }
 
@@ -138,24 +143,24 @@ export default function QuoteApp() {
                                     <button
                                         type="button"
                                         onClick={() => {
-                                            setState([...state, []]);
+                                            dispatch(setEstimateGroup([...groupsData, {}]))
                                         }}
                                     >
                                         Add new group
                                         </button>
-                                    <button
+                                    {/* <button
                                         type="button"
                                         onClick={() => {
-                                            setState([...state, getItems(1)]);
+                                            dispatch(setEstimateGroup([...groupsData, getItems(1)]))
                                         }}
                                     >
                                         Add new item
-                                        </button>
+                                        </button> */}
                                     <div style={{ display: "flex" }}>
                                         <DragDropContext onDragEnd={onDragEnd}>
                                             <Grid container spacing={3}>
                                                 <Grid item xs={12} lg={12} md={12} style={{ marginBottom: 20 }}>
-                                                    {state.map((el, ind) => (
+                                                    {groupsData.map((el, ind) => (
                                                         <Droppable key={ind} droppableId={`${ind}`}>
                                                             {(provided, snapshot) => (
                                                                 <div
@@ -171,7 +176,7 @@ export default function QuoteApp() {
                                                                                         <TextField
                                                                                             required
                                                                                             label="Group name"
-                                                                                            defaultValue="DEFALUT GROUP"
+                                                                                            defaultValue={el.name}
                                                                                             className="card-title"
                                                                                         />
                                                                                     </Grid>
@@ -180,6 +185,7 @@ export default function QuoteApp() {
                                                                                             control={
                                                                                                 <Checkbox
                                                                                                     tabIndex={-1}
+                                                                                                    checked={el.optional}
                                                                                                     onClick={() => handleToggle(21)}
                                                                                                     checkedIcon={<Check className={classes1.checkedIcon} />}
                                                                                                     icon={<Check className={classes1.uncheckedIcon} />}
@@ -211,45 +217,55 @@ export default function QuoteApp() {
                                                                                 </Grid>
 
                                                                                 <Collapse isOpened={isOpened1}>
-                                                                                {el.map((item, index) => (
-                                                                                    <Draggable key={item.id} draggableId={item.id} index={index} >
-                                                                                        {(provided, snapshot) => (
-                                                                                            <div
-                                                                                                ref={provided.innerRef}
-                                                                                                {...provided.draggableProps}
-                                                                                                {...provided.dragHandleProps}
-                                                                                                style={getItemStyle(
-                                                                                                    snapshot.isDragging,
-                                                                                                    provided.draggableProps.style
-                                                                                                )}
-                                                                                            >
-                                                                                                <Grid container spacing={2}>
-                                                                                                    <Grid item xs={1}>
-
+                                                                                    {el.products.map((item, index) => (
+                                                                                        <Draggable key={item.id} draggableId={item.id} index={index} >
+                                                                                            {(provided, snapshot) => (
+                                                                                                <div
+                                                                                                    ref={provided.innerRef}
+                                                                                                    {...provided.draggableProps}
+                                                                                                    {...provided.dragHandleProps}
+                                                                                                    style={getItemStyle(
+                                                                                                        snapshot.isDragging,
+                                                                                                        provided.draggableProps.style
+                                                                                                    )}
+                                                                                                >
+                                                                                                    <Grid container spacing={2}>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={1}>
+                                                                                                            <OpenWithIcon />
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                            <h6>{item.title}</h6>
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                            <h6>{item.manufacturer}</h6>
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                            <h6>{item.product}</h6>
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                            <h6>$ {item.sf}</h6>
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                            <h6>$ {item.color}</h6>
+                                                                                                        </Grid>
+                                                                                                        <Grid item xs={1} style={{ position: "relative" }}>
+                                                                                                            <div className="item-remove-corner">
+                                                                                                                <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
+                                                                                                                    onClick={() => {
+                                                                                                                        const newState = [...groupsData];
+                                                                                                                        newState[ind].products.splice(index, 1);
+                                                                                                                        dispatch(setEstimateGroup(newState))
+                                                                                                                    }}>
+                                                                                                                    <ClearIcon fontSize="inherit" />
+                                                                                                                </Button>
+                                                                                                            </div>
+                                                                                                        </Grid>
                                                                                                     </Grid>
-                                                                                                    <Grid item xs={10}>
-
-                                                                                                    </Grid>
-                                                                                                    <Grid item xs={1} style={{ position: "relative" }}>
-                                                                                                        <div className="item-remove-corner">
-                                                                                                            <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
-                                                                                                                onClick={() => {
-                                                                                                                    const newState = [...state];
-                                                                                                                    newState[ind].splice(index, 1);
-                                                                                                                    setState(
-                                                                                                                        newState.filter(group => group.length)
-                                                                                                                    );
-                                                                                                                }}>
-                                                                                                                <ClearIcon fontSize="inherit" />
-                                                                                                            </Button>
-                                                                                                        </div>
-                                                                                                    </Grid>
-                                                                                                </Grid>
-                                                                                            </div>
-                                                                                        )}
-                                                                                    </Draggable>
-                                                                                ))}
-                                                                            </Collapse>
+                                                                                                </div>
+                                                                                            )}
+                                                                                        </Draggable>
+                                                                                    ))}
+                                                                                </Collapse>
                                                                             </div>
                                                                         </Grid>
                                                                         <Grid item xs={12} md={2} lg={2}>
