@@ -148,21 +148,6 @@ export default function DragAndDrop() {
                         <Grid container spacing={3}>
                             <Grid md={12} item>
                                 <div>
-                                    <button
-                                        type="button"
-                                        onClick={() => dispatch({type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
-                                    })}
-                                    >
-                                        Add new group
-                                    </button>
-                                    {/* <button
-                                        type="button"
-                                        onClick={() => {
-                                            dispatch(setEstimateGroup([...groupsData, getItems(1)]))
-                                        }}
-                                    >
-                                        Add new item
-                                        </button> */}
                                     <div style={{ display: "flex" }}>
                                         <DragDropContext onDragEnd={onDragEnd}>
                                             <Grid container spacing={3}>

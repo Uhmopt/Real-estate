@@ -25,6 +25,7 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 import Check from "@material-ui/icons/Check";
 
 import img from 'assets/img/categories/paver.svg';
+import { setEmitFlags } from 'typescript';
 
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles((theme) => ({
@@ -43,9 +44,12 @@ export default function PaverModal() {
     const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();
-    const [checked, setChecked] = React.useState([24, 22]);
+    const [checked, setChecked] = React.useState([]);
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [manufacturers, setManufacturers] = React.useState('');
+    const [sf, setSf] = React.useState('');
+    const [lf, setLf] = React.useState('');
+    const [isEdg, setIsEdg] = React.useState('');
     const [products, setProducts] = React.useState('');
 
     const handleManufacture = (event) => {
@@ -111,12 +115,12 @@ export default function PaverModal() {
                                             labelId="demo-simple-select-outlined-label"
                                             id="demo-simple-select-outlined"
                                             value={manufacturers}
-                                            onChange={handleManufacture}
+                                            onChange={e=> setManufacturers(e.target.value)}
                                             label="Manufacturer"
                                         >
-                                            <MenuItem value={10}>Manufacturer 1</MenuItem>
-                                            <MenuItem value={20}>Manufacturer 2</MenuItem>
-                                            <MenuItem value={30}>Manufacturer 3</MenuItem>
+                                            <MenuItem value="manufacture1">Manufacturer 1</MenuItem>
+                                            <MenuItem value="manufacture2">Manufacturer 2</MenuItem>
+                                            <MenuItem value="manufacture3">Manufacturer 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -127,18 +131,18 @@ export default function PaverModal() {
                                             labelId="demo-simple-select-outlined-label"
                                             id="demo-simple-select-outlined"
                                             value={products}
-                                            onChange={handleProduct}
+                                            onChange={e=> setProducts(e.target.value)}
                                             label="Product"
                                         >
-                                            <MenuItem value={40}>Product 1</MenuItem>
-                                            <MenuItem value={50}>Product 2</MenuItem>
-                                            <MenuItem value={60}>Product 3</MenuItem>
+                                            <MenuItem value="product1">Product 1</MenuItem>
+                                            <MenuItem value="product2">Product 2</MenuItem>
+                                            <MenuItem value="product3">Product 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="SF" variant="outlined" />
+                                        <TextField label="SF" variant="outlined" value={sf} onChange={e=> setSf(e.target.value)} />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -165,7 +169,8 @@ export default function PaverModal() {
                                             control={
                                                 <Checkbox
                                                     tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
+                                                    value={isEdg}
+                                                    onClick={() => setIsEdg(!isEdg)}
                                                     checkedIcon={<Check className={classes1.checkedIcon} />}
                                                     icon={<Check className={classes1.uncheckedIcon} />}
                                                     classes={{
@@ -182,7 +187,7 @@ export default function PaverModal() {
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="SF" variant="outlined" />
+                                            <TextField value={lf} onChange={e=> setLf(e.target.value)} label="LF" variant="outlined" />
                                         </FormControl>
                                     </Grid>
 

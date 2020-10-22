@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import GroupModal from './Categories/GroupModal';
 import PaverModal from './Categories/PaverModal';
 import SegmentalModal from './Categories/SegmentalModal';
@@ -13,8 +14,12 @@ import IconButton from '@material-ui/core/IconButton';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import CloseIcon from '@material-ui/icons/Close';
 
+import img from 'assets/img/categories/group.svg';
+
 export default function SimpleCard() {
 
+    const dispatch = useDispatch();
+    const groupsData = useSelector(state => state.group.groupData);
     const { innerWidth: width } = window;
     const phoneMaxwidth = 767.95;
     const isMobile = width < phoneMaxwidth ? true : false;
@@ -25,7 +30,7 @@ export default function SimpleCard() {
             <div className={isSide ? "side-overlay" : "side-overlay hidden"} onClick={e => setSide(false)}></div>
             <div className={isSide ? "side-modal-bar" : "side-modal-bar hidden-side"}>
                 <div className="side-bar-body">
-                    {( isMobile ) ? (
+                    {(isMobile) ? (
                         <div className={isSide ? "toggle-icon hidden" : "toggle-icon"}>
                             <Button variant="contained" color="success" component="span" size="sm" onClick={e => setSide(!isSide)}>
                                 <DragIndicatorIcon />
@@ -39,7 +44,7 @@ export default function SimpleCard() {
                             </div>
                         )
                     }
-                    {( isMobile) ? (
+                    {(isMobile) ? (
 
                         <ul>
                             <li className="mobile-close-side">
@@ -48,7 +53,15 @@ export default function SimpleCard() {
                                 </IconButton>
                             </li>
                             <li onClick={e => setSide(false)}>
-                                <GroupModal />
+                                <div className="modal-c-button"
+                                    onClick={() => dispatch({
+                                        type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
+                                    })}>
+                                    <img src={img} alt="" className="cat-img" />
+                                    <h5>
+                                        NEW Group
+                                    </h5>
+                                </div>
                             </li>
                             <li onClick={e => setSide(false)}>
                                 <PaverModal />
@@ -84,7 +97,15 @@ export default function SimpleCard() {
                                     </IconButton>
                                 </li>
                                 <li>
-                                    <GroupModal />
+                                    <div className="modal-c-button"
+                                        onClick={() => dispatch({
+                                            type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
+                                        })}>
+                                        <img src={img} alt="" className="cat-img" />
+                                        <h5>
+                                            NEW Group
+                                        </h5>
+                                    </div>
                                 </li>
                                 <li>
                                     <PaverModal />
