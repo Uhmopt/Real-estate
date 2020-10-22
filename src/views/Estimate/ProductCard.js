@@ -56,34 +56,38 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 
     return result;
 };
-const grid = 8;
+const grid = 12;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: "none",
     padding: grid * 2,
+    border: "1px solid #ccc",
+    borderRadius: 6,
     margin: `0 0 ${grid}px 0`,
 
     // change background colour if dragging
-    background: isDragging ? "lightgreen" : "grey",
+    background: isDragging ? "lightgreen" : "#fff",
 
     // styles we need to apply on draggables
     ...draggableStyle
 });
+
 const getListStyle = isDraggingOver => ({
-    border: "1px solid #ccc",
+    boxShadow: "0 0 20px #ccc",
     padding: grid,
+    marginBottom: 20,
+    borderRadius: 12,
     width: "100%"
 });
 
 export default function QuoteApp() {
-    const [state, setState] = useState([getItems(10), getItems(5, 10)]);
+    const [state, setState] = useState([getItems(3), getItems(5, 10)]);
 
     const [checked, setChecked] = React.useState([24, 22]);
-    
+
     const [isOpened, setIsOpened] = useState(true);
     const [isOpened1, setIsOpened1] = useState(true);
-    const [isOpened2, setIsOpened2] = useState(true);
 
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -128,133 +132,139 @@ export default function QuoteApp() {
         <div className="cd-section">
             <div className={classes.sectionWhite}>
                 {/* BLOG PLAIN CARDS START */}
-                <div>
-                    <div className={classes.container}>
-                        <div className="main-content">
-                            <Grid container spacing={3}>
-                                <Grid md={12} item>
-                                    <div>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setState([...state, []]);
-                                            }}
-                                        >
-                                            Add new group
+                <div className={classes.container}>
+                    <div className="main-content">
+                        <Grid container spacing={3}>
+                            <Grid md={12} item>
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setState([...state, []]);
+                                        }}
+                                    >
+                                        Add new group
                                         </button>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setState([...state, getItems(1)]);
-                                            }}
-                                        >
-                                            Add new item
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setState([...state, getItems(1)]);
+                                        }}
+                                    >
+                                        Add new item
                                         </button>
-                                        <div style={{ display: "flex" }}>
-                                            <DragDropContext onDragEnd={onDragEnd}>
-                                                {state.map((el, ind) => (
-                                                    <Droppable key={ind} droppableId={`${ind}`}>
-                                                        {(provided, snapshot) => (
-                                                            <div
-                                                                ref={provided.innerRef}
-                                                                style={getListStyle(snapshot.isDraggingOver)}
-                                                                {...provided.droppableProps}
-                                                            >
-                                                                <Grid container spacing={3}>
-                                                                    <Grid item xs={12}>
-                                                                        <Grid container>
-                                                                            <Grid item xs={5}>
-                                                                                <TextField
-                                                                                    required
-                                                                                    label="Group name"
-                                                                                    defaultValue="DEFALUT GROUP"
-                                                                                    className="card-title"
-                                                                                />
-                                                                            </Grid>
-                                                                            <Grid xs={3} sm={3} md={4} lg={4}>
-                                                                                <FormControlLabel
-                                                                                    control={
-                                                                                        <Checkbox
-                                                                                            tabIndex={-1}
-                                                                                            onClick={() => handleToggle(21)}
-                                                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                                                            classes={{
-                                                                                                checked: classes1.checked,
-                                                                                                root: classes1.checkRoot
-                                                                                            }}
-                                                                                        />
-                                                                                    }
-                                                                                    classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                                                    style={{ marginTop: 20 }}
-                                                                                    label="Optional"
-                                                                                />
-                                                                            </Grid>
-                                                                            <Grid xs={4} sm={4} md={2} lg={2}>
-                                                                                <div className="product-action">
-                                                                                    <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
-                                                                                        {isOpened1 ? (
-                                                                                            <RemoveIcon style={{ fontSize: "1rem" }} />
-                                                                                        ) : (
-                                                                                                <AddIcon style={{ fontSize: "1rem" }} />
-                                                                                            )}
-                                                                                    </Button>
-                                                                                    <Button variant="outlined" size="small">
-                                                                                        <DeleteIcon style={{ fontSize: "1rem" }} />
-                                                                                    </Button>
-                                                                                </div>
-                                                                            </Grid>
-                                                                        </Grid>
-
-                                                                        {el.map((item, index) => (
-                                                                            <Draggable key={item.id} draggableId={item.id} index={index} >
-                                                                                {(provided, snapshot) => (
-                                                                                    <div
-                                                                                        ref={provided.innerRef}
-                                                                                        {...provided.draggableProps}
-                                                                                        {...provided.dragHandleProps}
-                                                                                        style={getItemStyle(
-                                                                                            snapshot.isDragging,
-                                                                                            provided.draggableProps.style
-                                                                                        )}
-                                                                                    >
-                                                                                        <Grid container spacing={2}>
-                                                                                            <Grid item xs={1}>
-
-                                                                                            </Grid>
-                                                                                            <Grid item xs={9}>
-
-                                                                                            </Grid>
-                                                                                            <Grid item xs={2}>
-                                                                                                <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
-                                                                                                    onClick={() => {
-                                                                                                        const newState = [...state];
-                                                                                                        newState[ind].splice(index, 1);
-                                                                                                        setState(
-                                                                                                            newState.filter(group => group.length)
-                                                                                                        );
-                                                                                                    }}>
-                                                                                                    <ClearIcon fontSize="inherit" />
-                                                                                                </Button>
-                                                                                            </Grid>
-                                                                                        </Grid>
+                                    <div style={{ display: "flex" }}>
+                                        <DragDropContext onDragEnd={onDragEnd}>
+                                            <Grid container spacing={3}>
+                                                <Grid item xs={12} lg={12} md={12} style={{ marginBottom: 20 }}>
+                                                    {state.map((el, ind) => (
+                                                        <Droppable key={ind} droppableId={`${ind}`}>
+                                                            {(provided, snapshot) => (
+                                                                <div
+                                                                    ref={provided.innerRef}
+                                                                    style={getListStyle(snapshot.isDraggingOver)}
+                                                                    {...provided.droppableProps}
+                                                                >
+                                                                    <Grid container spacing={3}>
+                                                                        <Grid item xs={12} lg={12}>
+                                                                            <Grid container>
+                                                                                <Grid item xs={5} sm={5} md={6} lg={6}>
+                                                                                    <TextField
+                                                                                        required
+                                                                                        label="Group name"
+                                                                                        defaultValue="DEFALUT GROUP"
+                                                                                        className="card-title"
+                                                                                    />
+                                                                                </Grid>
+                                                                                <Grid item xs={3} sm={3} md={4} lg={4}>
+                                                                                    <FormControlLabel
+                                                                                        control={
+                                                                                            <Checkbox
+                                                                                                tabIndex={-1}
+                                                                                                onClick={() => handleToggle(21)}
+                                                                                                checkedIcon={<Check className={classes1.checkedIcon} />}
+                                                                                                icon={<Check className={classes1.uncheckedIcon} />}
+                                                                                                classes={{
+                                                                                                    checked: classes1.checked,
+                                                                                                    root: classes1.checkRoot
+                                                                                                }}
+                                                                                            />
+                                                                                        }
+                                                                                        classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                                        style={{ marginTop: 20 }}
+                                                                                        label="Optional"
+                                                                                    />
+                                                                                </Grid>
+                                                                                <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                    <div className="product-action">
+                                                                                        <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
+                                                                                            {isOpened1 ? (
+                                                                                                <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                                            ) : (
+                                                                                                    <AddIcon style={{ fontSize: "1rem" }} />
+                                                                                                )}
+                                                                                        </Button>
+                                                                                        <Button variant="outlined" size="small">
+                                                                                            <DeleteIcon style={{ fontSize: "1rem" }} />
+                                                                                        </Button>
                                                                                     </div>
-                                                                                )}
-                                                                            </Draggable>
-                                                                        ))}
+                                                                                </Grid>
+                                                                            </Grid>
+
+                                                                            <Collapse isOpened={isOpened1}>
+                                                                                {el.map((item, index) => (
+                                                                                    <Draggable key={item.id} draggableId={item.id} index={index} >
+                                                                                        {(provided, snapshot) => (
+                                                                                            <div
+                                                                                                ref={provided.innerRef}
+                                                                                                {...provided.draggableProps}
+                                                                                                {...provided.dragHandleProps}
+                                                                                                style={getItemStyle(
+                                                                                                    snapshot.isDragging,
+                                                                                                    provided.draggableProps.style
+                                                                                                )}
+                                                                                            >
+                                                                                                <Grid container spacing={2}>
+                                                                                                    <Grid item xs={1}>
+
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={10}>
+
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={1} style={{position: "relative"}}>
+                                                                                                        <div className="item-remove-corner">
+                                                                                                            <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
+                                                                                                                onClick={() => {
+                                                                                                                    const newState = [...state];
+                                                                                                                    newState[ind].splice(index, 1);
+                                                                                                                    setState(
+                                                                                                                        newState.filter(group => group.length)
+                                                                                                                    );
+                                                                                                                }}>
+                                                                                                                <ClearIcon fontSize="inherit" />
+                                                                                                            </Button>
+                                                                                                        </div>
+                                                                                                    </Grid>
+                                                                                                </Grid>
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </Draggable>
+                                                                                ))}
+                                                                            </Collapse>
+                                                                        </Grid>
                                                                     </Grid>
-                                                                </Grid>
-                                                                {provided.placeholder}
-                                                            </div>
-                                                        )}
-                                                    </Droppable>
-                                                ))}
-                                            </DragDropContext>
-                                        </div>
+                                                                    {provided.placeholder}
+                                                                </div>
+                                                            )}
+                                                        </Droppable>
+                                                    ))}
+                                                </Grid>
+                                            </Grid>
+                                        </DragDropContext>
                                     </div>
-                                </Grid>
+                                </div>
                             </Grid>
-                        </div>
+                        </Grid>
                     </div>
                 </div>
             </div>
