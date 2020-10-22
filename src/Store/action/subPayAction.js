@@ -17,6 +17,5 @@ export const setTotalPay = (feeData, expenseData, dailyCost) => async (dispatch)
 }
 
 export const deleteExpense = (data) => async (dispatch) => { 
-    console.log(data,"deletedataaction")
     dispatch({ type: "DELETE_EXPENSE", payload: data });
 }

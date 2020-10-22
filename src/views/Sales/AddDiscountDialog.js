@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 import Dialog from '@material-ui/core/Dialog';
 // @material-ui/icons

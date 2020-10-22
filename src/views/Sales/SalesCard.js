@@ -57,7 +57,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div className="main-content1">
+                        <div className="main-content">
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={6} lg={6}>
                                     <GridContainer>
@@ -92,7 +92,7 @@ export default function SectionCards() {
                                                                     <TableRow key={key}>
                                                                         <TableCell align="left" width="160px">{row.attr1}</TableCell>
                                                                         <TableCell align="center">$ {row.cost}</TableCell>
-                                                                        <TableCell align="center">% {row.percent}</TableCell>
+                                                                        <TableCell align="center">{row.percent} %</TableCell>
                                                                     </TableRow>
                                                                 ))}
                                                                 <TableRow>

@@ -52,7 +52,6 @@ export default function SectionCards() {
     }, [subPayData])
 
     useEffect(() => {
-        console.log(subStateData,"this")
         dispatch(Actions.setTotalPay(feeData, subStateData, totalHoursPriceN))
     }, [totalHoursPrice, subStateData])
 
@@ -71,8 +70,6 @@ export default function SectionCards() {
         setHoursPrice(tempPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     };
 
-
-
     const removeItem = (key) => { 
         const data = subStateData; 
         data.splice(key, 1); 
@@ -85,7 +82,7 @@ export default function SectionCards() {
                 {/* BLOG PLAIN CARDS START */}
                 <div>
                     <div className={classes.container}>
-                        <div className="main-content1">
+                        <div className="main-content">
                             <GridContainer>
                                 <GridItem xs={12} sm={12} md={6} lg={6}>
                                     <GridContainer>

@@ -27,10 +27,9 @@ export default function SectionPreFooter() {
                     <div className="price-footer2">
                         { width < phoneMaxwidth ? (
                             <div className="sales-phone-footer">
-                                <p style={{ marginRight: 15 }}>Expected Profit : </p>
-                                <h5>$ 1,950.00</h5>
-                                <h4 style={{ marginLeft: 20 }}>
-                                30 %</h4>
+                                <h5>Expected Profit:</h5>
+                                <h3>$ 1,950.00</h3>
+                                <h5 style={{marginBottom: 0}}>30 %</h5>
                             </div>
                         ): (
                             <div>
