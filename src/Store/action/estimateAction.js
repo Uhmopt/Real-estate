@@ -1,3 +1,5 @@
+import _, { last } from "lodash";
+
 export const getEsitmateData = async (dispatch) => {
 }
 
@@ -6,7 +8,7 @@ export const setEstimateGroup = data => async (dispatch) => {
 }
 
 export const setAddNewItem = (group, title, manufacturers, products, sf, isEdge, lf, color, depth, notes , option1, option2, option3, option4, option5) => async (dispatch) => {
-    
+    console.log(products);
     const temid = new Date().getTime();
     const data = {
         "id": "product" + temid,
@@ -42,7 +44,11 @@ export const setAddNewItem = (group, title, manufacturers, products, sf, isEdge,
                 "checked" : option5
             }
         ]
-    }
-    // console.log(title,"-title", manufacturers,"-manufacturers", products, "-products", sf,"-sf", isEdge, "-isEdge", lf, "-lf", color, "-color", depth, "-depth", notes, "-notes", showOptions, "-showOptions", option1, "-option1", option2, "-option2", option3, "-option3", option4, "-option4", option5, "-option5");
+    }  
+    const lastGroup = group.pop();
+    const products = lastGroup.products;
+    _.set(lastGroup, 'products', [...lastGroup.products, data]); 
+    group = [...group, lastGroup];
+    dispatch({ type: "UPDATE_GROUP_DATA", payload: group });
     
 }

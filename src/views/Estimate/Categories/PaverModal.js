@@ -73,7 +73,7 @@ export default function PaverModal() {
     };
 
     const handleProduct = (event) => {
-        setProducts(event.target.value);
+        setProducts(event.target.value);    
     };
 
     const handleClickOpen = () => {
@@ -84,10 +84,9 @@ export default function PaverModal() {
         setOpen(false);
     };
 
-    const saveItem = () => {
-
-        dispatch(Actions.setAddNewItem( groupsData, "Paver", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3,option4,option5 ))
-
+    const saveItem = () => { 
+        dispatch(Actions.setAddNewItem(groupsData, "Paver", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3, option4, option5));
+        setOpen(false); 
     }
 
     const handleCheckAll = () => {

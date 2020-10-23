@@ -11,6 +11,7 @@ const EstimateReducer = (state = initState, action) => {
         case 'SET_ESTIMATE_GROUP':
             state.groupData = [...action.payload]
             return state
+        
         default:
             return state;
     }
