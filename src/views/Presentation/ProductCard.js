@@ -76,7 +76,7 @@ export default function SectionCards() {
                                                                     <GridItem xs={6} sm={6} md={2}>
                                                                         <h6 className="card-main-style">{item.title}</h6>
                                                                     </GridItem>
-                                                                    { item.title != "Segmantal Wall" &&  item.title != "Materials" && (
+                                                                    { item.title !== "Segmantal Wall" &&  item.title !== "Materials" && (
                                                                         <GridItem xs={6} sm={6} md={3}>
                                                                             <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                                                                 <InputLabel>Option choice</InputLabel>
