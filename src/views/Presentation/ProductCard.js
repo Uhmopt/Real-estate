@@ -76,26 +76,28 @@ export default function SectionCards() {
                                                                     <GridItem xs={6} sm={6} md={2}>
                                                                         <h6 className="card-main-style">{item.title}</h6>
                                                                     </GridItem>
-                                                                    <GridItem xs={6} sm={6} md={3}>
-                                                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                                                            <InputLabel>Option choice</InputLabel>
-                                                                            <Select 
-                                                                                label="Option choice"
-                                                                            >
-                                                                                {item.options.map((item, index) => { 
-                                                                                        // const temid = new Date().getTime();
-                                                                                    return (
-                                                                                            item.checked && (
-                                                                                            <MenuItem value={item.option_title} key={index}>
-                                                                                                {item.option_title}
-                                                                                            </MenuItem>
+                                                                    { item.title != "Segmantal Wall" &&  item.title != "Materials" && (
+                                                                        <GridItem xs={6} sm={6} md={3}>
+                                                                            <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
+                                                                                <InputLabel>Option choice</InputLabel>
+                                                                                <Select 
+                                                                                    label="Option choice"
+                                                                                >
+                                                                                    {item.options.map((item, index) => { 
+                                                                                            // const temid = new Date().getTime();
+                                                                                        return (
+                                                                                                item.checked && (
+                                                                                                <MenuItem value={item.option_title} key={index}>
+                                                                                                    {item.option_title}
+                                                                                                </MenuItem>
 
-                                                                                            )
-                                                                                        ) 
-                                                                                })}
-                                                                            </Select>
-                                                                        </FormControl>
-                                                                    </GridItem>
+                                                                                                )
+                                                                                            ) 
+                                                                                    })}
+                                                                                </Select>
+                                                                            </FormControl>
+                                                                        </GridItem>
+                                                                    )}
                                                                     <GridItem xs={6} sm={6} md={1}>
                                                                         <h6 className="card-main-style">{item.color}</h6>
                                                                     </GridItem>

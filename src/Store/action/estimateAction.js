@@ -7,14 +7,13 @@ export const setEstimateGroup = data => async (dispatch) => {
     return dispatch({ type: 'SET_ESTIMATE_GROUP', payload: data })
 }
 
-export const setAddNewItem = (group, title, manufacturers, products, sf, isEdge, lf, color, depth, notes , option1, option2, option3, option4, option5) => async (dispatch) => {
-    console.log(products);
+export const setAddNewItem = (group, title, manufacturers, product, sf, isEdge, lf, color, depth, notes , option1, option2, option3, option4, option5, fsf,qty) => async (dispatch) => {
     const temid = new Date().getTime();
     const data = {
         "id": "product" + temid,
         "title": title,
         "manufacturer": manufacturers,
-        "product": products,
+        "product": product,
         "sf" : sf,
         "lf" : lf,
         "cost" : 800,
@@ -22,6 +21,8 @@ export const setAddNewItem = (group, title, manufacturers, products, sf, isEdge,
         "color" : color,
         "depth": depth,
         "notes": notes,
+        "fsf": fsf,
+        "qty": qty,
         "options": [
             {
                 "option_title": "option 1",
@@ -46,9 +47,7 @@ export const setAddNewItem = (group, title, manufacturers, products, sf, isEdge,
         ]
     }  
     const lastGroup = group.pop();
-    const products = lastGroup.products;
     _.set(lastGroup, 'products', [...lastGroup.products, data]); 
     group = [...group, lastGroup];
     dispatch({ type: "UPDATE_GROUP_DATA", payload: group });
-    
 }

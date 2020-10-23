@@ -42,10 +42,10 @@ export default function PaverModal() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
     // Modal state
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     // Mini/Maxium toggle state
-    const [isOpened, setIsOpened] = useState(true);
+    const [isOpened, setIsOpened] = useState(false);
     const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();

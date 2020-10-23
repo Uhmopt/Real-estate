@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,14 +17,13 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useTheme } from '@material-ui/core/styles';
-import { Collapse } from 'react-collapse';
-
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import Check from "@material-ui/icons/Check";
+import { Collapse } from 'react-collapse';
 
+import * as Actions from "../../../Store/action/estimateAction";
 import img from 'assets/img/categories/fireplace.svg';
 
 const useStyles1 = makeStyles(basicsStyle);
@@ -38,37 +38,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PaverModal() {
+    
+    const dispatch = useDispatch();
+    const groupsData = useSelector(state => state.group.groupData);
+    // Modal state
+    const [open, setOpen] = useState(false);
 
+    // Mini/Maxium toggle state
     const [isOpened, setIsOpened] = useState(false);
     const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();
-    const [checked, setChecked] = React.useState([24, 22]);
+
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [manufacturers, setManufacturers] = React.useState('');
-    const [products, setProducts] = React.useState('');
+    const [manufacturers, setManufacturers] = useState('Manufacturer 1');
+    const [products, setProducts] = useState('Product 1');
+    const [sf, setSF] = useState('');
+    const [isEdge, setIsEdge] = useState(false);
+    const [lf, setLF] = useState('');
+    const [color, setColor] = useState('');
+    const [depth, setDepth] = useState('');
+    const [notes, setNotes] = useState('');
+    const [fsf, setFSF] = useState('');
+    const [showOptions, setShowOptions] = useState(false);
+
+    const [option1, setOption1] = useState(false);
+    const [option2, setOption2] = useState(false);
+    const [option3, setOption3] = useState(false);
+    const [option4, setOption4] = useState(false);
+    const [option5, setOption5] = useState(false);
+    const [checkAll, setCheckAll] = useState(false);
 
     const handleManufacture = (event) => {
         setManufacturers(event.target.value);
     };
 
     const handleProduct = (event) => {
-        setProducts(event.target.value);
+        setProducts(event.target.value);    
     };
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-    };
-
-    // Modal state
-    const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -77,6 +84,20 @@ export default function PaverModal() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const saveItem = () => { 
+        dispatch(Actions.setAddNewItem(groupsData, "Fireplace", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3, option4, option5));
+        setOpen(false); 
+    }
+
+    const handleCheckAll = () => {
+        setOption1(!checkAll);
+        setOption2(!checkAll);
+        setOption3(!checkAll);
+        setOption4(!checkAll);
+        setOption5(!checkAll);
+        setCheckAll(!checkAll);
+    }
 
     return (
         <div>
@@ -112,9 +133,9 @@ export default function PaverModal() {
                                             onChange={handleManufacture}
                                             label="Manufacturer"
                                         >
-                                            <MenuItem value={10}>Manufacturer 1</MenuItem>
-                                            <MenuItem value={20}>Manufacturer 2</MenuItem>
-                                            <MenuItem value={30}>Manufacturer 3</MenuItem>
+                                            <MenuItem value="Manufacturer 1">Manufacturer 1</MenuItem>
+                                            <MenuItem value="Manufacturer 2">Manufacturer 2</MenuItem>
+                                            <MenuItem value="Manufacturer 3">Manufacturer 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -126,15 +147,15 @@ export default function PaverModal() {
                                             onChange={handleProduct}
                                             label="Product"
                                         >
-                                            <MenuItem value={40}>Product 1</MenuItem>
-                                            <MenuItem value={50}>Product 2</MenuItem>
-                                            <MenuItem value={60}>Product 3</MenuItem>
+                                            <MenuItem value="Product 1">Product 1</MenuItem>
+                                            <MenuItem value="Product 2">Product 2</MenuItem>
+                                            <MenuItem value="Product 3">Product 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="SF" variant="outlined" />
+                                        <TextField label="SF" variant="outlined" value={sf} onChange={e => setSF(e.target.value)} />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -143,10 +164,10 @@ export default function PaverModal() {
                             <div className="modal-minimize">
                                 <IconButton onClick={e => setIsOpened(!isOpened)}>
                                     {isOpened ? (
-                                        <IndeterminateCheckBoxIcon/>
+                                        <IndeterminateCheckBoxIcon />
                                     ) : (
-                                        <AddBoxIcon />   
-                                    )}
+                                            <AddBoxIcon />
+                                        )}
                                 </IconButton>
                             </div>
                         </Grid>
@@ -160,14 +181,10 @@ export default function PaverModal() {
                                         <FormControlLabel
                                             control={
                                                 <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
+                                                    color="primary"
+                                                    checked={isEdge}
+                                                    onClick={e => setIsEdge(!isEdge)}
+                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -178,29 +195,31 @@ export default function PaverModal() {
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="SF" variant="outlined" />
+                                            <TextField label="LF" variant="outlined" value={lf} onChange={e => setLF(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Color" variant="outlined" />
+                                            <TextField label="Color" variant="outlined" value={color} onChange={e => setColor(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Depth" variant="outlined" />
+                                            <TextField label="Depth" variant="outlined" value={depth} onChange={e => setDepth(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item md={12} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%", marginTop: 0 }}>
-                                            <TextField 
+                                            <TextField
                                                 label="Notes"
                                                 multiline
                                                 rows={4}
                                                 variant="outlined"
+                                                value={notes}
+                                                onChange={e => setNotes(e.target.value)}
                                             />
                                         </FormControl>
                                     </Grid>
@@ -209,18 +228,14 @@ export default function PaverModal() {
                                         <FormControlLabel
                                             control={
                                                 <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
+                                                    color="primary"
+                                                    checked={showOptions}
+                                                    onClick={e => setShowOptions(!showOptions)}
+                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: -16 }}
+                                            style={{ marginLeft: 0 }}
                                             label="Show presentation options"
                                         />
                                     </Grid>
@@ -231,18 +246,14 @@ export default function PaverModal() {
                                                 <FormControlLabel
                                                     control={
                                                         <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
+                                                            color="primary"
+                                                            disabled={!showOptions}
+                                                            checked={option1}
+                                                            onClick={e => setOption1(!option1)}
+                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
                                                     label="Option 1"
                                                 />
                                             </Grid>
@@ -250,18 +261,14 @@ export default function PaverModal() {
                                                 <FormControlLabel
                                                     control={
                                                         <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
+                                                            color="primary"
+                                                            disabled={!showOptions}
+                                                            checked={option2}
+                                                            onClick={e => setOption2(!option2)}
+                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
                                                     label="Option 2"
                                                 />
                                             </Grid>
@@ -269,18 +276,14 @@ export default function PaverModal() {
                                                 <FormControlLabel
                                                     control={
                                                         <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
+                                                            color="primary"
+                                                            disabled={!showOptions}
+                                                            checked={option3}
+                                                            onClick={e => setOption3(!option3)}
+                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
                                                     label="Option 3"
                                                 />
                                             </Grid>
@@ -288,18 +291,14 @@ export default function PaverModal() {
                                                 <FormControlLabel
                                                     control={
                                                         <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
+                                                            color="primary"
+                                                            disabled={!showOptions}
+                                                            checked={option4}
+                                                            onClick={e => setOption4(!option4)}
+                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
                                                     label="Option 4"
                                                 />
                                             </Grid>
@@ -307,18 +306,14 @@ export default function PaverModal() {
                                                 <FormControlLabel
                                                     control={
                                                         <Checkbox
-                                                            tabIndex={-1}
-                                                            onClick={() => handleToggle(21)}
-                                                            checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                            icon={<Check className={classes1.uncheckedIcon} />}
-                                                            classes={{
-                                                                checked: classes1.checked,
-                                                                root: classes1.checkRoot
-                                                            }}
+                                                            color="primary"
+                                                            disabled={!showOptions}
+                                                            checked={option5}
+                                                            onClick={e => setOption5(!option5)}
+                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                    style={{ marginLeft: 0, marginTop: -16 }}
                                                     label="Option 5"
                                                 />
                                             </Grid>
@@ -329,19 +324,15 @@ export default function PaverModal() {
                                         <FormControlLabel
                                             control={
                                                 <Checkbox
-                                                    tabIndex={-1}
-                                                    onClick={() => handleToggle(21)}
-                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                    classes={{
-                                                        checked: classes1.checked,
-                                                        root: classes1.checkRoot
-                                                    }}
+                                                    disabled={!showOptions}
+                                                    checked={checkAll}
+                                                    onClick={handleCheckAll}
+                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: -10 }}
-                                            label="Сheck all"
+                                            style={{ marginLeft: 0 }}
+                                            label="Check all"
                                         />
                                     </Grid>
                                 </Grid>
@@ -350,7 +341,7 @@ export default function PaverModal() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="success" onClick={handleClose}>
+                    <Button color="success" onClick={saveItem}>
                         Save
                     </Button>
                 </DialogActions>

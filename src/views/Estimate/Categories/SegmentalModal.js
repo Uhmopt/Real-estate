@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -14,12 +15,12 @@ import Select from '@material-ui/core/Select';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { Collapse } from 'react-collapse';
-
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import { Collapse } from 'react-collapse';
 
+import * as Actions from "../../../Store/action/estimateAction";
 import img from 'assets/img/categories/segmental-wall.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,19 +35,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PaverModal() {
 
+    const dispatch = useDispatch();
+    const groupsData = useSelector(state => state.group.groupData);
+
     const [isOpened, setIsOpened] = useState(false);
     const classes = useStyles();
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [manufacturers, setManufacturers] = React.useState('');
-    const [products, setProducts] = React.useState('');
+    const [manufacturers, setManufacturers] = useState('Manufacturer 1');
+    const [products, setProducts] = useState('Product 1');
+    const [sf, setSF] = useState('');
+    const [notes, setNotes] = useState('');
+    const [fsf, setFSF] = useState('');
 
     const handleManufacture = (event) => {
         setManufacturers(event.target.value);
     };
 
     const handleProduct = (event) => {
-        setProducts(event.target.value);
+        setProducts(event.target.value);    
     };
     // Modal state
     const [open, setOpen] = React.useState(false);
@@ -58,6 +65,12 @@ export default function PaverModal() {
     const handleClose = () => {
         setOpen(false);
     };
+
+
+    const saveItem = () => { 
+        dispatch(Actions.setAddNewItem(groupsData, "Segmantal Wall", manufacturers, products, sf, '', '', '', '', notes, '', '', '', '', '', fsf));
+        setOpen(false); 
+    }
 
     return (
         <div>
@@ -93,9 +106,9 @@ export default function PaverModal() {
                                             onChange={handleManufacture}
                                             label="Manufacturer"
                                         >
-                                            <MenuItem value={10}>Manufacturer 1</MenuItem>
-                                            <MenuItem value={20}>Manufacturer 2</MenuItem>
-                                            <MenuItem value={30}>Manufacturer 3</MenuItem>
+                                            <MenuItem value="Manufacturer 1">Manufacturer 1</MenuItem>
+                                            <MenuItem value="Manufacturer 2">Manufacturer 2</MenuItem>
+                                            <MenuItem value="Manufacturer 3">Manufacturer 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -107,20 +120,20 @@ export default function PaverModal() {
                                             onChange={handleProduct}
                                             label="Product"
                                         >
-                                            <MenuItem value={40}>Product 1</MenuItem>
-                                            <MenuItem value={50}>Product 2</MenuItem>
-                                            <MenuItem value={60}>Product 3</MenuItem>
+                                            <MenuItem value="Product 1">Product 1</MenuItem>
+                                            <MenuItem value="Product 2">Product 2</MenuItem>
+                                            <MenuItem value="Product 3">Product 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} md={3}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="FSF" variant="outlined" />
+                                        <TextField label="FSF" variant="outlined" value={fsf} onChange={e => setFSF(e.target.value)} />
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12} md={3}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="SF" variant="outlined" />
+                                        <TextField label="SF" variant="outlined" value={sf} onChange={e => setSF(e.target.value)} />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -151,11 +164,13 @@ export default function PaverModal() {
 
                                     <Grid item md={12} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%", marginTop: 0 }}>
-                                            <TextField 
+                                            <TextField
                                                 label="Notes"
                                                 multiline
                                                 rows={4}
                                                 variant="outlined"
+                                                value={notes}
+                                                onChange={e => setNotes(e.target.value)}
                                             />
                                         </FormControl>
                                     </Grid>
@@ -165,7 +180,7 @@ export default function PaverModal() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="success" onClick={handleClose}>
+                    <Button color="success" onClick={saveItem}>
                         Save
                     </Button>
                 </DialogActions>
