@@ -55,7 +55,7 @@ export default function SimpleCard() {
                             <li onClick={e => setSide(false)}>
                                 <div className="modal-c-button"
                                     onClick={() => dispatch({
-                                        type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
+                                        type: "UPDATE_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
                                     })}>
                                     <img src={img} alt="" className="cat-img" />
                                     <h5>
@@ -99,7 +99,7 @@ export default function SimpleCard() {
                                 <li>
                                     <div className="modal-c-button"
                                         onClick={() => dispatch({
-                                            type: "ADD_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
+                                            type: "UPDATE_GROUP_DATA", payload: [...groupsData, { "name": "Group", "optional": false, "total": 0, "products": [] }]
                                         })}>
                                         <img src={img} alt="" className="cat-img" />
                                         <h5>

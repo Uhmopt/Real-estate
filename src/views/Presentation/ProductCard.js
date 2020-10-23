@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import Check from "@material-ui/icons/Check";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -29,7 +27,6 @@ import img2 from "assets/img/products/2.jpg";
 import img3 from "assets/img/products/3.jpg";
 import img4 from "assets/img/products/5.jpg";
 import img5 from "assets/img/products/6.jpg";
-import { setTotalPay } from "Store/action/subPayAction";
 
 const useStyles = makeStyles(styles);
 const useStyles1 = makeStyles(basicsStyle);
@@ -39,32 +36,15 @@ export default function SectionCards() {
     const groupsData = useSelector(state => state.group.groupData);
 
     const [custom_options, setOptions] = React.useState('');
-    const [custom_options1, setOptions1] = React.useState('');
-    const [checked, setChecked] = React.useState([24, 22]);
     const classes = useStyles();
     const classes1 = useStyles1();
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-    };
     const handleOptions = (event) => {
         setOptions(event.target.value);
     };
-    const handleOptions1 = (event) => {
-        setOptions1(event.target.value);
-    };
-
     const toggleOptional = (key) => {
         const data = groupsData;
         data[key].optional = !data[key].optional;
-        dispatch({ type: "TOGGLE_GROUP_OPTIONAL", payload: data })
+        dispatch({ type: "SET_ESTIMATE_GROUP", payload: data })
     };
     return (
         <div className="cd-section">
@@ -154,7 +134,7 @@ export default function SectionCards() {
                                                     return pv + cv.cost
                                                     }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
                                             ) : (
-                                                "0.00"
+                                                0.00
                                             )
 
                                             }

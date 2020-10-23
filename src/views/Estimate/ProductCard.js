@@ -128,7 +128,7 @@ export default function DragAndDrop() {
     const toggleOptional = (key) => {
         const data = groupsData;
         data[key].optional = !data[key].optional;
-        dispatch({ type: "TOGGLE_GROUP_OPTIONAL", payload: data })
+        dispatch({ type: "SET_ESTIMATE_GROUP", payload: data })
     };
 
     const handleGroupName = (key, value) => {
@@ -140,7 +140,7 @@ export default function DragAndDrop() {
     const deleteGroup = (key) => {
         const data = groupsData;
         data.splice(key, 1);
-        dispatch({ type: "DELETE_GROUP_DATA", payload: data })
+        dispatch({ type: "UPDATE_GROUP_DATA", payload: data })
     }
 
     return (
