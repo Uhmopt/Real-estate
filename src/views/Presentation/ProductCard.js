@@ -35,12 +35,8 @@ export default function SectionCards() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
 
-    const [custom_options, setOptions] = React.useState('');
     const classes = useStyles();
     const classes1 = useStyles1();
-    const handleOptions = (event) => {
-        setOptions(event.target.value);
-    };
     const toggleOptional = (key) => {
         const data = groupsData;
         data[key].optional = !data[key].optional;
@@ -94,13 +90,16 @@ export default function SectionCards() {
                                                                             <Select
                                                                                 labelId="demo-simple-select-outlined-label"
                                                                                 id="demo-simple-select-outlined"
-                                                                                value={custom_options}
-                                                                                onChange={handleOptions}
                                                                                 label="Option choice"
                                                                             >
-                                                                                <MenuItem value={10}>Option 1</MenuItem>
-                                                                                <MenuItem value={20}>Option 2</MenuItem>
-                                                                                <MenuItem value={30}>Option 3</MenuItem>
+                                                                                {item.options.map((item, index) => {
+                                                                                    if(item.checked)
+                                                                                        return (
+                                                                                            <MenuItem value={item.option_title} key={index}>
+                                                                                                {item.option_title}
+                                                                                            </MenuItem>
+                                                                                        )    
+                                                                                })}
                                                                             </Select>
                                                                         </FormControl>
                                                                     </GridItem>
@@ -129,13 +128,13 @@ export default function SectionCards() {
                                     </GridItem>
                                     <GridItem xs={12} sm={12} md={2} lg={2}>
                                         <h3 className="product-price">
-                                            $ { row.optional ? (
+                                            $ {row.optional ? (
                                                 row.products.reduce((pv, cv) => {
                                                     return pv + cv.cost
-                                                    }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                                                }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
                                             ) : (
-                                                0.00
-                                            )
+                                                    "0.00"
+                                                )
 
                                             }
                                         </h3>

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // @material-ui/icons
 import RemoveIcon from '@material-ui/icons/Remove';
 import ClearIcon from '@material-ui/icons/Clear';
-import Check from "@material-ui/icons/Check";
 import OpenWithIcon from '@material-ui/icons/OpenWith';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -23,7 +22,6 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 
-import * as Actions from "../../Store/action/salesAction"
 import { setEstimateGroup } from "../../Store/action/estimateAction";
 
 const useStyles1 = makeStyles(basicsStyle);
@@ -87,7 +85,6 @@ export default function DragAndDrop() {
     const groupsData = useSelector(state => state.group.groupData);
 
     const [isOpened1, setIsOpened1] = useState(true);
-    const [groupTotal, setGroupTotal] = useState(0);
 
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -117,14 +114,6 @@ export default function DragAndDrop() {
         }
     }
 
-    useEffect((key) => {
-        // let totalCost = 0;
-        // groupsData[key].hours_estimate.map(item => {
-        //     return totalCost += item.hours;
-        // });
-        // setGroupTotal(totalCost);
-    }, [groupsData])
-
     const toggleOptional = (key) => {
         const data = groupsData;
         data[key].optional = !data[key].optional;
@@ -134,7 +123,7 @@ export default function DragAndDrop() {
     const handleGroupName = (key, value) => {
         const data = groupsData;
         data[key].name = value;
-        dispatch({ type: "CHNAGE_GROUP_NAME", payload: data })
+        dispatch({ type: "UPDATE_GROUP_DATA", payload: data })
     };
 
     const deleteGroup = (key) => {
