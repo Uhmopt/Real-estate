@@ -27,11 +27,6 @@ import { setEstimateGroup } from "../../Store/action/estimateAction";
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles(styles);
 // fake data generator
-const getItems = (count, offset = 0) =>
-    Array.from({ length: count }, (v, k) => k).map(k => ({
-        id: `item-${k + offset}-${new Date().getTime()}`,
-        content: `item ${k + offset}`
-    }));
 
 const reorder = (list, startIndex, endIndex) => {
     const result = list
@@ -275,4 +270,3 @@ export default function DragAndDrop() {
     );
 }
 
-const rootElement = document.getElementById("root");

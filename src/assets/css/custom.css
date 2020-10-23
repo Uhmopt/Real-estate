@@ -303,6 +303,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
 
 .product-img {
     border-radius: 8px;
+    padding: 5px;
     width: 60px;
     height: 60px;
 }
@@ -448,9 +449,10 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     }
 
     .product-img {
+        width: 100px;
+        height: 100px;
+        margin: auto;
         margin-bottom: 20px;
-        width: auto;
-        height: auto;
     }
 
     .subpay-style1 {

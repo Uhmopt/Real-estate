@@ -32,10 +32,17 @@ const useStyles = makeStyles(styles);
 export default function SectionCards() {
     const dispatch = useDispatch();  
     const salesData = useSelector(state => state.esitmate.sales);
-    const [preDiscountTotal, setPreDiscountTotal] = useState(7689.98);
+    const [preDiscountTotal, setPreDiscountTotal] = useState();
+    setPreDiscountTotal(7689.98)
     const [discountData, setDiscountData] = useState([]);
     const salesStateData = useSelector(state => state.sales.salesData);
     const afterTotal = useSelector(state => state.sales.afterTotal);
+
+    const deleteDiscount = (key) => {
+        const data = salesStateData;
+        data.splice(key, 1); 
+        dispatch({type: "DELETE_SALES_DATA", payload: data})
+    }
 
     useEffect(() => {
         setDiscountData(salesStateData);
@@ -43,13 +50,7 @@ export default function SectionCards() {
 
     useEffect(() => {
         dispatch(Actions.setTotalPay(discountData, preDiscountTotal))
-    }, [discountData])
-
-    const deleteDiscount = (key) => {
-        const data = salesStateData;
-        data.splice(key, 1); 
-        dispatch({type: "DELETE_SALES_DATA", payload: data})
-    }
+    }, [preDiscountTotal,discountData, dispatch])
     const classes = useStyles();
     return (
         <div className="cd-section">

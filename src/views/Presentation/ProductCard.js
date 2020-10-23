@@ -16,18 +16,11 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import ImageLightBox from './LightBox';
 import { Collapse } from 'react-collapse';
 
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
-
-import img1 from "assets/img/products/1.jpg";
-import img2 from "assets/img/products/2.jpg";
-import img3 from "assets/img/products/3.jpg";
-import img4 from "assets/img/products/5.jpg";
-import img5 from "assets/img/products/6.jpg";
-
 const useStyles = makeStyles(styles);
 const useStyles1 = makeStyles(basicsStyle);
 export default function SectionCards() {
@@ -42,6 +35,7 @@ export default function SectionCards() {
         data[key].optional = !data[key].optional;
         dispatch({ type: "SET_ESTIMATE_GROUP", payload: data })
     };
+    console.log(groupsData)
     return (
         <div className="cd-section">
             <div className={classes.sectionWhite}>
@@ -77,9 +71,7 @@ export default function SectionCards() {
                                                             {row.products.map((item, index) => (
                                                                 <GridContainer key={index}>
                                                                     <GridItem xs={12} sm={6} md={1}>
-                                                                        <div className="product-img" >
-                                                                            <img src={img3} alt="" />
-                                                                        </div>
+                                                                        <ImageLightBox />
                                                                     </GridItem>
                                                                     <GridItem xs={6} sm={6} md={2}>
                                                                         <h6 className="card-main-style">{item.title}</h6>
@@ -87,18 +79,19 @@ export default function SectionCards() {
                                                                     <GridItem xs={6} sm={6} md={3}>
                                                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                                                             <InputLabel>Option choice</InputLabel>
-                                                                            <Select
-                                                                                labelId="demo-simple-select-outlined-label"
-                                                                                id="demo-simple-select-outlined"
+                                                                            <Select 
                                                                                 label="Option choice"
                                                                             >
-                                                                                {item.options.map((item, index) => {
-                                                                                    if(item.checked)
-                                                                                        return (
+                                                                                {item.options.map((item, index) => { 
+                                                                                        // const temid = new Date().getTime();
+                                                                                    return (
+                                                                                            item.checked && (
                                                                                             <MenuItem value={item.option_title} key={index}>
                                                                                                 {item.option_title}
                                                                                             </MenuItem>
-                                                                                        )    
+
+                                                                                            )
+                                                                                        ) 
                                                                                 })}
                                                                             </Select>
                                                                         </FormControl>

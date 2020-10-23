@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import GroupModal from './Categories/GroupModal';
 import PaverModal from './Categories/PaverModal';
 import SegmentalModal from './Categories/SegmentalModal';
 import NaturalStoneModal from './Categories/NaturalStoneModal';

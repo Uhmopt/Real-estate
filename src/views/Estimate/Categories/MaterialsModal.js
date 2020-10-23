@@ -84,8 +84,6 @@ export default function PaverModal() {
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                         <InputLabel>Manufacturer</InputLabel>
                                         <Select
-                                            labelId="demo-simple-select-outlined-label"
-                                            id="demo-simple-select-outlined"
                                             value={manufacturers}
                                             onChange={handleManufacture}
                                             label="Manufacturer"

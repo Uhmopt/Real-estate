@@ -17,12 +17,14 @@ export default function SectionPreFooter() {
     
     useEffect(() => {
         let sumPrice = 0;
-        groupsData.map(item => {
+        groupsData.map( item  => {
             if (item.optional) {
                 item.products.map(index => {
                     sumPrice += index.cost
+                    return item;
                 })
             }
+            return groupsData;
         })
         setTotalPrice(sumPrice);
     }, [groupsData])

@@ -53,7 +53,7 @@ export default function SectionCards() {
 
     useEffect(() => {
         dispatch(Actions.setTotalPay(feeData, subStateData, totalHoursPriceN))
-    }, [totalHoursPrice, subStateData])
+    }, [totalHoursPrice,totalHoursPriceN, subStateData,feeData, dispatch])
 
     const handleTeams = (event) => {
         setProducts(event.target.value);
@@ -135,8 +135,6 @@ export default function SectionCards() {
                                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                                             <InputLabel>Teams</InputLabel>
                                                             <Select
-                                                                labelId="demo-simple-select-outlined-label"
-                                                                id="demo-simple-select-outlined"
                                                                 value={teams}
                                                                 onChange={handleTeams}
                                                                 label="Team"
