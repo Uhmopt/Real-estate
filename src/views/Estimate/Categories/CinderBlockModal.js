@@ -58,8 +58,7 @@ export default function PaverModal() {
     const [lf, setLF] = useState('');
     const [color, setColor] = useState('');
     const [depth, setDepth] = useState('');
-    const [notes, setNotes] = useState('');
-    // const [fsf, setFSF] = useState('');
+    const [notes, setNotes] = useState('');    
     const [showOptions, setShowOptions] = useState(false);
 
     const [option1, setOption1] = useState(false);
