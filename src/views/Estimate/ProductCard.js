@@ -85,8 +85,9 @@ const getListStyle = isDraggingOver => ({
 export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
-    
+
     const [isOpened1, setIsOpened1] = useState(true);
+    const [groupTotal, setGroupTotal] = useState(0);
 
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -115,6 +116,14 @@ export default function DragAndDrop() {
             dispatch(setEstimateGroup(newState));
         }
     }
+
+    useEffect((key) => {
+        // let totalCost = 0;
+        // groupsData[key].hours_estimate.map(item => {
+        //     return totalCost += item.hours;
+        // });
+        // setGroupTotal(totalCost);
+    }, [groupsData])
 
     const toggleOptional = (key) => {
         const data = groupsData;
@@ -164,7 +173,7 @@ export default function DragAndDrop() {
                                                                                             required
                                                                                             label="Group name"
                                                                                             defaultValue={el.name}
-                                                                                            onChange={ e=> handleGroupName(ind, e.target.value) }
+                                                                                            onChange={e => handleGroupName(ind, e.target.value)}
                                                                                             className="card-title"
                                                                                         />
                                                                                     </Grid>
@@ -226,7 +235,7 @@ export default function DragAndDrop() {
                                                                                                             <h6>{item.product}</h6>
                                                                                                         </Grid>
                                                                                                         <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>$ {item.sf}</h6>
+                                                                                                            <h6>$ {item.cost}</h6>
                                                                                                         </Grid>
                                                                                                         <Grid item xs={4} sm={4} md={2} lg={2}>
                                                                                                             <h6>{item.color}</h6>
@@ -252,7 +261,9 @@ export default function DragAndDrop() {
                                                                             </div>
                                                                         </Grid>
                                                                         <Grid item xs={12} md={2} lg={2}>
-                                                                            <h3 className="product-price">$ 4,890.00</h3>
+                                                                            <h3 className="product-price">$ {el.products.reduce((pv, cv) => {
+                                                                                return pv + cv.cost 
+                                                                            }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
                                                                         </Grid>
                                                                     </Grid>
                                                                     {provided.placeholder}
