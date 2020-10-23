@@ -2,7 +2,7 @@ export const addDiscount = (discount, amount) => async (dispatch) => {
     const addData = { attr1: discount, cost: parseInt(amount) };
     dispatch({ type: "SET_ADD_DISCOUNT", payload: addData });
 }
-export const setTotalPay = (expenseData, preDiscountTotal) => async (dispatch) => {
+export const setTotalSale = (expenseData, preDiscountTotal) => async (dispatch) => {
     
     let expenseCost = 0;
     expenseData.forEach(item => {

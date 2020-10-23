@@ -49,7 +49,7 @@ export default function SectionCards() {
     }, [salesStateData])
 
     useEffect(() => {
-        dispatch(Actions.setTotalPay(discountData, preDiscountTotal))
+        dispatch(Actions.setTotalSale(discountData, preDiscountTotal))
     }, [preDiscountTotal,discountData, dispatch])
     const classes = useStyles();
     return (
