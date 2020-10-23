@@ -86,10 +86,13 @@ export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
 
-    // const [state, setState] = useState([getItems(3), getItems(5, 10), getItems(5, 10)]);
+    const [checked, setChecked] = useState();
 
-    const [checked, setChecked] = React.useState([24, 22]);
+    // groupsData.map( item => {
+    //     setChecked
+    // })
     
+
     const [isOpened1, setIsOpened1] = useState(true);
 
     const classes = useStyles();
@@ -120,23 +123,16 @@ export default function DragAndDrop() {
         }
     }
 
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-    };
-    
-    const deleteGroup = (key) => {
-        console.log(key, "keyDatata");
+    const toggleOptional = (key) => {
         const data = groupsData;
-        data.splice(key, 1); 
-        dispatch({type: "DELETE_GROUP_DATA", payload: data})
+        data[key].optional = !data[key].optional;
+        dispatch({ type: "TOGGLE_GROUP_OPTIONAL", payload: data })
+    };
+
+    const deleteGroup = (key) => {
+        const data = groupsData;
+        data.splice(key, 1);
+        dispatch({ type: "DELETE_GROUP_DATA", payload: data })
     }
 
     return (
@@ -176,15 +172,10 @@ export default function DragAndDrop() {
                                                                                         <FormControlLabel
                                                                                             control={
                                                                                                 <Checkbox
-                                                                                                    tabIndex={-1}
+                                                                                                    color="primary"
                                                                                                     checked={el.optional}
-                                                                                                    onClick={() => handleToggle(21)}
-                                                                                                    checkedIcon={<Check className={classes1.checkedIcon} />}
-                                                                                                    icon={<Check className={classes1.uncheckedIcon} />}
-                                                                                                    classes={{
-                                                                                                        checked: classes1.checked,
-                                                                                                        root: classes1.checkRoot
-                                                                                                    }}
+                                                                                                    onClick={e => toggleOptional(ind)}
+                                                                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                                                                 />
                                                                                             }
                                                                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -201,7 +192,7 @@ export default function DragAndDrop() {
                                                                                                         <AddIcon style={{ fontSize: "1rem" }} />
                                                                                                     )}
                                                                                             </Button>
-                                                                                            <Button variant="outlined" size="small"  onClick={e => deleteGroup(ind)}>
+                                                                                            <Button variant="outlined" size="small" onClick={e => deleteGroup(ind)}>
                                                                                                 <DeleteIcon style={{ fontSize: "1rem" }} />
                                                                                             </Button>
                                                                                         </div>
@@ -238,7 +229,7 @@ export default function DragAndDrop() {
                                                                                                             <h6>$ {item.sf}</h6>
                                                                                                         </Grid>
                                                                                                         <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>$ {item.color}</h6>
+                                                                                                            <h6>{item.color}</h6>
                                                                                                         </Grid>
                                                                                                         <Grid item xs={1} style={{ position: "relative" }}>
                                                                                                             <div className="item-remove-corner">

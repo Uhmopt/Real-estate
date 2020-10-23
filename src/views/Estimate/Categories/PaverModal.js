@@ -182,7 +182,7 @@ export default function PaverModal() {
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="SF" variant="outlined" />
+                                            <TextField label="LF" variant="outlined" />
                                         </FormControl>
                                     </Grid>
 
