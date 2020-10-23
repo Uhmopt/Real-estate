@@ -1,14 +1,14 @@
-import initState1 from "../../Marteknology.json"; 
+import initState1 from "../../Marteknology.json";
 const initState = {
     groupData: initState1.groups
 }
-const EstimateReducer = (state = initState, action) => { 
+const EstimateReducer = (state = initState, action) => {
     switch (action.type) {
         case 'ADD_GROUP_DATA':
             return {
-                 groupData: [...action.payload]
-             }
-        case 'DELETE_GROUP_DATA': 
+                groupData: [...action.payload]
+            }
+        case 'DELETE_GROUP_DATA':
             return {
                 groupData: [...action.payload]
             }
@@ -16,6 +16,9 @@ const EstimateReducer = (state = initState, action) => {
             state.groupData = [...action.payload]
             return state
         case 'TOGGLE_GROUP_OPTIONAL':
+            state.groupData = [...action.payload]
+            return state
+        case 'CHNAGE_GROUP_NAME':
             state.groupData = [...action.payload]
             return state
         default:

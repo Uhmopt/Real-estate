@@ -85,14 +85,7 @@ const getListStyle = isDraggingOver => ({
 export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
-
-    const [checked, setChecked] = useState();
-
-    // groupsData.map( item => {
-    //     setChecked
-    // })
     
-
     const [isOpened1, setIsOpened1] = useState(true);
 
     const classes = useStyles();
@@ -127,6 +120,12 @@ export default function DragAndDrop() {
         const data = groupsData;
         data[key].optional = !data[key].optional;
         dispatch({ type: "TOGGLE_GROUP_OPTIONAL", payload: data })
+    };
+
+    const handleGroupName = (key, value) => {
+        const data = groupsData;
+        data[key].name = value;
+        dispatch({ type: "CHNAGE_GROUP_NAME", payload: data })
     };
 
     const deleteGroup = (key) => {
@@ -165,6 +164,7 @@ export default function DragAndDrop() {
                                                                                             required
                                                                                             label="Group name"
                                                                                             defaultValue={el.name}
+                                                                                            onChange={ e=> handleGroupName(ind, e.target.value) }
                                                                                             className="card-title"
                                                                                         />
                                                                                     </Grid>
