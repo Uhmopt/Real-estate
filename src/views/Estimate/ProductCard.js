@@ -26,7 +26,6 @@ import { setEstimateGroup } from "../../Store/action/estimateAction";
 
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles(styles);
-// fake data generator
 
 const reorder = (list, startIndex, endIndex) => {
     const result = list
@@ -135,130 +134,128 @@ export default function DragAndDrop() {
                     <div className="main-content">
                         <Grid container spacing={3}>
                             <Grid md={12} item>
-                                <div>
-                                    <div style={{ display: "flex" }}>
-                                        <DragDropContext onDragEnd={onDragEnd}>
-                                            <Grid container spacing={3}>
-                                                <Grid item xs={12} lg={12} md={12} style={{ marginBottom: 20 }}>
-                                                    {groupsData.map((el, ind) => (
-                                                        <Droppable key={ind} droppableId={`${ind}`}>
-                                                            {(provided, snapshot) => (
-                                                                <div
-                                                                    ref={provided.innerRef}
-                                                                    style={getListStyle(snapshot.isDraggingOver)}
-                                                                    {...provided.droppableProps}
-                                                                >
-                                                                    <Grid container spacing={3}>
-                                                                        <Grid item xs={12} md={10} lg={10}>
-                                                                            <div className="estimate-card">
-                                                                                <Grid container>
-                                                                                    <Grid item xs={5} sm={5} md={6} lg={6}>
-                                                                                        <TextField
-                                                                                            required
-                                                                                            label="Group name"
-                                                                                            defaultValue={el.name}
-                                                                                            onChange={e => handleGroupName(ind, e.target.value)}
-                                                                                            className="card-title"
-                                                                                        />
-                                                                                    </Grid>
-                                                                                    <Grid item xs={3} sm={3} md={4} lg={4}>
-                                                                                        <FormControlLabel
-                                                                                            control={
-                                                                                                <Checkbox
-                                                                                                    color="primary"
-                                                                                                    checked={el.optional}
-                                                                                                    onClick={e => toggleOptional(ind)}
-                                                                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                                                                                />
-                                                                                            }
-                                                                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                                                                            style={{ marginTop: 20 }}
-                                                                                            label="Optional"
-                                                                                        />
-                                                                                    </Grid>
-                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                        <div className="product-action">
-                                                                                            <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
-                                                                                                {isOpened1 ? (
-                                                                                                    <RemoveIcon style={{ fontSize: "1rem" }} />
-                                                                                                ) : (
-                                                                                                        <AddIcon style={{ fontSize: "1rem" }} />
-                                                                                                    )}
-                                                                                            </Button>
-                                                                                            <Button variant="outlined" size="small" onClick={e => deleteGroup(ind)}>
-                                                                                                <DeleteIcon style={{ fontSize: "1rem" }} />
-                                                                                            </Button>
-                                                                                        </div>
-                                                                                    </Grid>
+                                <div style={{ display: "flex" }}>
+                                    <DragDropContext onDragEnd={onDragEnd}>
+                                        <Grid container spacing={3}>
+                                            <Grid item xs={12} lg={12} md={12} style={{ marginBottom: 20 }}>
+                                                {groupsData.map((el, ind) => (
+                                                    <Droppable key={ind} droppableId={`${ind}`}>
+                                                        {(provided, snapshot) => (
+                                                            <div
+                                                                ref={provided.innerRef}
+                                                                style={getListStyle(snapshot.isDraggingOver)}
+                                                                {...provided.droppableProps}
+                                                            >
+                                                                <Grid container spacing={3}>
+                                                                    <Grid item xs={12} md={10} lg={10}>
+                                                                        <div className="estimate-card">
+                                                                            <Grid container>
+                                                                                <Grid item xs={5} sm={5} md={6} lg={6}>
+                                                                                    <TextField
+                                                                                        required
+                                                                                        label="Group name"
+                                                                                        value={el.name}
+                                                                                        onChange={e => handleGroupName(ind, e.target.value)}
+                                                                                        className="card-title"
+                                                                                    />
                                                                                 </Grid>
+                                                                                <Grid item xs={3} sm={3} md={4} lg={4}>
+                                                                                    <FormControlLabel
+                                                                                        control={
+                                                                                            <Checkbox
+                                                                                                color="primary"
+                                                                                                checked={el.optional}
+                                                                                                onClick={e => toggleOptional(ind)}
+                                                                                                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                                                                            />
+                                                                                        }
+                                                                                        classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                                                                        style={{ marginTop: 20 }}
+                                                                                        label="Optional"
+                                                                                    />
+                                                                                </Grid>
+                                                                                <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                    <div className="product-action">
+                                                                                        <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
+                                                                                            {isOpened1 ? (
+                                                                                                <RemoveIcon style={{ fontSize: "1rem" }} />
+                                                                                            ) : (
+                                                                                                    <AddIcon style={{ fontSize: "1rem" }} />
+                                                                                                )}
+                                                                                        </Button>
+                                                                                        <Button variant="outlined" size="small" onClick={e => deleteGroup(ind)}>
+                                                                                            <DeleteIcon style={{ fontSize: "1rem" }} />
+                                                                                        </Button>
+                                                                                    </div>
+                                                                                </Grid>
+                                                                            </Grid>
 
-                                                                                <Collapse isOpened={isOpened1}>
-                                                                                    {el.products.map((item, index) => (
-                                                                                        <Draggable key={item.id} draggableId={item.id} index={index} >
-                                                                                            {(provided, snapshot) => (
-                                                                                                <div
-                                                                                                    ref={provided.innerRef}
-                                                                                                    {...provided.draggableProps}
-                                                                                                    {...provided.dragHandleProps}
-                                                                                                    style={getItemStyle(
-                                                                                                        snapshot.isDragging,
-                                                                                                        provided.draggableProps.style
-                                                                                                    )}
-                                                                                                >
-                                                                                                    <Grid container spacing={2}>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={1}>
-                                                                                                            <OpenWithIcon />
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>{item.title}</h6>
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>{item.manufacturer}</h6>
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>{item.product}</h6>
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>$ {item.cost}</h6>
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                            <h6>{item.color}</h6>
-                                                                                                        </Grid>
-                                                                                                        <Grid item xs={1} style={{ position: "relative" }}>
-                                                                                                            <div className="item-remove-corner">
-                                                                                                                <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
-                                                                                                                    onClick={() => {
-                                                                                                                        const newState = [...groupsData];
-                                                                                                                        newState[ind].products.splice(index, 1);
-                                                                                                                        dispatch(setEstimateGroup(newState))
-                                                                                                                    }}>
-                                                                                                                    <ClearIcon fontSize="inherit" />
-                                                                                                                </Button>
-                                                                                                            </div>
-                                                                                                        </Grid>
+                                                                            <Collapse isOpened={isOpened1}>
+                                                                                {el.products.map((item, index) => (
+                                                                                    <Draggable key={item.id} draggableId={item.id} index={index} >
+                                                                                        {(provided, snapshot) => (
+                                                                                            <div
+                                                                                                ref={provided.innerRef}
+                                                                                                {...provided.draggableProps}
+                                                                                                {...provided.dragHandleProps}
+                                                                                                style={getItemStyle(
+                                                                                                    snapshot.isDragging,
+                                                                                                    provided.draggableProps.style
+                                                                                                )}
+                                                                                            >
+                                                                                                <Grid container spacing={2}>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={1}>
+                                                                                                        <OpenWithIcon />
                                                                                                     </Grid>
-                                                                                                </div>
-                                                                                            )}
-                                                                                        </Draggable>
-                                                                                    ))}
-                                                                                </Collapse>
-                                                                            </div>
-                                                                        </Grid>
-                                                                        <Grid item xs={12} md={2} lg={2}>
-                                                                            <h3 className="product-price">$ {el.products.reduce((pv, cv) => {
-                                                                                return pv + cv.cost 
-                                                                            }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
-                                                                        </Grid>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                        <h6>{item.title}</h6>
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                        <h6>{item.manufacturer}</h6>
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                        <h6>{item.product}</h6>
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                        <h6>$ {item.cost}</h6>
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={4} sm={4} md={2} lg={2}>
+                                                                                                        <h6>{item.color}</h6>
+                                                                                                    </Grid>
+                                                                                                    <Grid item xs={1} style={{ position: "relative" }}>
+                                                                                                        <div className="item-remove-corner">
+                                                                                                            <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
+                                                                                                                onClick={() => {
+                                                                                                                    const newState = [...groupsData];
+                                                                                                                    newState[ind].products.splice(index, 1);
+                                                                                                                    dispatch(setEstimateGroup(newState))
+                                                                                                                }}>
+                                                                                                                <ClearIcon fontSize="inherit" />
+                                                                                                            </Button>
+                                                                                                        </div>
+                                                                                                    </Grid>
+                                                                                                </Grid>
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </Draggable>
+                                                                                ))}
+                                                                            </Collapse>
+                                                                        </div>
                                                                     </Grid>
-                                                                    {provided.placeholder}
-                                                                </div>
-                                                            )}
-                                                        </Droppable>
-                                                    ))}
-                                                </Grid>
+                                                                    <Grid item xs={12} md={2} lg={2}>
+                                                                        <h3 className="product-price">$ {el.products.reduce((pv, cv) => {
+                                                                            return pv + cv.cost 
+                                                                        }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
+                                                                    </Grid>
+                                                                </Grid>
+                                                                {provided.placeholder}
+                                                            </div>
+                                                        )}
+                                                    </Droppable>
+                                                ))}
                                             </Grid>
-                                        </DragDropContext>
-                                    </div>
+                                        </Grid>
+                                    </DragDropContext>
                                 </div>
                             </Grid>
                         </Grid>

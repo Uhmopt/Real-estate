@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,14 +17,13 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useTheme } from '@material-ui/core/styles';
-import { Collapse } from 'react-collapse';
-
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import Check from "@material-ui/icons/Check";
+import { Collapse } from 'react-collapse';
 
+import * as Actions from "../../../Store/action/estimateAction";
 import img from 'assets/img/categories/paver.svg';
 
 const useStyles1 = makeStyles(basicsStyle);
@@ -38,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PaverModal() {
+    
+    const dispatch = useDispatch();
+    const groupsData = useSelector(state => state.group.groupData);
+    // Modal state
+    const [open, setOpen] = useState(true);
 
     // Mini/Maxium toggle state
     const [isOpened, setIsOpened] = useState(true);
@@ -45,7 +50,6 @@ export default function PaverModal() {
     const classes = useStyles();
     const theme = useTheme();
 
-    const [checked, setChecked] = useState([24, 22]);
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [manufacturers, setManufacturers] = useState('Manufacturer 1');
     const [products, setProducts] = useState('Product 1');
@@ -71,20 +75,6 @@ export default function PaverModal() {
     const handleProduct = (event) => {
         setProducts(event.target.value);
     };
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-
-        if (currentIndex === -1) {
-            newChecked.push(value);
-        } else {
-            newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-    };
-
-    // Modal state
-    const [open, setOpen] = useState(true);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -93,6 +83,12 @@ export default function PaverModal() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const saveItem = () => {
+
+        dispatch(Actions.setAddNewItem( groupsData, "Paver", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3,option4,option5 ))
+
+    }
 
     const handleCheckAll = () => {
         setOption1(!checkAll);
@@ -199,19 +195,19 @@ export default function PaverModal() {
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="LF" variant="outlined" onChange={e => setLF(e.target.value)} />
+                                            <TextField label="LF" variant="outlined" value={lf} onChange={e => setLF(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Color" variant="outlined" onChange={e => setColor(e.target.value)} />
+                                            <TextField label="Color" variant="outlined" value={color} onChange={e => setColor(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Depth" variant="outlined" onChange={e => setDepth(e.target.value)} />
+                                            <TextField label="Depth" variant="outlined" value={depth} onChange={e => setDepth(e.target.value)} />
                                         </FormControl>
                                     </Grid>
 
@@ -222,6 +218,7 @@ export default function PaverModal() {
                                                 multiline
                                                 rows={4}
                                                 variant="outlined"
+                                                value={notes}
                                                 onChange={e => setNotes(e.target.value)}
                                             />
                                         </FormControl>
@@ -344,7 +341,7 @@ export default function PaverModal() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="success" onClick={handleClose}>
+                    <Button color="success" onClick={saveItem}>
                         Save
                     </Button>
                 </DialogActions>
