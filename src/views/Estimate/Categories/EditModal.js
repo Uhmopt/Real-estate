@@ -14,19 +14,15 @@ import Button from "components/CustomButtons/Button.js";
 import Select from '@material-ui/core/Select';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import { useTheme } from '@material-ui/core/styles';
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
-import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { Collapse } from 'react-collapse';
 import { useForm } from "react-hook-form";
 
 import * as Actions from "../../../Store/action/estimateAction";
 
-const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -40,24 +36,21 @@ const useStyles = makeStyles((theme) => ({
 export default function PaverModal(props) {
 
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm()
     const groupsData = useSelector(state => state.group.groupData);
+    const { register, handleSubmit } = useForm()
     // Modal state
-    const [open, setOpen] = useState(false);
 
     // Mini/Maxium toggle state
     const [isOpened, setIsOpened] = useState(true);
-    const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();
 
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const saveItem = data => {
-        console.log('data', data)
-        // setOpen(false);
+        dispatch(Actions.setUpdataItem(groupsData, data, props.data && props.data.id));
+        props.toggle();
     }
-    // console.log(props.data, "sata")
     return (
         <div>
             <Dialog
@@ -139,21 +132,7 @@ export default function PaverModal(props) {
 
                             <Collapse isOpened={isOpened}>
                                 <Grid container spacing={1}>
-                                    <Grid item md={3} xs={11}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    color="primary"
-                                                    checked={props.data && props.data.isEdge}
-                                                />
-                                            }
-                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
-                                            style={{ marginLeft: 0, marginTop: 12 }}
-                                            label="Is Edge?"
-                                        />
-                                    </Grid>
-
-                                    <Grid item md={3} xs={11}>
+                                    <Grid item md={4} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                             <TextField
                                                 label="LF"
@@ -165,19 +144,19 @@ export default function PaverModal(props) {
                                         </FormControl>
                                     </Grid>
 
-                                    <Grid item md={3} xs={11}>
+                                    <Grid item md={4} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                             <TextField
                                                 label="Color"
                                                 variant="outlined"
-                                                value={props.data && props.data.color}
+                                                defaultValue={props.data && props.data.color}
                                                 name="color"
                                                 inputRef={register}
                                             />
                                         </FormControl>
                                     </Grid>
 
-                                    <Grid item md={3} xs={11}>
+                                    <Grid item md={4} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                             <TextField
                                                 label="Depth"

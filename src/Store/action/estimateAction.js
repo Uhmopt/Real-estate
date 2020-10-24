@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _, { filter, includes } from "lodash";
 
 export const getEsitmateData = async(dispatch) => {};
 
@@ -66,5 +66,16 @@ export const setAddNewItem = (
     _.set(lastGroup, "products", [...lastGroup.products, data]);
     group = [...group, lastGroup];
     dispatch({ type: "UPDATE_GROUP_DATA", payload: group });
-    console.log(group, "group_data")
 };
+export const setUpdataItem = (groupsData, data, id) => async (dispatch) => {
+
+    groupsData.forEach((element, ind) => {
+        element.products.forEach((product, index) => {
+            const newProduct = { ...product, ...data }
+            _.update(groupsData, `[${ind}][${index}]`, function(n) { return newProduct });
+        })
+    });
+    console.log("titttitii", groupsData)
+    dispatch({ type: "UPDATE_GROUP_DATA", payload: groupsData });
+
+}

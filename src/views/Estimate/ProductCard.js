@@ -81,6 +81,8 @@ export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
 
+    console.log("show --- ", groupsData)
+
     //Edit Modal toggle
     const [editModal, setEditModal] = useState();
     const [dragDisabled, setDragDisabled] = useState(true)
