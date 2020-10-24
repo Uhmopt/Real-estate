@@ -66,4 +66,5 @@ export const setAddNewItem = (
     _.set(lastGroup, "products", [...lastGroup.products, data]);
     group = [...group, lastGroup];
     dispatch({ type: "UPDATE_GROUP_DATA", payload: group });
+    console.log(group, "group_data")
 };

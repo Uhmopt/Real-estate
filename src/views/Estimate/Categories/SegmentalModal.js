@@ -68,7 +68,7 @@ export default function PaverModal() {
 
 
     const saveItem = () => { 
-        dispatch(Actions.setAddNewItem(groupsData, "Segmantal Wall", manufacturers, products, sf, '', '', '', '', notes, '', '', '', '', '', fsf));
+        dispatch(Actions.setAddNewItem(groupsData, "Segmantal Wall", manufacturers, products, sf, '', '', '', '', notes, '', '', '', '', '', fsf, ''));
         setOpen(false); 
     }
 

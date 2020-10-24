@@ -65,7 +65,7 @@ export default function PaverModal() {
     dispatch(
       Actions.setAddNewItem(
         groupsData,
-        "materials",
+        "material",
         manufacturers,
         "",
         "",

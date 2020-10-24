@@ -76,40 +76,53 @@ export default function SectionCards() {
                                                                     <GridItem xs={6} sm={6} md={2}>
                                                                         <h6 className="card-main-style">{item.title}</h6>
                                                                     </GridItem>
-                                                                    { item.title !== "Segmantal Wall" &&  item.title !== "Materials" && (
+                                                                    { (item.title !== "Segmantal Wall" && item.title !== "material") && (
                                                                         <GridItem xs={6} sm={6} md={3}>
                                                                             <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                                                                 <InputLabel>Option choice</InputLabel>
-                                                                                <Select 
+                                                                                <Select
                                                                                     label="Option choice"
                                                                                 >
-                                                                                    {item.options.map((item, index) => { 
-                                                                                            // const temid = new Date().getTime();
+                                                                                    {item.options.map((item, index) => {
+                                                                                        // const temid = new Date().getTime();
                                                                                         return (
-                                                                                                item.checked && (
+                                                                                            item.checked && (
                                                                                                 <MenuItem value={item.option_title} key={index}>
                                                                                                     {item.option_title}
                                                                                                 </MenuItem>
 
-                                                                                                )
-                                                                                            ) 
+                                                                                            )
+                                                                                        )
                                                                                     })}
                                                                                 </Select>
                                                                             </FormControl>
                                                                         </GridItem>
                                                                     )}
-                                                                    <GridItem xs={6} sm={6} md={1}>
-                                                                        <h6 className="card-main-style">{item.color}</h6>
-                                                                    </GridItem>
-                                                                    <GridItem xs={6} sm={6} md={1}>
-                                                                        <h6 className="card-main-style">{item.sf}</h6>
-                                                                    </GridItem>
-                                                                    <GridItem xs={6} sm={6} md={1}>
-                                                                        <h6 className="card-main-style">{item.sf}</h6>
-                                                                    </GridItem>
-                                                                    <GridItem xs={6} sm={6} md={1}>
-                                                                        <h6 className="card-main-style">$ {item.cost}</h6>
-                                                                    </GridItem>
+                                                                    { item.color && (
+                                                                        <GridItem xs={6} sm={6} md={1}>
+                                                                            <h6 className="card-main-style">{item.color}</h6>
+                                                                        </GridItem>
+                                                                    )}
+                                                                    { item.sf && (
+                                                                        <GridItem xs={6} sm={6} md={1}>
+                                                                            <h6 className="card-main-style">{item.sf}</h6>
+                                                                        </GridItem>
+                                                                    )}
+                                                                    { item.cost && (
+                                                                        <GridItem xs={6} sm={6} md={1}>
+                                                                            <h6 className="card-main-style">$ {item.cost}</h6>
+                                                                        </GridItem>
+                                                                    )}
+                                                                    { item.qty && (
+                                                                        <GridItem xs={6} sm={6} md={1}>
+                                                                            <h6 className="card-main-style">{item.qty}</h6>
+                                                                        </GridItem>
+                                                                    )}
+                                                                    { item.lf && (
+                                                                        <GridItem xs={6} sm={6} md={1}>
+                                                                            <h6 className="card-main-style">{item.lf}</h6>
+                                                                        </GridItem>
+                                                                    )}
                                                                 </GridContainer>
                                                             ))}
                                                         </CardBody>
@@ -130,7 +143,6 @@ export default function SectionCards() {
                                             ) : (
                                                     "0.00"
                                                 )
-
                                             }
                                         </h3>
                                     </GridItem>

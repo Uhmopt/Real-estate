@@ -85,7 +85,7 @@ export default function PaverModal() {
     };
 
     const saveItem = () => { 
-        dispatch(Actions.setAddNewItem(groupsData, "LIGHTS", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3, option4, option5));
+        dispatch(Actions.setAddNewItem(groupsData, "LIGHTS", manufacturers, products, sf, isEdge, lf, color, depth, notes, option1, option2, option3, option4, option5, '', ''));
         setOpen(false); 
     }
 
