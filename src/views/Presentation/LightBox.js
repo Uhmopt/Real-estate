@@ -6,8 +6,10 @@ import defaultimage from "assets/img/lightbox.png";
 import img1 from "assets/img/products/1.jpg";
 import img2 from "assets/img/products/2.jpg";
 import img3 from "assets/img/products/3.jpg";
-import img4 from "assets/img/products/5.jpg";
-import img5 from "assets/img/products/6.jpg";
+import img4 from "assets/img/products/4.jpg";
+import img5 from "assets/img/products/5.jpg";
+import img6 from "assets/img/products/6.jpg";
+import img7 from "assets/img/products/7.jpg";
 
 const images = [
   img1,
@@ -15,6 +17,8 @@ const images = [
   img3,
   img4,
   img5,
+  img6,
+  img7,
 ];
  
 export default class ImageLightBox extends Component {

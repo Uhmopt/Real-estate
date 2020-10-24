@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PaverModal(props) {
 
     const dispatch = useDispatch();
-    const groupsData = useSelector(state => state.group.groupData);
+    let groupsData = useSelector(state => state.group.groupData);
     const { register, handleSubmit } = useForm()
     // Modal state
 
@@ -48,7 +48,7 @@ export default function PaverModal(props) {
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const saveItem = data => {
-        dispatch(Actions.setUpdataItem(groupsData, data, props.data && props.data.id));
+        dispatch(Actions.setUpdataItem(groupsData, data )); 
         props.toggle();
     }
     return (

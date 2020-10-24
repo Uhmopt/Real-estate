@@ -15,7 +15,7 @@
                         "lf" : 309,
                         "cost" : 784,
                         "isEdge" : false,
-                        "color" : "RED",
+                        "color" : "Yellow",
                         "depth": 4,
                         "notes": "This is our product",
                         "options": [
