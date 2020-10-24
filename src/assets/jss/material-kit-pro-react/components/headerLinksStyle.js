@@ -86,7 +86,7 @@ const headerLinksStyle = theme => ({
       marginTop: "8px",
       textAlign: "left",
       "& > span:first-child": {
-        justifyContent: "flex-start"
+        textAlign: "center"
       }
     },
     "& svg": {
@@ -119,7 +119,7 @@ const headerLinksStyle = theme => ({
       marginTop: "5px",
       textAlign: "left",
       "& > span:first-child": {
-        justifyContent: "flex-start"
+        textAlign: "center"
       }
     },
     "& $icons": {

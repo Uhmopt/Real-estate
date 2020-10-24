@@ -526,14 +526,6 @@ h2.MuiTypography-root.MuiTypography-h6 {
         fill: #9abc31;
     }
 
-    .makeStyles-listItem-75:not(:last-child):after {
-        background-color: transparent !important;
-    }
-
-    .makeStyles-navButton-79>span:first-child {
-        justify-content: center !important;
-    }
-
     .hidden-sm {
         display: none;
     }
