@@ -203,7 +203,18 @@ export default function DragAndDrop() {
                                                                                                     provided.draggableProps.style
                                                                                                 )}
                                                                                             >
-                                                                                                <Grid container spacing={2}>
+                                                                                                <Grid container spacing={2} style={{position : "relative"}}>
+
+                                                                                                    <div className="item-remove-corner">
+                                                                                                        <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
+                                                                                                            onClick={() => {
+                                                                                                                const newState = [...groupsData];
+                                                                                                                newState[ind].products.splice(index, 1);
+                                                                                                                dispatch(setEstimateGroup(newState))
+                                                                                                            }}>
+                                                                                                            <ClearIcon fontSize="small" />
+                                                                                                        </Button>
+                                                                                                    </div>
                                                                                                     <Grid item xs={4} sm={4} md={2} lg={1}>
                                                                                                         <OpenWithIcon />
                                                                                                     </Grid>
@@ -222,18 +233,6 @@ export default function DragAndDrop() {
                                                                                                     <Grid item xs={4} sm={4} md={2} lg={2}>
                                                                                                         <h6>{item.color}</h6>
                                                                                                     </Grid>
-                                                                                                    <Grid item xs={1} style={{ position: "relative" }}>
-                                                                                                        <div className="item-remove-corner">
-                                                                                                            <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
-                                                                                                                onClick={() => {
-                                                                                                                    const newState = [...groupsData];
-                                                                                                                    newState[ind].products.splice(index, 1);
-                                                                                                                    dispatch(setEstimateGroup(newState))
-                                                                                                                }}>
-                                                                                                                <ClearIcon fontSize="inherit" />
-                                                                                                            </Button>
-                                                                                                        </div>
-                                                                                                    </Grid>
                                                                                                 </Grid>
                                                                                             </div>
                                                                                         )}
@@ -244,7 +243,7 @@ export default function DragAndDrop() {
                                                                     </Grid>
                                                                     <Grid item xs={12} md={2} lg={2}>
                                                                         <h3 className="product-price">$ {el.products.reduce((pv, cv) => {
-                                                                            return pv + cv.cost 
+                                                                            return pv + cv.cost
                                                                         }, 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
                                                                     </Grid>
                                                                 </Grid>

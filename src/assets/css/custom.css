@@ -8,18 +8,22 @@
     margin-right: 10px !important;
     min-width: 32px !important;
 }
+
 .MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
     max-width: 1920px;
 }
+
 .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child {
     padding-left: 6px;
     color: #ccc;
 }
+
 .product-action {
     margin-top: 18px;
     margin-right: -8px;
     text-align: right !important;
 }
+
 .MuiFormLabel-root {
     color: #ccc !important;
 }
@@ -34,11 +38,15 @@ a:hover,
 a:focus {
     color: #9abc31 !important;
 }
+
 .item-remove-corner {
     position: absolute;
     right: 0;
-    top: -4px;
+    top: 0px;
+    margin-top: 13px;
+    margin-right: 6px;
 }
+
 .card-title {
     width: 100%;
     margin-top: 12px !important;
@@ -97,7 +105,7 @@ fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 }
 
 .price-footer,
-.price-footer1{
+.price-footer1 {
     font-size: 28px !important;
     color: #fff;
     font-weight: bold !important;
@@ -357,6 +365,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     margin-top: 12px;
     margin-bottom: 11px;
 }
+
 .price-footer2 div {
     margin-top: 12px;
     margin-bottom: 11px;
@@ -366,6 +375,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     font-size: 20px;
     font-weight: 500;
 }
+
 .material-title {
     font-size: 18px;
     font-weight: 500;
@@ -399,7 +409,7 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     grid-template-columns: 105px auto;
 }
 
-.sales-total{
+.sales-total {
     font-weight: 500;
 }
 
@@ -412,13 +422,13 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     margin-bottom: 0px !important;
 }
 
-.sales-phone-footer h5{
+.sales-phone-footer h5 {
     font-weight: 700;
     margin-top: 10px !important;
     line-height: 1rem;
 }
 
-.sales-phone-footer h3{
+.sales-phone-footer h3 {
     line-height: 1rem;
     margin-top: -2px;
     font-weight: 700;
@@ -429,18 +439,22 @@ fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
     padding: 20px;
     border-radius: 12px;
 }
+
 .MuiFormControlLabel-label {
     color: #333 !important;
 }
+
 .MuiFormControlLabel-label.Mui-disabled {
     color: #b4b4b496 !important;
 }
+
 @media (min-width: 1200px) {
-    
+
     div[class*="makeStyles-sectionWhit"] div div[class*="makeStyles-container"] {
         max-width: 1440px !important;
     }
-    .cd-section div div[class*="makeStyles-container"]{
+
+    .cd-section div div[class*="makeStyles-container"] {
         max-width: 1440px !important;
     }
 }
@@ -545,22 +559,38 @@ span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
 
 @media (max-width: 767.95px) {
 
+    .item-remove-corner {
+        margin-top: -14px;
+        margin-right: -15px;
+    }
+
+    .MuiInputBase-input {
+        font-size: 14px !important;
+    }
+
+    h6 {
+        font-size: 0.6rem;
+    }
+
     .sales-total {
         font-size: 15px;
     }
+
     .MuiTableCell-root {
         display: table-cell;
         padding: 10px !important;
     }
+
     .main-content {
         margin-bottom: 160px;
     }
+
     button.MuiButtonBase-root.MuiButton-root.MuiButton-text[class*="makeStyles-button"][class*="makeStyles-white"][class*="makeStyles-simple"].footer-linker {
         padding: 12px 0;
         text-align: center !important;
         font-size: 14px !important;
     }
-    
+
     .MuiGrid-root[class*="makeStyles-grid"][class*="makeStyles-border"].MuiGrid-item.MuiGrid-grid-xs-2.MuiGrid-grid-sm-2.MuiGrid-grid-md-2 {
         padding-right: 0;
         padding-left: 0;
