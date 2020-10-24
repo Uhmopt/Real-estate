@@ -16,11 +16,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 // core components
-
 import { Collapse } from 'react-collapse';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import styles from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
 import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
+
+//Modal componetns
+
+import PaverModal from "./Categories/PaverModal";
+import MaterialsModal from "./Categories/MaterialsModal";
+import SegmentalModal from "./Categories/SegmentalModal";
 
 import { setEstimateGroup } from "../../Store/action/estimateAction";
 
@@ -62,7 +67,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
     margin: `0 0 ${grid}px 0`,
 
     // change background colour if dragging
-    background: isDragging ? "lightgreen" : "#fff",
+    background: isDragging ? "f2ffca" : "#fff",
 
     // styles we need to apply on draggables
     ...draggableStyle
@@ -78,7 +83,7 @@ export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
 
-    const [isOpened1, setIsOpened1] = useState(true);
+    const [isOpened, setIsOpened] = useState(true);
 
     const classes = useStyles();
     const classes1 = useStyles1();
@@ -126,6 +131,15 @@ export default function DragAndDrop() {
         dispatch({ type: "UPDATE_GROUP_DATA", payload: data })
     }
 
+    const hadleIsOpen = (key) => {
+        const data = groupsData;
+        data[key].isopen = !data[key].isopen;
+        dispatch({ type: "UPDATE_GROUP_DATA", payload: data })
+    }
+
+    const editItem = () => {
+        console.log("thishtishti")
+    }
     return (
         <div className="cd-section">
             <div className={classes.sectionWhite}>
@@ -176,8 +190,8 @@ export default function DragAndDrop() {
                                                                                 </Grid>
                                                                                 <Grid item xs={4} sm={4} md={2} lg={2}>
                                                                                     <div className="product-action">
-                                                                                        <Button variant="outlined" size="small" onClick={e => setIsOpened1(!isOpened1)}>
-                                                                                            {isOpened1 ? (
+                                                                                        <Button variant="outlined" size="small" onClick={e => hadleIsOpen(ind)}>
+                                                                                            {el.isopen ? (
                                                                                                 <RemoveIcon style={{ fontSize: "1rem" }} />
                                                                                             ) : (
                                                                                                     <AddIcon style={{ fontSize: "1rem" }} />
@@ -190,9 +204,9 @@ export default function DragAndDrop() {
                                                                                 </Grid>
                                                                             </Grid>
 
-                                                                            <Collapse isOpened={isOpened1}>
+                                                                            <Collapse isOpened={el.isopen}>
                                                                                 {el.products.map((item, index) => (
-                                                                                    <Draggable key={item.id} draggableId={item.id} index={index} >
+                                                                                    <Draggable key={item.id} draggableId={item.id} index={index}>
                                                                                         {(provided, snapshot) => (
                                                                                             <div
                                                                                                 ref={provided.innerRef}
@@ -203,7 +217,7 @@ export default function DragAndDrop() {
                                                                                                     provided.draggableProps.style
                                                                                                 )}
                                                                                             >
-                                                                                                <Grid container spacing={2} style={{position : "relative"}}>
+                                                                                                <Grid container spacing={2} style={{ position: "relative" }} className="draganle-item" onClick={editItem}>
 
                                                                                                     <div className="item-remove-corner">
                                                                                                         <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
@@ -215,11 +229,11 @@ export default function DragAndDrop() {
                                                                                                             <ClearIcon fontSize="small" />
                                                                                                         </Button>
                                                                                                     </div>
-                                                                                                    <Grid item xs={4} sm={4} md={2} lg={1}>
+                                                                                                    <div className="dragable-haddle">
                                                                                                         <OpenWithIcon />
-                                                                                                    </Grid>
+                                                                                                    </div>
                                                                                                     <Grid item xs={4} sm={4} md={2} lg={2}>
-                                                                                                        <h6>{item.title}</h6>
+                                                                                                        <h6 style={{ paddingLeft: 30 }}>{item.title}</h6>
                                                                                                     </Grid>
                                                                                                     <Grid item xs={4} sm={4} md={2} lg={2}>
                                                                                                         <h6>{item.manufacturer}</h6>

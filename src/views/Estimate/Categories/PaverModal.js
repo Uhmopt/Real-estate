@@ -183,7 +183,6 @@ export default function PaverModal() {
                                                     color="primary"
                                                     checked={isEdge}
                                                     onClick={e => setIsEdge(!isEdge)}
-                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -230,7 +229,6 @@ export default function PaverModal() {
                                                     color="primary"
                                                     checked={showOptions}
                                                     onClick={e => setShowOptions(!showOptions)}
-                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -249,7 +247,6 @@ export default function PaverModal() {
                                                             disabled={!showOptions}
                                                             checked={option1}
                                                             onClick={e => setOption1(!option1)}
-                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -264,7 +261,6 @@ export default function PaverModal() {
                                                             disabled={!showOptions}
                                                             checked={option2}
                                                             onClick={e => setOption2(!option2)}
-                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -279,7 +275,6 @@ export default function PaverModal() {
                                                             disabled={!showOptions}
                                                             checked={option3}
                                                             onClick={e => setOption3(!option3)}
-                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -294,7 +289,6 @@ export default function PaverModal() {
                                                             disabled={!showOptions}
                                                             checked={option4}
                                                             onClick={e => setOption4(!option4)}
-                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -309,7 +303,6 @@ export default function PaverModal() {
                                                             disabled={!showOptions}
                                                             checked={option5}
                                                             onClick={e => setOption5(!option5)}
-                                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                         />
                                                     }
                                                     classes={{ label: classes1.label, root: classes1.labelRoot }}
@@ -326,7 +319,6 @@ export default function PaverModal() {
                                                     disabled={!showOptions}
                                                     checked={checkAll}
                                                     onClick={handleCheckAll}
-                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
                                                 />
                                             }
                                             classes={{ label: classes1.label, root: classes1.labelRoot }}
