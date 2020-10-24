@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState , useEffect} from "react";
+import { useSelector } from "react-redux";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // core components
@@ -21,7 +22,22 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 export default function SectionPreFooter() {
     const classes = useStyles();
+    const groupsData = useSelector(state => state.group.groupData);
+    const [totalPrice, setTotalPrice] = useState(0);
     const [classicModal, setClassicModal] = React.useState(false);
+    const discoutsTotal = -150;
+    useEffect(() => {
+        let sumPrice = 0;
+        groupsData.map( item  => {
+                item.products.map(index => {
+                    sumPrice += index.cost
+                    return item;
+                })
+            return groupsData;
+        })
+        setTotalPrice(sumPrice);
+    }, [groupsData])
+
     return (
         <div>
             <div
@@ -42,7 +58,7 @@ export default function SectionPreFooter() {
                                 className="price-footer"
                                 onClick={() => setClassicModal(true)}
                             >
-                                $ 19,590.00
+                                $ {totalPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </Button>
                             <Dialog
                                 classes={{
@@ -83,7 +99,7 @@ export default function SectionPreFooter() {
                                             <h5 className="text-style4">Total :</h5>
                                         </GridItem>
                                         <GridItem xs={12}>
-                                            <h3 className="text-style2">$ 350.00</h3>
+                                            <h3 className="text-style2">$ {(discoutsTotal + totalPrice).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
                                         </GridItem>
                                     </GridContainer>
                                 </DialogContent>

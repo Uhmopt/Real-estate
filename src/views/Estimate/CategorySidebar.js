@@ -20,7 +20,7 @@ export default function SimpleCard() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
     const { innerWidth: width } = window;
-    const phoneMaxwidth = 767.95;
+    const phoneMaxwidth = 1399.95;
     const isMobile = width < phoneMaxwidth ? true : false;
     const [isSide, setSide] = useState(width < phoneMaxwidth ? false : true);
 
