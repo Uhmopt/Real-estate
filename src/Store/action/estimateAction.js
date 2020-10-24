@@ -1,4 +1,4 @@
-import _, { filter, includes } from "lodash";
+import _ from "lodash";
 
 export const getEsitmateData = async (dispatch) => {
   return dispatch({ type: "GET_ESTIMATE_GROUP" });
@@ -73,7 +73,7 @@ export const setAddNewItem = (
 export const setUpdataItem = (groupsData, data, id) => async (dispatch) => {
   groupsData.forEach((element, ind) => {
     element.products.forEach((product, index) => {
-      if (product.id == id) {
+      if (product.id === id) {
         const newProduct = { ...product, ...data };
         _.update(groupsData, `[${ind}]["products"][${index}]`, function (n) {
           return newProduct;

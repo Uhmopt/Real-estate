@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // @material-ui/icons
 import RemoveIcon from "@material-ui/icons/Remove";
@@ -25,10 +25,7 @@ import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSecti
 
 import EditModal from "./Categories/EditModal";
 
-import {
-  getEsitmateData,
-  setEstimateGroup,
-} from "../../Store/action/estimateAction";
+import { setEstimateGroup } from "../../Store/action/estimateAction";
 
 const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles(styles);
@@ -308,12 +305,12 @@ export default function DragAndDrop() {
                                                   </div>
                                                   <div
                                                     className="dragable-haddle"
-                                                    onMouseEnter={() =>
-                                                      setDragDisabled(false)
-                                                    }
-                                                    onMouseLeave={() =>
-                                                      setDragDisabled(true)
-                                                    }
+                                                    onMouseEnter={() => {
+                                                      setDragDisabled(false);
+                                                    }}
+                                                    onTouchStart={() => {
+                                                      setDragDisabled(false);
+                                                    }}
                                                   >
                                                     <OpenWithIcon />
                                                   </div>
