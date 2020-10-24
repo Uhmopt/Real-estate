@@ -132,9 +132,9 @@ export default function PaverModal() {
                                             onChange={handleManufacture}
                                             label="Manufacturer"
                                         >
-                                            <MenuItem value="Manufacturer 1">Manufacturer 1</MenuItem>
-                                            <MenuItem value="Manufacturer 2">Manufacturer 2</MenuItem>
-                                            <MenuItem value="Manufacturer 3">Manufacturer 3</MenuItem>
+                                            <MenuItem value="manufacturer1">Manufacturer 1</MenuItem>
+                                            <MenuItem value="manufacturer2">Manufacturer 2</MenuItem>
+                                            <MenuItem value="manufacturer3">Manufacturer 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -146,9 +146,9 @@ export default function PaverModal() {
                                             onChange={handleProduct}
                                             label="Product"
                                         >
-                                            <MenuItem value="Product 1">Product 1</MenuItem>
-                                            <MenuItem value="Product 2">Product 2</MenuItem>
-                                            <MenuItem value="Product 3">Product 3</MenuItem>
+                                            <MenuItem value="product1">Product 1</MenuItem>
+                                            <MenuItem value="product2">Product 2</MenuItem>
+                                            <MenuItem value="product3">Product 3</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>

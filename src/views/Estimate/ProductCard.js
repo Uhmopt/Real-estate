@@ -23,9 +23,7 @@ import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSecti
 
 //Modal componetns
 
-import PaverModal from "./Categories/PaverModal";
-import MaterialsModal from "./Categories/MaterialsModal";
-import SegmentalModal from "./Categories/SegmentalModal";
+import EditModal from "./Categories/EditModal";
 
 import { setEstimateGroup } from "../../Store/action/estimateAction";
 
@@ -83,14 +81,19 @@ export default function DragAndDrop() {
     const dispatch = useDispatch();
     const groupsData = useSelector(state => state.group.groupData);
 
-    const [isOpened, setIsOpened] = useState(true);
-
+    //Edit Modal toggle
+    const [editModal, setEditModal] = useState();
+    const [dragDisabled, setDragDisabled] = useState(true)
+    const toggleEditModal = () => setEditModal(prevState => !prevState)
+    const [itemToEdit, setItemToEdit] = useState();
     const classes = useStyles();
     const classes1 = useStyles1();
+    let deleteBtnClicked = false
 
     function onDragEnd(result) {
         const { source, destination } = result;
 
+        setDragDisabled(true)
         // dropped outside the list
         if (!destination) {
             return;
@@ -136,9 +139,14 @@ export default function DragAndDrop() {
         data[key].isopen = !data[key].isopen;
         dispatch({ type: "UPDATE_GROUP_DATA", payload: data })
     }
-
-    const editItem = () => {
-        console.log("thishtishti")
+    
+    const editItem = (item) => {
+        if (!deleteBtnClicked) {
+            setItemToEdit(item)
+            return setEditModal(true);
+        }
+        deleteBtnClicked = false
+        return
     }
     return (
         <div className="cd-section">
@@ -206,7 +214,12 @@ export default function DragAndDrop() {
 
                                                                             <Collapse isOpened={el.isopen}>
                                                                                 {el.products.map((item, index) => (
-                                                                                    <Draggable key={item.id} draggableId={item.id} index={index}>
+                                                                                    <Draggable
+                                                                                        key={item.id}
+                                                                                        draggableId={item.id}
+                                                                                        index={index}
+                                                                                        isDragDisabled={dragDisabled}
+                                                                                    >
                                                                                         {(provided, snapshot) => (
                                                                                             <div
                                                                                                 ref={provided.innerRef}
@@ -217,7 +230,7 @@ export default function DragAndDrop() {
                                                                                                     provided.draggableProps.style
                                                                                                 )}
                                                                                             >
-                                                                                                <Grid container spacing={2} style={{ position: "relative" }} className="draganle-item" onClick={editItem}>
+                                                                                                <Grid container spacing={2} style={{ position: "relative" }} className="draganle-item" onClick={() => editItem(item)}>
 
                                                                                                     <div className="item-remove-corner">
                                                                                                         <Button aria-label="delete" style={{ minWidth: 25 }} className={classes.margin} size="small"
@@ -225,11 +238,17 @@ export default function DragAndDrop() {
                                                                                                                 const newState = [...groupsData];
                                                                                                                 newState[ind].products.splice(index, 1);
                                                                                                                 dispatch(setEstimateGroup(newState))
+                                                                                                                deleteBtnClicked = true
+
                                                                                                             }}>
                                                                                                             <ClearIcon fontSize="small" />
                                                                                                         </Button>
                                                                                                     </div>
-                                                                                                    <div className="dragable-haddle">
+                                                                                                    <div
+                                                                                                        className="dragable-haddle"
+                                                                                                        onMouseEnter={() => setDragDisabled(false)}
+                                                                                                        onMouseLeave={() => setDragDisabled(true)}
+                                                                                                    >
                                                                                                         <OpenWithIcon />
                                                                                                     </div>
                                                                                                     <Grid item xs={4} sm={4} md={2} lg={2}>
@@ -275,8 +294,8 @@ export default function DragAndDrop() {
                     </div>
                 </div>
             </div>
+            <EditModal open={editModal} toggle={toggleEditModal} data={itemToEdit} />
         </div>
-
     );
 }
 

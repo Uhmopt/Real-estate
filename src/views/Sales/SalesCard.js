@@ -32,8 +32,7 @@ const useStyles = makeStyles(styles);
 export default function SectionCards() {
     const dispatch = useDispatch();  
     const salesData = useSelector(state => state.esitmate.sales);
-    const [preDiscountTotal, setPreDiscountTotal] = useState();
-    setPreDiscountTotal(7689.98)
+    const preDiscountTotal = 7632.98 ;
     const [discountData, setDiscountData] = useState([]);
     const salesStateData = useSelector(state => state.sales.salesData);
     const afterTotal = useSelector(state => state.sales.afterTotal);

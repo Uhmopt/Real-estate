@@ -43,7 +43,7 @@ export default function PaverModal() {
   const classes = useStyles();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [manufacturers, setManufacturers] = useState("Manufacturer 1");
+  const [manufacturers, setManufacturers] = useState("manufacturer1");
   const [sf, setSF] = useState("");
   //eslint-disable-next-line
   const [qty, setQTY] = useState("");
@@ -121,9 +121,9 @@ export default function PaverModal() {
                       onChange={handleManufacture}
                       label="Manufacturer"
                     >
-                      <MenuItem value="Manufacturer 1">Manufacturer 1</MenuItem>
-                      <MenuItem value="Manufacturer 2">Manufacturer 2</MenuItem>
-                      <MenuItem value="Manufacturer 3">Manufacturer 3</MenuItem>
+                      <MenuItem value="manufacturer1">Manufacturer 1</MenuItem>
+                      <MenuItem value="manufacturer2">Manufacturer 2</MenuItem>
+                      <MenuItem value="manufacturer3">Manufacturer 3</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>

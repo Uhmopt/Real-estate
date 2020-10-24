@@ -14,15 +14,19 @@ import Button from "components/CustomButtons/Button.js";
 import Select from '@material-ui/core/Select';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 import { useTheme } from '@material-ui/core/styles';
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import CloseIcon from '@material-ui/icons/Close';
+import basicsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/basicsStyle.js";
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import { Collapse } from 'react-collapse';
+import { useForm } from "react-hook-form";
 
 import * as Actions from "../../../Store/action/estimateAction";
-import img from 'assets/img/categories/segmental-wall.svg';
 
+const useStyles1 = makeStyles(basicsStyle);
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -33,63 +37,40 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PaverModal() {
+export default function PaverModal(props) {
 
     const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm()
     const groupsData = useSelector(state => state.group.groupData);
+    // Modal state
+    const [open, setOpen] = useState(false);
 
-    const [isOpened, setIsOpened] = useState(false);
+    // Mini/Maxium toggle state
+    const [isOpened, setIsOpened] = useState(true);
+    const classes1 = useStyles1();
     const classes = useStyles();
     const theme = useTheme();
+
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [manufacturers, setManufacturers] = useState('Manufacturer 1');
-    const [products, setProducts] = useState('Product 1');
-    const [sf, setSF] = useState('');
-    const [notes, setNotes] = useState('');
-    const [fsf, setFSF] = useState('');
 
-    const handleManufacture = (event) => {
-        setManufacturers(event.target.value);
-    };
-
-    const handleProduct = (event) => {
-        setProducts(event.target.value);    
-    };
-    // Modal state
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-
-    const saveItem = () => { 
-        dispatch(Actions.setAddNewItem(groupsData, "Segmantal Wall", manufacturers, products, sf, '', '', '', '', notes, '', '', '', '', '', fsf, ''));
-        setOpen(false); 
+    const saveItem = data => {
+        console.log('data', data)
+        // setOpen(false);
     }
-
+    // console.log(props.data, "sata")
     return (
         <div>
-            <div className="modal-c-button" onClick={handleClickOpen}>
-                <img src={img} alt="" className="cat-img" />
-                <h5>
-                    segmental wall
-                </h5>
-            </div>
             <Dialog
-                open={open}
+                open={props.open ? props.open : false}
+                // open={true}
                 fullScreen={fullScreen}
-                onClose={handleClose}
+                onClose={props.toggle}
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle>
-                    SEGMENTAL WALL
-                     <div className="modal-close">
-                        <IconButton onClick={handleClose}>
+                    {props.data && props.data.title}
+                    <div className="modal-close">
+                        <IconButton onClick={props.toggle}>
                             <CloseIcon style={{ color: "#fff" }} />
                         </IconButton>
                     </div>
@@ -98,13 +79,14 @@ export default function PaverModal() {
                     <Grid container>
                         <Grid item xs={11} >
                             <Grid container spacing={1}>
-                                <Grid item xs={12} md={3}>
+                                <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                         <InputLabel>Manufacturer</InputLabel>
                                         <Select
-                                            value={manufacturers}
-                                            onChange={handleManufacture}
+                                            defaultValue={props.data && props.data.manufacturer}
                                             label="Manufacturer"
+                                            name="manufacturer"
+                                            inputRef={register}
                                         >
                                             <MenuItem value="manufacturer1">Manufacturer 1</MenuItem>
                                             <MenuItem value="manufacturer2">Manufacturer 2</MenuItem>
@@ -112,13 +94,14 @@ export default function PaverModal() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} md={3}>
+                                <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
                                         <InputLabel>Product</InputLabel>
                                         <Select
-                                            value={products}
-                                            onChange={handleProduct}
+                                            defaultValue={props.data && props.data.product}
                                             label="Product"
+                                            name="product"
+                                            inputRef={register}
                                         >
                                             <MenuItem value="product1">Product 1</MenuItem>
                                             <MenuItem value="product2">Product 2</MenuItem>
@@ -126,14 +109,15 @@ export default function PaverModal() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} md={3}>
+                                <Grid item xs={12} md={4}>
                                     <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="FSF" variant="outlined" value={fsf} onChange={e => setFSF(e.target.value)} />
-                                    </FormControl>
-                                </Grid>
-                                <Grid item xs={12} md={3}>
-                                    <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                        <TextField label="SF" variant="outlined" value={sf} onChange={e => setSF(e.target.value)} />
+                                        <TextField
+                                            label="SF"
+                                            variant="outlined"
+                                            defaultValue={props.data && props.data.sf}
+                                            name="sf"
+                                            inputRef={register}
+                                        />
                                     </FormControl>
                                 </Grid>
                             </Grid>
@@ -142,10 +126,10 @@ export default function PaverModal() {
                             <div className="modal-minimize">
                                 <IconButton onClick={e => setIsOpened(!isOpened)}>
                                     {isOpened ? (
-                                        <IndeterminateCheckBoxIcon/>
+                                        <IndeterminateCheckBoxIcon />
                                     ) : (
-                                        <AddBoxIcon />   
-                                    )}
+                                            <AddBoxIcon />
+                                        )}
                                 </IconButton>
                             </div>
                         </Grid>
@@ -155,10 +139,53 @@ export default function PaverModal() {
 
                             <Collapse isOpened={isOpened}>
                                 <Grid container spacing={1}>
+                                    <Grid item md={3} xs={11}>
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    color="primary"
+                                                    checked={props.data && props.data.isEdge}
+                                                />
+                                            }
+                                            classes={{ label: classes1.label, root: classes1.labelRoot }}
+                                            style={{ marginLeft: 0, marginTop: 12 }}
+                                            label="Is Edge?"
+                                        />
+                                    </Grid>
 
                                     <Grid item md={3} xs={11}>
                                         <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
-                                            <TextField label="Color" variant="outlined" />
+                                            <TextField
+                                                label="LF"
+                                                variant="outlined"
+                                                defaultValue={props.data && props.data.lf}
+                                                name="lf"
+                                                inputRef={register}
+                                            />
+                                        </FormControl>
+                                    </Grid>
+
+                                    <Grid item md={3} xs={11}>
+                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
+                                            <TextField
+                                                label="Color"
+                                                variant="outlined"
+                                                value={props.data && props.data.color}
+                                                name="color"
+                                                inputRef={register}
+                                            />
+                                        </FormControl>
+                                    </Grid>
+
+                                    <Grid item md={3} xs={11}>
+                                        <FormControl variant="outlined" className={classes.formControl} style={{ width: "100%" }}>
+                                            <TextField
+                                                label="Depth"
+                                                variant="outlined"
+                                                defaultValue={props.data && props.data.depth}
+                                                name="depth"
+                                                inputRef={register}
+                                            />
                                         </FormControl>
                                     </Grid>
 
@@ -169,18 +196,20 @@ export default function PaverModal() {
                                                 multiline
                                                 rows={4}
                                                 variant="outlined"
-                                                value={notes}
-                                                onChange={e => setNotes(e.target.value)}
+                                                defaultValue={props.data && props.data.notes}
+                                                name="notes"
+                                                inputRef={register}
                                             />
                                         </FormControl>
                                     </Grid>
+
                                 </Grid>
                             </Collapse>
                         </Grid>
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="success" onClick={saveItem}>
+                    <Button color="success" onClick={handleSubmit(saveItem)}>
                         Save
                     </Button>
                 </DialogActions>
