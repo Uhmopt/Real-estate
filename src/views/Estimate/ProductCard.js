@@ -248,8 +248,8 @@ export default function DragAndDrop() {
                                                                                                     </div>
                                                                                                     <div
                                                                                                         className="dragable-haddle"
-                                                                                                        onMouseEnter={() => setDragDisabled(false)}
-                                                                                                        onMouseLeave={() => setDragDisabled(true)}
+                                                                                                        onMouseDown={() => setDragDisabled(false)}
+                                                                                                        onMouseUp={() => setDragDisabled(true)}
                                                                                                     >
                                                                                                         <OpenWithIcon />
                                                                                                     </div>

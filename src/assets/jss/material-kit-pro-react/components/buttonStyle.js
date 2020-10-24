@@ -53,6 +53,10 @@ const buttonStyle = {
     textAlign: "center",
     whiteSpace: "nowrap",
     verticalAlign: "middle",
+    "@media (min-width: 768px)": {
+      padding: "12px 0 !important",
+      fontSize: "14px !important",
+    },
     touchAction: "manipulation",
     cursor: "pointer",
     "&:hover,&:focus": {
