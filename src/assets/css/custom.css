@@ -457,6 +457,10 @@ h2.MuiTypography-root.MuiTypography-h6 {
 }
 
 @media (max-width: 959.95px) {
+        
+    button.MuiButtonBase-root {
+        padding: 12px 0px !important;
+    }
     .custom-grid-1 {
         margin-bottom: 20px;
     }
@@ -530,7 +534,9 @@ h2.MuiTypography-root.MuiTypography-h6 {
         display: none;
     }
 }
-
+button.MuiButtonBase-root {
+    padding: 12px 20px !important;
+}
 span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
     padding: 8px 8px 8px 10px !important;
 }
