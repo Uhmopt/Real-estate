@@ -1,682 +1,692 @@
 .MuiAppBar-colorPrimary {
-    color: #fff;
-    background-color: #9abc31 !important;
+  color: #fff;
+  background-color: #9abc31 !important;
 }
 
 .MuiButton-outlined {
-    width: 32px !important;
-    margin-right: 10px !important;
-    min-width: 32px !important;
+  width: 32px !important;
+  margin-right: 10px !important;
+  min-width: 32px !important;
 }
 
 .MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
-    max-width: 1920px;
+  max-width: 1920px;
 }
 
-.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-child {
-    padding-left: 6px;
-    color: #ccc;
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"]
+  .MuiAutocomplete-input:first-child {
+  padding-left: 6px;
+  color: #ccc;
 }
 
 .product-action {
-    margin-top: 18px;
-    margin-right: -8px;
-    text-align: right !important;
+  margin-top: 18px;
+  margin-right: -8px;
+  text-align: right !important;
 }
 
 .MuiFormLabel-root {
-    color: #ccc !important;
+  color: #ccc !important;
 }
 
 .main-content {
-    min-height: 100vh !important;
-    margin-top: 80px;
-    margin-bottom: 150px;
+  min-height: 100vh !important;
+  margin-top: 80px;
+  margin-bottom: 150px;
 }
 
 a:hover,
 a:focus {
-    color: #9abc31 !important;
+  color: #9abc31 !important;
 }
 
 .item-remove-corner {
-    position: absolute;
-    right: 0;
-    top: 0px;
-    margin-top: 13px;
-    margin-right: 6px;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  margin-top: 13px;
+  margin-right: 6px;
 }
 
 .card-title {
-    width: 100%;
-    margin-top: 12px !important;
+  width: 100%;
+  margin-top: 12px !important;
 }
 
 .makeStyles-cardBody-655 {
-    padding: 0 1.875rem 1rem !important;
+  padding: 0 1.875rem 1rem !important;
 }
 
 .side-modal-bar label#combo-box-demo-label,
 input#combo-box-demo,
 input#combo-box-demo1,
 label#combo-box-demo1-label {
-    color: #dddddd !important;
+  color: #dddddd !important;
 }
 
 span.MuiIconButton-label {
-    color: #9abc31 !important;
+  color: #9abc31 !important;
 }
 
 .makeStyles-cardBody-255 {
-    padding: 0 1rem 1rem !important;
+  padding: 0 1rem 1rem !important;
 }
 
 fieldset.PrivateNotchedOutline-root-91.MuiOutlinedInput-notchedOutline,
 .MuiInputBase-root.MuiOutlinedInput-root.MuiAutocomplete-inputRoot.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiOutlinedInput-adornedEnd:hover {
-    border-color: #dddddd !important;
+  border-color: #dddddd !important;
 }
 
 .ReactCollapse--collapse {
-    transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .makeStyles-cardFooter-262 {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .presentation-label {
-    display: none;
-    font-size: 16px;
-    margin-left: 5px;
+  display: none;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 .product-price {
-    font-weight: bold;
-    color: #36721A;
+  font-weight: bold;
+  color: #36721a;
 }
 
 .hidden-sm {
-    display: inline-block;
+  display: inline-block;
 }
 
 .makeStyles-justIcon-125 {
-    font-size: 18px !important;
-    text-transform: capitalize !important;
+  font-size: 18px !important;
+  text-transform: capitalize !important;
 }
 
 .price-footer,
 .price-footer1 {
-    font-size: 28px !important;
-    color: #fff;
-    font-weight: bold !important;
+  font-size: 28px !important;
+  color: #fff;
+  font-weight: bold !important;
 }
 
 .price-footer:hover {
-    color: #36721A !important;
-    transition: all 0.3s;
+  color: #36721a !important;
+  transition: all 0.3s;
 }
 
 .price-footer2 div {
-    font-size: 28px;
-    color: #fff;
-    font-weight: bold !important;
+  font-size: 28px;
+  color: #fff;
+  font-weight: bold !important;
 }
 
 .price-footer2 span {
-    font-size: 20px;
-    color: #fff;
-    font-weight: bold !important;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold !important;
 }
 
 .price-footer::before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f077";
-    position: absolute;
-    top: -15px;
-    font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  content: "\f077";
+  position: absolute;
+  top: -15px;
+  font-size: 16px;
 }
 
 .makeStyles-socialLine-675 {
-    padding: 2em 0px 1em !important;
-    position: relative !important
+  padding: 2em 0px 1em !important;
+  position: relative !important;
 }
 
 .text-style2 {
-    font-weight: bold;
-    color: #36721A;
-    padding-left: 30px;
-    margin-top: 0;
+  font-weight: bold;
+  color: #36721a;
+  padding-left: 30px;
+  margin-top: 0;
 }
 
 .modal-des {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .MuiAppBar-root {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 .modal-price {
-    font-size: 14px;
-    text-align: right;
+  font-size: 14px;
+  text-align: right;
 }
 
 .text-style4 {
-    font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .side-modal-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 25px;
-    margin-left: 20px;
-    z-index: 99;
-    transition: all 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 25px;
+  margin-left: 20px;
+  z-index: 99;
+  transition: all 0.5s;
 }
 
 .side-overlay {
-    display: none;
-    width: 100%;
-    height: 100%;
-    background-color: #00000070;
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    transition: all 0.5s;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #00000070;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
 }
 
 .hidden {
-    display: none !important;
-    transition: all 0.5s;
+  display: none !important;
+  transition: all 0.5s;
 }
 
 .side-modal-bar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .side-modal-bar ul li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .modal-c-button {
-    position: relative;
-    height: 100px;
-    width: 100px;
-    border: 1px solid #bbb;
-    background-color: #fff;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #bbb;
+  background-color: #fff;
 }
 
 .modal-c-button:hover {
-    cursor: pointer;
-    background: #e9ffa7;
-    border: 1px solid #9abc31;
-    transition: all 0.3s;
+  cursor: pointer;
+  background: #e9ffa7;
+  border: 1px solid #9abc31;
+  transition: all 0.3s;
 }
 
 .cat-img {
-    height: 42px;
-    margin: auto;
-    margin-left: 27px;
-    margin-top: 8px;
+  height: 42px;
+  margin: auto;
+  margin-left: 27px;
+  margin-top: 8px;
 }
 
 .modal-c-button h5 {
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
 }
 
 .MuiDialogTitle-root {
-    flex: 0 0 auto;
-    margin: 0;
-    padding: 16px 24px;
-    background-color: #404040;
-    color: white;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 16px 24px;
+  background-color: #404040;
+  color: white;
 }
 
 .modal-minimize {
-    margin-top: 12px;
-    margin-left: 12px;
+  margin-top: 12px;
+  margin-left: 12px;
 }
 
 .modal-scroll {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-left: 10px;
-    border-radius: 4px;
-    margin-top: -8px;
-    height: 120px;
-    overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-left: 10px;
+  border-radius: 4px;
+  margin-top: -8px;
+  height: 120px;
+  overflow-y: scroll;
 }
 
 .modal-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: 8px;
-    margin-right: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 8px;
+  margin-right: 8px;
 }
 
 .makeStyles-sm-121 {
-    padding: 8px 7px 8px 10px !important;
+  padding: 8px 7px 8px 10px !important;
 }
 
 .side-bar-body {
-    position: relative;
+  position: relative;
 }
 
 .toggle-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 0px;
-    margin-left: 120px;
-    z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0px;
+  margin-left: 120px;
+  z-index: 9999;
 }
 
 .hidden-side {
-    margin-left: -100px;
-    transition: all 0.5s;
+  margin-left: -100px;
+  transition: all 0.5s;
 }
 
 .MuiOutlinedInput-notchedOutline {
-    border-color: #ddd !important;
+  border-color: #ddd !important;
 }
 
 fieldset[class*="PrivateNotchedOutline-root"].MuiOutlinedInput-notchedOutline {
-    border: 1px solid #ccc !important;
+  border: 1px solid #ccc !important;
 }
 
 .mobile-close-side {
-    display: none;
+  display: none;
 }
 
 .presentation-brand {
-    font-size: 18px;
-    font-size: 18px;
-    width: 100%;
+  font-size: 18px;
+  font-size: 18px;
+  width: 100%;
 }
 
 .text-style-9 {
-    padding-right: 20px;
-    text-align: center;
+  padding-right: 20px;
+  text-align: center;
 }
 
 .product-img {
-    border-radius: 8px;
-    padding: 5px;
-    width: 60px;
-    height: 60px;
+  border-radius: 8px;
+  padding: 5px;
+  width: 60px;
+  height: 60px;
 }
 
 .card-main-style {
-    font-size: 14px;
-    text-align: left;
-    padding-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  padding-top: 10px;
 }
 
 .product-img img {
-    object-fit: cover;
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
 }
 
 .prst-title {
-    color: #333;
-    padding-top: 16px;
-    font-size: 24px;
-    font-weight: bold !important;
-    margin-bottom: 0;
-    text-transform: uppercase;
+  color: #333;
+  padding-top: 16px;
+  font-size: 24px;
+  font-weight: bold !important;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
 .checkable-edge {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .addable-edge {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: 12px;
-    margin-right: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 12px;
+  margin-right: 15px;
 }
 
 .footer-linker {
-    font-size: 16px !important;
-    text-transform: capitalize !important;
+  font-size: 16px !important;
+  text-transform: capitalize !important;
 }
 
 .current {
-    color: #bee44a !important;
+  color: #bee44a !important;
 }
 
 .price-footer1 {
-    margin-top: 12px;
-    margin-bottom: 11px;
+  margin-top: 12px;
+  margin-bottom: 11px;
 }
 
 .price-footer2 div {
-    margin-top: 12px;
-    margin-bottom: 11px;
+  margin-top: 12px;
+  margin-bottom: 11px;
 }
 
 .price-footer1 span {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .material-title {
-    font-size: 18px;
-    font-weight: 500;
-    padding-top: 12px;
-    margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 12px;
+  margin-bottom: 0;
 }
 
 .subpay-style1 {
-    font-size: 18px;
-    font-weight: 500;
-    margin-right: 10px;
-    color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 10px;
+  color: #333;
 }
 
 .subpay-total {
-    font-size: 24px;
-    color: #36721A;
-    font-weight: bold;
-    text-align: right;
+  font-size: 24px;
+  color: #36721a;
+  font-weight: bold;
+  text-align: right;
 }
 
 .custom-grid-1 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 70px auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70px auto;
 }
 
 .custom-grid-2 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 105px auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 105px auto;
 }
 
 .sales-total {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .toggle-icon {
-    display: none;
+  display: none;
 }
 
 .sales-phone-footer {
-    margin-top: -18px !important;
-    margin-bottom: 0px !important;
+  margin-top: -18px !important;
+  margin-bottom: 0px !important;
 }
 
 .sales-phone-footer h5 {
-    font-weight: 700;
-    margin-top: 10px !important;
-    line-height: 1rem;
+  font-weight: 700;
+  margin-top: 10px !important;
+  line-height: 1rem;
 }
 
 .sales-phone-footer h3 {
-    line-height: 1rem;
-    margin-top: -2px;
-    font-weight: 700;
+  line-height: 1rem;
+  margin-top: -2px;
+  font-weight: 700;
 }
 
 .estimate-card {
-    box-shadow: 0 0 20px #ccc;
-    padding: 20px;
-    border-radius: 12px;
+  box-shadow: 0 0 20px #ccc;
+  padding: 20px;
+  border-radius: 12px;
 }
 
 .MuiFormControlLabel-label {
-    color: #333 !important;
+  color: #333 !important;
 }
 
 .MuiFormControlLabel-label.Mui-disabled {
-    color: #b4b4b496 !important;
+  color: #b4b4b496 !important;
 }
 h2.MuiTypography-root.MuiTypography-h6 {
-    text-transform: uppercase !important;
+  text-transform: uppercase !important;
 }
-@media (max-width: 1199.95px ) {
-    .toggle-icon {
-        display: block;
-    }
+@media (max-width: 1199.95px) {
+  .toggle-icon {
+    display: block;
+  }
 }
 
 @media (max-width: 959.95px) {
-    .custom-grid-1 {
-        margin-bottom: 20px;
-    }
+  .custom-grid-1 {
+    margin-bottom: 20px;
+  }
 
-    .product-img {
-        width: 100px;
-        height: 100px;
-        margin: auto;
-        margin-bottom: 20px;
-    }
+  .product-img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
 
-    .subpay-style1 {
-        padding-top: 10px !important;
-    }
+  .subpay-style1 {
+    padding-top: 10px !important;
+  }
 
-    .makeStyles-listItem-75 {
-        text-align: center !important;
-        margin-top: 12px !important;
-    }
+  .makeStyles-listItem-75 {
+    text-align: center !important;
+    margin-top: 12px !important;
+  }
 
-    [class*="makeStyles-navButton"] {
-        margin: 20px !important;
-    }
+  [class*="makeStyles-navButton"] {
+    margin: 20px !important;
+  }
 
-    [class*="makeStyles-navButton"]>span:first-child {
-        justify-content: center !important;
-    }
+  [class*="makeStyles-navButton"] > span:first-child {
+    justify-content: center !important;
+  }
 
-    [class*="makeStyles-listItem"]:not(:last-child):after {
-        background-color: #ffffff00 !important;
-    }
+  [class*="makeStyles-listItem"]:not(:last-child):after {
+    background-color: #ffffff00 !important;
+  }
 
-    li.MuiListItem-root[class*="makeStyles-listItem"].MuiListItem-gutters {
-        text-align: center !important;
-    }
+  li.MuiListItem-root[class*="makeStyles-listItem"].MuiListItem-gutters {
+    text-align: center !important;
+  }
 
-    .auto-1 {
-        margin-top: 60px !important;
-        margin-bottom: 12px !important;
-    }
+  .auto-1 {
+    margin-top: 60px !important;
+    margin-bottom: 12px !important;
+  }
 
-    .auto-2 {
-        margin-bottom: 12px !important;
-    }
+  .auto-2 {
+    margin-bottom: 12px !important;
+  }
 
-    .auto-1 fieldset {
-        border: 1px solid #ccc !important;
-        border-bottom: 0;
-    }
+  .auto-1 fieldset {
+    border: 1px solid #ccc !important;
+    border-bottom: 0;
+  }
 
-    .auto-2 fieldset {
-        border: 1px solid #ccc !important;
-    }
+  .auto-2 fieldset {
+    border: 1px solid #ccc !important;
+  }
 
-    label#combo-box-demo-label,
-    label#combo-box-demo1-label,
-    input#combo-box-demo,
-    input#combo-box-demo1 {
-        color: #777777 !important;
-    }
+  label#combo-box-demo-label,
+  label#combo-box-demo1-label,
+  input#combo-box-demo,
+  input#combo-box-demo1 {
+    color: #777777 !important;
+  }
 
-    .presentation-label {
-        display: block;
-    }
+  .presentation-label {
+    display: block;
+  }
 
-    .presentation-svg {
-        fill: #9abc31;
-    }
+  .presentation-svg {
+    fill: #9abc31;
+  }
 
-    .hidden-sm {
-        display: none;
-    }
+  .hidden-sm {
+    display: none;
+  }
 }
 
 span.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
-    padding: 8px 8px 8px 10px !important;
+  padding: 8px 8px 8px 10px !important;
 }
 
 .fixed-footer {
-    position: fixed;
-    width: 100%;
-    z-index: 99 !important;
-    top: calc(100vh - 165px);
+  position: fixed;
+  width: 100%;
+  z-index: 99 !important;
+  bottom: 0;
 }
 .dragable-haddle {
-    cursor: grab !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 6px;
-    margin-left: -10px;
-    border: 1px solid #888;
-    padding: 7px 7px 1px;
-    border-radius: 21px;
-    border-style: dashed;
+  cursor: grab !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 6px;
+  margin-left: -10px;
+  border: 1px solid #888;
+  padding: 7px 7px 1px;
+  border-radius: 21px;
+  border-style: dashed;
 }
 .draganle-item {
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 @media (max-width: 767.95px) {
-    
-    .dragable-haddle {
-        margin-top: -8px;
-    }
-    
-    .item-remove-corner {
-        margin-top: -14px;
-        margin-right: -15px;
-    }
+  .dragable-haddle {
+    margin-top: -8px;
+  }
 
-    .MuiInputBase-input {
-        font-size: 14px !important;
-    }
+  .item-remove-corner {
+    margin-top: -14px;
+    margin-right: -15px;
+  }
 
-    h6 {
-        font-size: 0.6rem;
-    }
+  .MuiInputBase-input {
+    font-size: 14px !important;
+  }
 
-    .sales-total {
-        font-size: 15px;
-    }
+  h6 {
+    font-size: 0.6rem;
+  }
 
-    .MuiTableCell-root {
-        display: table-cell;
-        padding: 10px !important;
-    }
+  .sales-total {
+    font-size: 15px;
+  }
 
-    .main-content {
-        margin-bottom: 160px;
-    }
+  .MuiTableCell-root {
+    display: table-cell;
+    padding: 10px !important;
+  }
 
-    button.MuiButtonBase-root.MuiButton-root.MuiButton-text[class*="makeStyles-button"][class*="makeStyles-white"][class*="makeStyles-simple"].footer-linker {
-        padding: 12px 0;
-        text-align: center !important;
-        font-size: 14px !important;
-    }
+  .main-content {
+    margin-bottom: 160px;
+  }
 
-    .MuiGrid-root[class*="makeStyles-grid"][class*="makeStyles-border"].MuiGrid-item.MuiGrid-grid-xs-2.MuiGrid-grid-sm-2.MuiGrid-grid-md-2 {
-        padding-right: 0;
-        padding-left: 0;
-    }
+  .footer-linker {
+    padding: 12px 0;
+    text-align: center !important;
+    font-size: 14px !important;
+  }
 
-    div[class*="makeStyles-cardBody"] {
-        padding: 0.9375rem .7rem !important;
-    }
+  .MuiGrid-root[class*="makeStyles-grid"][class*="makeStyles-border"].MuiGrid-item.MuiGrid-grid-xs-2.MuiGrid-grid-sm-2.MuiGrid-grid-md-2 {
+    padding-right: 0;
+    padding-left: 0;
+  }
 
-    .side-overlay {
-        display: inline;
-    }
+  div[class*="makeStyles-cardBody"] {
+    padding: 0.9375rem 0.7rem !important;
+  }
 
-    .side-modal-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin-top: 0;
-        margin-left: 0px;
-        padding: 0px 20px 30px 20px;
-        z-index: 99999;
-        height: 100vh;
-        overflow-y: scroll;
-        background-color: #fff;
-        box-shadow: 0 0 20px #6f6f6f;
-    }
+  .side-overlay {
+    display: inline;
+  }
 
-    .hidden-side {
-        margin-left: -125px;
-        transition: all 0.5s;
-    }
+  .side-modal-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    margin-left: 0px;
+    padding: 0px 20px 30px 20px;
+    z-index: 99999;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #fff;
+    box-shadow: 0 0 20px #6f6f6f;
+  }
 
-    .mobile-close-side {
-        display: inline;
-        margin-bottom: 0px;
-        margin-right: -20px;
-        margin-left: 42px;
-    }
+  .hidden-side {
+    margin-left: -125px;
+    transition: all 0.5s;
+  }
 
-    .toggle-icon {
-        position: fixed;
-        top: 0;
-        left: 0;
-        margin-top: 77px;
-        margin-left: 10px;
-        z-index: 9997;
-    }
+  .mobile-close-side {
+    display: inline;
+    margin-bottom: 0px;
+    margin-right: -20px;
+    margin-left: 42px;
+  }
 
-    .modal-c-button {
-        height: 72px;
-        width: 72px;
-    }
+  .toggle-icon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 77px;
+    margin-left: 10px;
+    z-index: 9997;
+  }
 
-    .modal-c-button h5 {
-        font-size: 9px;
-    }
+  .modal-c-button {
+    height: 72px;
+    width: 72px;
+  }
 
-    .cat-img {
-        height: 28px;
-        margin-left: 19px;
-    }
+  .modal-c-button h5 {
+    font-size: 9px;
+  }
 
-    .drag-remove {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin-top: -44px;
-        margin-right: -70px;
-        width: 15px !important;
-        height: 16px !important;
-    }
+  .cat-img {
+    height: 28px;
+    margin-left: 19px;
+  }
 
-    .product-price {
-        font-weight: bold;
-        color: #36721A;
-        margin-top: -17px;
-        text-align: right;
-        border-bottom: 1px solid #ccc;
-    }
+  .drag-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -44px;
+    margin-right: -70px;
+    width: 15px !important;
+    height: 16px !important;
+  }
 
-    .modal-minimize {
-        margin-top: 12px;
-        margin-left: 0;
-    }
+  .product-price {
+    font-weight: bold;
+    color: #36721a;
+    margin-top: -17px;
+    text-align: right;
+    border-bottom: 1px solid #ccc;
+  }
 
+  .modal-minimize {
+    margin-top: 12px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-linker {
+    font-size: 3vw !important;
+    padding: 12px 3% !important;
+  }
+}
+
+.footerlink {
+  max-width: unset !important;
 }

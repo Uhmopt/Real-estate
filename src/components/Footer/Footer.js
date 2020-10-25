@@ -16,7 +16,9 @@ import styles from "assets/jss/material-kit-pro-react/views/componentsSections/p
 const useStyles = makeStyles(styles);
 
 export default function SectionPreFooter() {
-  const { location: { pathname } } = useHistory()
+  const {
+    location: { pathname },
+  } = useHistory();
   const classes = useStyles();
   return (
     <div>
@@ -28,17 +30,19 @@ export default function SectionPreFooter() {
           classes.bigIcons
         )}
       >
-        <div className={classes.container}>
+        <div className={classNames(classes.container, "footerlink")}>
           <GridContainer justify="center">
             <GridItem xs={2} sm={2} md={2} className={classes.border}>
               <Link to="/">
                 <Button
                   color="white"
                   simple
-                  className={pathname === '/' ? 'current footer-linker' : 'footer-linker'}
+                  className={
+                    pathname === "/" ? "current footer-linker" : "footer-linker"
+                  }
                 >
                   Estimate
-              </Button>
+                </Button>
               </Link>
             </GridItem>
             <GridItem xs={2} sm={2} md={2} className={classes.border}>
@@ -46,7 +50,11 @@ export default function SectionPreFooter() {
                 <Button
                   color="white"
                   simple
-                  className={pathname === '/materials' ? 'current footer-linker' : 'footer-linker'}
+                  className={
+                    pathname === "/materials"
+                      ? "current footer-linker"
+                      : "footer-linker"
+                  }
                 >
                   Materials
                 </Button>
@@ -57,10 +65,14 @@ export default function SectionPreFooter() {
                 <Button
                   color="white"
                   simple
-                  className={pathname === '/subpay' ? 'current footer-linker' : 'footer-linker'}
+                  className={
+                    pathname === "/subpay"
+                      ? "current footer-linker"
+                      : "footer-linker"
+                  }
                 >
                   SubPay
-              </Button>
+                </Button>
               </Link>
             </GridItem>
             <GridItem xs={2} sm={2} md={2} className={classes.border}>
@@ -68,10 +80,14 @@ export default function SectionPreFooter() {
                 <Button
                   color="white"
                   simple
-                  className={pathname === '/sales' ? 'current footer-linker' : 'footer-linker'}
+                  className={
+                    pathname === "/sales"
+                      ? "current footer-linker"
+                      : "footer-linker"
+                  }
                 >
                   Sales
-              </Button>
+                </Button>
               </Link>
             </GridItem>
             <GridItem xs={2} sm={2} md={2} className={classes.border}>
@@ -79,10 +95,14 @@ export default function SectionPreFooter() {
                 <Button
                   color="white"
                   simple
-                  className={pathname === '/export' ? 'current footer-linker' : 'footer-linker'}
+                  className={
+                    pathname === "/export"
+                      ? "current footer-linker"
+                      : "footer-linker"
+                  }
                 >
                   Export
-              </Button>
+                </Button>
               </Link>
             </GridItem>
           </GridContainer>
