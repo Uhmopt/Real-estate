@@ -182,7 +182,7 @@ export default function DragAndDrop() {
                                   <Grid item xs={12} md={10} lg={10}>
                                     <div className="estimate-card">
                                       <Grid container>
-                                        <Grid item xs={5} sm={5} md={6} lg={6}>
+                                        <Grid item xs={12} sm={5} md={6} lg={6}>
                                           <TextField
                                             required
                                             label="Group name"
@@ -196,7 +196,7 @@ export default function DragAndDrop() {
                                             className="card-title"
                                           />
                                         </Grid>
-                                        <Grid item xs={3} sm={3} md={4} lg={4}>
+                                        <Grid item xs={12} sm={3} md={4} lg={4}>
                                           <FormControlLabel
                                             control={
                                               <Checkbox
@@ -219,7 +219,7 @@ export default function DragAndDrop() {
                                             label="Optional"
                                           />
                                         </Grid>
-                                        <Grid item xs={4} sm={4} md={2} lg={2}>
+                                        <Grid item xs={12} sm={4} md={2} lg={2}>
                                           <div className="product-action">
                                             <Button
                                               variant="outlined"
@@ -316,7 +316,7 @@ export default function DragAndDrop() {
                                                   </div>
                                                   <Grid
                                                     item
-                                                    xs={4}
+                                                    xs={12}
                                                     sm={4}
                                                     md={2}
                                                     lg={2}
@@ -331,7 +331,7 @@ export default function DragAndDrop() {
                                                   </Grid>
                                                   <Grid
                                                     item
-                                                    xs={4}
+                                                    xs={12}
                                                     sm={4}
                                                     md={2}
                                                     lg={2}
@@ -349,7 +349,7 @@ export default function DragAndDrop() {
                                                   </Grid>
                                                   <Grid
                                                     item
-                                                    xs={4}
+                                                    xs={12}
                                                     sm={4}
                                                     md={2}
                                                     lg={2}
@@ -358,7 +358,7 @@ export default function DragAndDrop() {
                                                   </Grid>
                                                   <Grid
                                                     item
-                                                    xs={4}
+                                                    xs={12}
                                                     sm={4}
                                                     md={2}
                                                     lg={2}
