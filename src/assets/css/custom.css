@@ -1,8 +1,7 @@
-.MuiAppBar-colorPrimary {
+.MuiButton-containedPrimary{
   color: #fff;
   background-color: #9abc31 !important;
 }
-
 .MuiButton-outlined {
   width: 32px !important;
   margin-right: 10px !important;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import Button from "components/CustomButtons/Button.js";
+import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 // @material-ui/icons
 import AddIcon from '@material-ui/icons/Add';
@@ -47,7 +47,7 @@ export default function AddDiscountDialog() {
 
     return (
         <div>
-            <Button color="success" size="sm" onClick={handleClickOpen}>
+            <Button variant="contained" color="primary" size="small" onClick={handleClickOpen}>
                 <AddIcon />
                 Add
             </Button>
@@ -82,10 +82,10 @@ export default function AddDiscountDialog() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button size="sm" onClick={handleClose}>
+                    <Button variant="contained" color="primary" onClick={handleClose}>
                         <CancelIcon />Cancel
                     </Button>
-                    <Button size="sm" onClick={addDiscount} color="success">
+                    <Button variant="contained" color="primary" onClick={addDiscount}>
                         <SaveIcon />Save
                     </Button>
                 </DialogActions>

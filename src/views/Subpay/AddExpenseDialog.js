@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import Button from "components/CustomButtons/Button.js";
+import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 // @material-ui/icons
 import AddIcon from '@material-ui/icons/Add';
@@ -46,7 +46,7 @@ export default function AddExpenseDialog() {
 
     return (
         <div>
-            <Button color="success" size="sm" onClick={handleClickOpen}>
+            <Button variant="contained" color="primary" size="small" nClick={handleClickOpen}>
                 <AddIcon />
                 Add
             </Button>

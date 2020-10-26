@@ -10,13 +10,13 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import SaveIcon from '@material-ui/icons/Save';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 
 // @material-ui/icons
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 // core components
-import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-pro-react/components/headerLinksStyle.js";
 
@@ -62,12 +62,7 @@ export default function HeaderLinks(props) {
                 />
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    color="success"
-                    target="_blank"
-                    className={classes.navButton}
-                    style={{ marginRight: 10 }}
-                >
+                <Button variant="contained" color="primary">
                     <SaveIcon className={classes.icons} /> Save
                 </Button>
             </ListItem>

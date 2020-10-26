@@ -11,7 +11,7 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Grid from "@material-ui/core/Grid";
-import Button from "components/CustomButtons/Button.js";
+import Button from '@material-ui/core/Button';
 import Select from "@material-ui/core/Select";
 import IconButton from "@material-ui/core/IconButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -229,7 +229,7 @@ export default function PaverModal(props) {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button color="success" onClick={handleSubmit(saveItem)}>
+          <Button variant="contained" color="primary" onClick={handleSubmit(saveItem)}>
             Save
           </Button>
         </DialogActions>

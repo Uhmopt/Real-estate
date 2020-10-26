@@ -340,7 +340,7 @@ export default function PaverModal() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="success" onClick={saveItem}>
+                <Button variant="contained" color="primary" onClick={saveItem}>
                         Save
                     </Button>
                 </DialogActions>
