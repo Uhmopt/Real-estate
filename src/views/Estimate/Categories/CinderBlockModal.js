@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Button from "components/CustomButtons/Button.js";
+import Button from '@material-ui/core/Button';
 import Select from '@material-ui/core/Select';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
